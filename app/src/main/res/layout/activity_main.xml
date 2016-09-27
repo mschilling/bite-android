@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextToolbar"
+                    android:text="HEY, ANON"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold|italic"
+                    android:textSize="@dimen/font_size_toolbar"/>
+
+            </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bite_logo"
+        android:contentDescription="@string/brand_description"
+        android:layout_margin="@dimen/brand_margin"
+        android:layout_gravity="bottom|start"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:id="@+id/nested_scroll_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Cardview Ranglijsten -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/bite_card"
+                android:background="@color/colorPrimary"
+                android:layout_margin="@dimen/rank_card_margin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/rank_card_height">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/rank_card_height"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/rank_card_trophy_margin"
+                            android:src="@drawable/trophy"/>
+
+                        <!--<TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="🏆"
+                            android:textSize="32sp"/>-->
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="@integer/rank_card_text_weight"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/rank_card_text_padding"
+                            android:text="@string/rank_card_title"
+                            android:textColor="@color/colorTextToolbar"
+                            android:textSize="@dimen/font_size_rank_card_title"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="italic|bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/rank_card_text_padding"
+                            android:text="@string/rank_card_text"
+                            android:textSize="@dimen/font_size_rank_card_text"
+                            android:fontFamily="sans-serif-light"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="@integer/rank_card_arrow_weight">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/rank_card_arrow_forward_margin"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_arrow_forward"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/bites_margin_left"
+                android:layout_marginEnd="@dimen/bites_margin_right"
+                android:layout_marginTop="@dimen/bites_margin_top"
+                android:layout_marginBottom="@dimen/bites_margin_bottom"
+                android:text="@string/bites"
+                android:textColor="@color/colorTextToolbar"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold|italic"
+                android:textSize="@dimen/font_size_bites_title"/>
+
+            <!-- Stripe -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bites_stripe_height"
+                android:layout_marginStart="@dimen/bites_stripe_margin_left"
+                android:layout_marginEnd="@dimen/bites_stripe_margin_right"
+                android:background="@color/colorTextToolbar"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/bites_text_margin_left"
+                android:layout_marginEnd="@dimen/bites_text_margin_right"
+                android:layout_marginTop="@dimen/bites_text_margin_top"
+                android:layout_marginBottom="@dimen/bites_text_margin_bottom"
+                android:text="@string/bites_text"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <include layout="@layout/bite_card"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/main_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:elevation="@dimen/fab_elevation"
+        app:pressedTranslationZ="@dimen/fab_elevation_pressed"
+        app:layout_anchor="@id/nested_scroll_view"
+        app:layout_anchorGravity="bottom|end"
+        app:backgroundTint="@color/fab_color"
+        app:rippleColor="@color/fab_color_ripple"
+        android:src="@drawable/ic_add_white"
+        android:clickable="true"/>
+
+</android.support.design.widget.CoordinatorLayout>

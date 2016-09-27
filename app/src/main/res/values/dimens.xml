@@ -1,0 +1,95 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!-- Brand -->
+    <dimen name="brand_margin">24dp</dimen>
+
+    <!-- FAB -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_elevation_pressed">12dp</dimen>
+
+    <!-- Rank Card -->
+    <dimen name="rank_card_height">72dp</dimen>
+    <dimen name="rank_card_margin">16dp</dimen>
+    <dimen name="rank_card_trophy_margin">18dp</dimen>
+    <dimen name="rank_card_arrow_forward_margin">14dp</dimen>
+
+    <dimen name="rank_card_text_padding">2dp</dimen>
+
+
+
+    <!-- Bites title -->
+    <dimen name="bites_margin_left">16dp</dimen>
+    <dimen name="bites_margin_right">16dp</dimen>
+    <dimen name="bites_margin_top">16dp</dimen>
+    <dimen name="bites_margin_bottom">8dp</dimen>
+
+    <!-- Bites title Stripe -->
+    <dimen name="bites_stripe_height">1.5dp</dimen>
+    <dimen name="bites_stripe_margin_left">16dp</dimen>
+    <dimen name="bites_stripe_margin_right">16dp</dimen>
+
+    <!-- Bites text -->
+    <dimen name="bites_text_margin_left">16dp</dimen>
+    <dimen name="bites_text_margin_right">16dp</dimen>
+    <dimen name="bites_text_margin_top">8dp</dimen>
+    <dimen name="bites_text_margin_bottom">8dp</dimen>
+
+    <!-- Bite Card -->
+    <dimen name="bite_card_margin">16dp</dimen>
+
+    <dimen name="bite_card_header_margin_left">18dp</dimen>
+    <dimen name="bite_card_header_margin_right">18dp</dimen>
+    <dimen name="bite_card_header_margin_top">18dp</dimen>
+    <dimen name="bite_card_header_margin_bottom">8dp</dimen>
+
+
+    <dimen name="bite_card_header_image_size">50dp</dimen>
+
+    <dimen name="bite_card_header_layout_margin">4dp</dimen>
+
+    <dimen name="bite_card_title_margin">4dp</dimen>
+
+    <dimen name="bite_card_emoji_layout_margin">4dp</dimen>
+    <dimen name="bite_card_emoji_margin_left">1dp</dimen>
+    <dimen name="bite_card_emoji_margin_right">1dp</dimen>
+
+    <dimen name="bite_card_location_layout_margin">4dp</dimen>
+    <dimen name="bite_card_location_size">20dp</dimen>
+    <dimen name="bite_card_location_text_margin_left">16dp</dimen>
+
+    <dimen name="bite_card_stripe_height">1.5dp</dimen>
+
+    <dimen name="bite_card_social_margin_left">32dp</dimen>
+    <dimen name="bite_card_social_margin_right">32dp</dimen>
+    <dimen name="bite_card_social_margin_top">8dp</dimen>
+    <dimen name="bite_card_social_margin_bottom">8dp</dimen>
+
+    <dimen name="bite_card_social_image_size">30dp</dimen>
+    <dimen name="bite_card_social_image_margin">4dp</dimen>
+
+    <!-- Text Sizes -->
+    <!-- Toolbar -->
+    <dimen name="font_size_toolbar">22sp</dimen>
+
+    <!-- Rank Card -->
+    <dimen name="font_size_rank_card_title">20sp</dimen>
+    <dimen name="font_size_rank_card_text">14sp</dimen>
+
+    <!-- Bites title -->
+    <dimen name="font_size_bites_title">22sp</dimen>
+
+    <!-- Bite Card title -->
+    <dimen name="font_size_bite_card_title">20sp</dimen>
+
+    <!-- Bite Card emoji -->
+    <dimen name="font_size_bite_card_emoji">18sp</dimen>
+
+    <!-- Bite Card location -->
+    <dimen name="font_size_bite_card_location">16sp</dimen>
+
+</resources>

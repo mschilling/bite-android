@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Bite</string>
+    <string name="toolbar_title">HEY, ANON</string>
+    <string name="action_account">Account</string>
+
+    <string name="brand_description">Bite Logo</string>
+
+
+    <string name="rank_card_title">RANGLIJSTEN</string>
+    <string name="rank_card_text">Je staat op de 1337ste plek ANON! +1</string>
+
+
+    <string name="bites">BITY BITY (1337) ¯\\_(ツ)_/¯</string>
+    <string name="bites_text">Er staan momenteel 1337 BITES open. Je kunt aanhaken of zelf een nieuwe BITE openen!</string>
+
 </resources>

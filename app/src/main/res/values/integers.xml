@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="rank_card_text_weight">5</integer>
+    <integer name="rank_card_arrow_weight">1</integer>
+    <integer name="bite_card_header_image_weight">1</integer>
+    <integer name="bite_card_header_layout_weight">5</integer>
+</resources>

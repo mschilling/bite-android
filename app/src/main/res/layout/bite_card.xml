@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/bite_card_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/bite_card_header_margin_left"
+                android:layout_marginEnd="@dimen/bite_card_header_margin_right"
+                android:layout_marginTop="@dimen/bite_card_header_margin_top"
+                android:layout_marginBottom="@dimen/bite_card_header_margin_bottom"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@integer/bite_card_header_image_weight">
+
+                    <ImageView
+                        android:layout_width="@dimen/bite_card_header_image_size"
+                        android:layout_height="@dimen/bite_card_header_image_size"
+                        android:src="@drawable/ic_person"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@integer/bite_card_header_layout_weight"
+                    android:layout_margin="@dimen/bite_card_header_layout_margin"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/bite_card_title_margin"
+                        android:text="DOEMEDIEMAAR"
+                        android:textColor="@color/colorTextToolbar"
+                        android:textSize="@dimen/font_size_bite_card_title"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="italic|bold"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/bite_card_emoji_layout_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
+                            android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
+                            android:textSize="@dimen/font_size_bite_card_emoji"
+                            android:text="🌭"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
+                            android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
+                            android:textSize="@dimen/font_size_bite_card_emoji"
+                            android:text="🍔"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
+                            android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
+                            android:textSize="@dimen/font_size_bite_card_emoji"
+                            android:text="🍟"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
+                            android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
+                            android:textSize="@dimen/font_size_bite_card_emoji"
+                            android:text="🍗"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
+                            android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
+                            android:textSize="@dimen/font_size_bite_card_emoji"
+                            android:text="💦"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/bite_card_location_layout_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/bite_card_location_size"
+                            android:layout_height="@dimen/bite_card_location_size"
+                            android:src="@drawable/ic_location"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/bite_card_location_text_margin_left"
+                            android:text="Gramsbergen"
+                            android:textSize="@dimen/font_size_bite_card_location"
+                            android:textColor="@color/colorText"
+                            android:textStyle="normal"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Stripe -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bite_card_stripe_height"
+                android:background="@color/colorPrimaryDark"/>
+
+            <!-- Social -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/bite_card_social_margin_left"
+                android:layout_marginEnd="@dimen/bite_card_social_margin_right"
+                android:layout_marginTop="@dimen/bite_card_social_margin_top"
+                android:layout_marginBottom="@dimen/bite_card_social_margin_bottom"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+                <ImageView
+                    android:layout_width="@dimen/bite_card_social_image_size"
+                    android:layout_height="@dimen/bite_card_social_image_size"
+                    android:layout_margin="@dimen/bite_card_social_image_margin"
+                    android:src="@drawable/ic_person"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
