@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
-    <item android:drawable="@color/colorBackground_Light"/>
+    <item android:drawable="?colorPrimary"/>
     <item>
         <bitmap android:src="@drawable/bite_logo"
             android:gravity="center"/>
+    </item>
+    <item android:bottom="50dp">
+        <bitmap android:src="@drawable/m4m_logo"
+            android:gravity="center_horizontal|bottom" />
     </item>
 </layer-list>

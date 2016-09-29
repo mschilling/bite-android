@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme.Light">
         <activity
             android:name=".LauncherActivity"
-            android:theme="@style/AppTheme.Launcher_Light">
+            android:theme="@style/AppTheme.Launcher.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -93,10 +93,16 @@
     </style>
 
     <style name="AppTheme.Launcher" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/launcher</item>
     </style>
 
-    <style name="AppTheme.Launcher_Light" parent="AppTheme.Light">
+    <style name="AppTheme.Launcher.Light" parent="AppTheme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/launcher</item>
     </style>
 
