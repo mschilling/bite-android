@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/bite_card_margin"
-    android:backgroundTint="?cardViewBackground">
+    android:backgroundTint="?cardViewBackground"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:stateListAnimator="@animator/lift_on_touch">
 
     <LinearLayout
         android:layout_width="match_parent"
