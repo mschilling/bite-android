@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Toolbar -->
+    <attr name="colorToolbarText" format="reference|color"/>
+
+    <!-- Main Activity -->
+    <attr name="colorRankTitleText" format="reference|color"/>
+    <attr name="colorRankDescriptionText" format="reference|color"/>
+
+    <attr name="colorBitesTitleText" format="reference|color"/>
+    <attr name="colorBitesStripe" format="reference|color"/>
+    <attr name="colorBitesDescriptionText" format="reference|color"/>
+
+    <!-- FAB -->
+    <attr name="colorFab" format="reference|color"/>
+    <attr name="colorFabRipple" format="reference|color"/>
+
+    <!-- General CardView -->
+    <attr name="cardViewBackground" format="reference|color"/>
+
+    <!-- Bite Card -->
+    <attr name="colorBiteCardTitleText" format="reference|color"/>
+    <attr name="colorBiteCardLocationText" format="reference|color"/>
+    <attr name="colorBiteCardStripe" format="reference|color"/>
+
+</resources>

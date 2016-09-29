@@ -1,4 +1,4 @@
-package com.m4mapp.bite;
+package com.move4mobile.apps.bite;
 
 import org.junit.Test;
 

@@ -17,10 +17,11 @@
                 android:layout_width="match_parent">
 
                 <TextView
+                    android:id="@+id/toolbar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorTextToolbar"
-                    android:text="HEY, ANON"
+                    android:textColor="?colorToolbarText"
+                    android:text="@string/toolbar_title"
                     android:fontFamily="sans-serif-medium"
                     android:textStyle="bold|italic"
                     android:textSize="@dimen/font_size_toolbar"/>
@@ -51,15 +52,16 @@
             <!-- Cardview Ranglijsten -->
             <android.support.v7.widget.CardView
                 android:id="@+id/bite_card"
-                android:background="@color/colorPrimary"
                 android:layout_margin="@dimen/rank_card_margin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/rank_card_height">
+                android:layout_height="@dimen/rank_card_height"
+                app:cardBackgroundColor="?cardViewBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="@dimen/rank_card_height"
@@ -69,14 +71,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="@dimen/rank_card_trophy_margin"
-                            android:src="@drawable/trophy"/>
-
-                        <!--<TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="🏆"
-                            android:textSize="32sp"/>-->
+                            android:src="@drawable/ic_trophy"
+                            android:contentDescription="@string/trophy_description" />
 
                     </LinearLayout>
                     <LinearLayout
@@ -91,7 +87,7 @@
                             android:layout_height="wrap_content"
                             android:padding="@dimen/rank_card_text_padding"
                             android:text="@string/rank_card_title"
-                            android:textColor="@color/colorTextToolbar"
+                            android:textColor="?colorRankTitleText"
                             android:textSize="@dimen/font_size_rank_card_title"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="italic|bold"/>
@@ -100,6 +96,7 @@
                             android:layout_height="wrap_content"
                             android:padding="@dimen/rank_card_text_padding"
                             android:text="@string/rank_card_text"
+                            android:textColor="?colorRankDescriptionText"
                             android:textSize="@dimen/font_size_rank_card_text"
                             android:fontFamily="sans-serif-light"
                             android:textStyle="bold"/>
@@ -114,7 +111,8 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/rank_card_arrow_forward_margin"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_arrow_forward"/>
+                            android:src="@drawable/ic_arrow_forward"
+                            android:contentDescription="@string/arrow_description" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -130,7 +128,7 @@
                 android:layout_marginTop="@dimen/bites_margin_top"
                 android:layout_marginBottom="@dimen/bites_margin_bottom"
                 android:text="@string/bites"
-                android:textColor="@color/colorTextToolbar"
+                android:textColor="?colorBitesTitleText"
                 android:fontFamily="sans-serif-medium"
                 android:textStyle="bold|italic"
                 android:textSize="@dimen/font_size_bites_title"/>
@@ -141,7 +139,7 @@
                 android:layout_height="@dimen/bites_stripe_height"
                 android:layout_marginStart="@dimen/bites_stripe_margin_left"
                 android:layout_marginEnd="@dimen/bites_stripe_margin_right"
-                android:background="@color/colorTextToolbar"/>
+                android:background="?colorBitesStripe"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -151,6 +149,7 @@
                 android:layout_marginTop="@dimen/bites_text_margin_top"
                 android:layout_marginBottom="@dimen/bites_text_margin_bottom"
                 android:text="@string/bites_text"
+                android:textColor="?colorBitesDescriptionText"
                 android:fontFamily="sans-serif-light"
                 />
 
@@ -169,8 +168,8 @@
         app:pressedTranslationZ="@dimen/fab_elevation_pressed"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|end"
-        app:backgroundTint="@color/fab_color"
-        app:rippleColor="@color/fab_color_ripple"
+        app:backgroundTint="?colorFab"
+        app:rippleColor="?colorFabRipple"
         android:src="@drawable/ic_add_white"
         android:clickable="true"/>
 

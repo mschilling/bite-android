@@ -1,18 +1,102 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Dark Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <item name="isLightTheme">false</item>
+
+        <!-- Splash background -->
+        <!--<item name="splashBackground">@color/colorPrimary</item>-->
+        <!-- Status bar -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Toolbar -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- Accent color -->
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">@color/colorTextToolbar</item>
+        <!-- Light Toolbar -->
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/colorNavigationBar</item>
+        <!-- Window Background -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+
+        <!-- Default text -->
         <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+
+        <item name="cardViewBackground">@color/colorCardViewBackground</item>
+
+        <!-- Toolbar -->
+        <item name="colorToolbarText">@color/colorToolbarText</item>
+
+        <!-- Main Activity -->
+        <item name="colorRankTitleText">@color/colorRankTitleText</item>
+        <item name="colorRankDescriptionText">@color/colorRankDescriptionText</item>
+        <item name="colorBitesTitleText">@color/colorBitesTitleText</item>
+        <item name="colorBitesStripe">@color/colorBitesStripe</item>
+        <item name="colorBitesDescriptionText">@color/colorBitesDescriptionText</item>
+
+        <item name="colorFab">@color/colorFab</item>
+        <item name="colorFabRipple">@color/colorFabRipple</item>
+
+        <item name="colorBiteCardTitleText">@color/colorBiteCardTitleText</item>
+        <item name="colorBiteCardLocationText">@color/colorBiteCardLocationText</item>
+        <item name="colorBiteCardStripe">@color/colorBiteCardStripe</item>
+
+    </style>
+
+    <!-- Light Theme -->
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="isLightTheme">true</item>
+
+        <!-- Splash background -->
+        <!--<item name="splashBackground">@color/colorPrimary_Light</item>-->
+        <!-- Status bar -->
+        <item name="colorPrimary">@color/colorPrimary_Light</item>
+        <!-- Toolbar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_Light</item>
+        <!-- Accent color -->
+        <item name="colorAccent">@color/colorAccent_Light</item>
+        <!-- Light Toolbar -->
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/colorNavigationBar_Light</item>
+        <!-- Window Background -->
+        <item name="android:windowBackground">@color/colorBackground_Light</item>
+
+        <!-- Default text -->
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorPrimary">@color/textPrimary_Light</item>
+        <item name="android:textColorSecondary">@color/textSecondary_Light</item>
+
+        <item name="cardViewBackground">@color/colorCardViewBackground_Light</item>
+
+        <!-- Toolbar -->
+        <item name="colorToolbarText">@color/colorToolbarText_Light</item>
+
+        <!-- Main Activity -->
+        <item name="colorRankTitleText">@color/colorRankTitleText_Light</item>
+        <item name="colorRankDescriptionText">@color/colorRankDescriptionText_Light</item>
+        <item name="colorBitesTitleText">@color/colorBitesTitleText_Light</item>
+        <item name="colorBitesStripe">@color/colorBitesStripe_Light</item>
+        <item name="colorBitesDescriptionText">@color/colorBitesDescriptionText_Light</item>
+
+        <item name="colorFab">@color/colorFab_Light</item>
+        <item name="colorFabRipple">@color/colorFabRipple_Light</item>
+
+        <item name="colorBiteCardTitleText">@color/colorBiteCardTitleText_Light</item>
+        <item name="colorBiteCardLocationText">@color/colorBiteCardLocationText_Light</item>
+        <item name="colorBiteCardStripe">@color/colorBiteCardStripe_Light</item>
+
     </style>
 
     <style name="AppTheme.Launcher" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/launcher</item>
+    </style>
+
+    <style name="AppTheme.Launcher_Light" parent="AppTheme.Light">
         <item name="android:windowBackground">@drawable/launcher</item>
     </style>
 

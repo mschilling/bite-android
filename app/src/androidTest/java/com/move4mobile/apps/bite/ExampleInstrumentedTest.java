@@ -1,4 +1,4 @@
-package com.m4mapp.bite;
+package com.move4mobile.apps.bite;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.m4mapp.bite", appContext.getPackageName());
+        assertEquals("com.move4mobile.apps", appContext.getPackageName());
     }
 }
