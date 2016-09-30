@@ -156,7 +156,7 @@
                 android:fontFamily="sans-serif-light"
                 />
 
-            <include layout="@layout/bite_card"/>
+            <!-- Including layout/bite_card -->
 
         </LinearLayout>
 

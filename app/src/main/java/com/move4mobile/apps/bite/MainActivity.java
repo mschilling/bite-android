@@ -38,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         isDarkThemeUnlocked = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_dark_theme_enabled", false);
 
-        int theme = PreferenceManager.getDefaultSharedPreferences(this).getInt("pref_theme", R.style.AppTheme_Light);
+        int theme;
+        if(isDarkThemeUnlocked){
+            theme = PreferenceManager.getDefaultSharedPreferences(this).getInt("pref_theme", R.style.AppTheme_Light);
+        } else {
+            theme = R.style.AppTheme_Light;
+        }
         setTheme(theme);
 
         setContentView(R.layout.activity_main);
