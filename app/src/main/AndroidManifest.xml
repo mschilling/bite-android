@@ -22,9 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:label="">
+        <activity
+            android:name=".MainActivity"
+            android:label="BITES"
+            android:launchMode="singleTop">
 
+        </activity>
+        <activity
+            android:name=".RestaurantActivity"
+            android:label="Restaurant"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 
