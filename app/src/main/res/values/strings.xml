@@ -19,4 +19,9 @@
 
     <string name="toolbar_title_restaurant">Nothing to see here... Yet🌚</string>
 
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt velit ante, eget facilisis ligula viverra sed. Nunc ullamcorper at est vel feugiat. Proin non ipsum nibh. Suspendisse commodo ipsum maximus fermentum tempor. Donec a egestas nisi, ac consectetur urna. Phasellus facilisis mauris quam, dapibus ornare odio mollis vel. Phasellus non placerat dui, at gravida magna. Aliquam pellentesque quam sed ligula tincidunt feugiat. Quisque sollicitudin neque id velit dignissim, non commodo nulla varius. In a odio sed nunc congue congue eu vel mauris. Suspendisse venenatis magna vel est volutpat tempor.
+    </string>
+
 </resources>
