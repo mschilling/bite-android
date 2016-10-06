@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="TextViewCustom">
+        <attr name="customFont" format="string"/>
+    </declare-styleable>
 
     <!-- Toolbar -->
     <attr name="colorToolbarText" format="reference|color"/>

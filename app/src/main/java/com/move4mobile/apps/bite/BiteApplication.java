@@ -23,6 +23,17 @@ public class BiteApplication extends Application {
 
     public static class Fonts{
         public static Typeface COMPASSE, COMPASSE_EXTRA_BOLD_ITALIC;
+
+        public static Typeface getFont(String asset){
+            switch (asset) {
+                case "compasse":
+                    return COMPASSE;
+                case "compasse_extra_bold_italic":
+                    return COMPASSE_EXTRA_BOLD_ITALIC;
+                default:
+                    return COMPASSE;
+            }
+        }
     }
 
     private void initFonts(){
