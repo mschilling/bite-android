@@ -22,7 +22,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="?colorToolbarText"
                 android:text="@string/toolbar_title"
-                android:textStyle="bold|italic"
                 android:textSize="@dimen/font_size_toolbar"/>
 
         </android.support.v7.widget.Toolbar>
@@ -33,7 +32,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/bite_logo"
         android:contentDescription="@string/brand_description"
-        android:layout_margin="@dimen/brand_margin"
+        android:layout_marginStart="@dimen/brand_margin_start"
+        android:layout_marginBottom="@dimen/brand_margin_bottom"
         android:layout_gravity="bottom|start"/>
 
     <android.support.v4.widget.NestedScrollView
@@ -67,12 +67,14 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/rank_card_height"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_margin="@dimen/rank_card_trophy_margin"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
                             android:src="@drawable/ic_trophy"
                             android:contentDescription="@string/trophy_description" />
 
@@ -86,33 +88,29 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/rank_card_text_padding"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="17dp"
                             android:text="@string/rank_card_title"
                             android:textColor="?colorRankTitleText"
-                            android:textSize="@dimen/font_size_rank_card_title"
-                            android:fontFamily="sans-serif-medium"
-                            android:textStyle="italic|bold"/>
+                            android:textSize="16sp"/>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/rank_card_text_padding"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="14dp"
                             android:text="@string/rank_card_text"
                             android:textColor="?colorRankDescriptionText"
-                            android:textSize="@dimen/font_size_rank_card_text"
-                            android:fontFamily="sans-serif-light"
-                            android:textStyle="bold"/>
+                            android:textSize="@dimen/font_size_rank_card_text"/>
 
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="@integer/rank_card_arrow_weight">
+                        android:layout_weight="@integer/rank_card_arrow_weight"
+                        android:gravity="end|center_vertical">
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/rank_card_arrow_forward_margin"
-                            android:layout_gravity="center"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="16dp"
                             android:src="@drawable/ic_arrow_forward"
                             android:contentDescription="@string/arrow_description" />
                     </LinearLayout>
@@ -127,12 +125,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/bites_margin_left"
                 android:layout_marginEnd="@dimen/bites_margin_right"
-                android:layout_marginTop="@dimen/bites_margin_top"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="@dimen/bites_margin_bottom"
                 android:text="@string/bites"
                 android:textColor="?colorBitesTitleText"
-                android:fontFamily="sans-serif-medium"
-                android:textStyle="bold|italic"
                 android:textSize="@dimen/font_size_bites_title"/>
 
             <!-- Stripe -->
@@ -151,9 +147,8 @@
                 android:layout_marginTop="@dimen/bites_text_margin_top"
                 android:layout_marginBottom="@dimen/bites_text_margin_bottom"
                 android:text="@string/bites_text"
-                android:textColor="?colorBitesDescriptionText"
-                android:fontFamily="sans-serif-light"
-                />
+                android:textColor="#8b000000"
+                android:textSize="14sp"/>
 
             <!-- Including layout/bite_card -->
 
@@ -165,7 +160,8 @@
         android:id="@+id/main_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin_end"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
         app:elevation="@dimen/fab_elevation"
         app:pressedTranslationZ="@dimen/fab_elevation_pressed"
         app:layout_anchor="@id/nested_scroll_view"

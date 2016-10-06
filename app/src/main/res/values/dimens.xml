@@ -5,10 +5,12 @@
 
 
     <!-- Brand -->
-    <dimen name="brand_margin">24dp</dimen>
+    <dimen name="brand_margin_bottom">24dp</dimen>
+    <dimen name="brand_margin_start">16dp</dimen>
 
     <!-- FAB -->
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin_end">16dp</dimen>
+    <dimen name="fab_margin_bottom">24dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_elevation_pressed">12dp</dimen>
 
@@ -28,7 +30,7 @@
     <dimen name="bites_margin_bottom">8dp</dimen>
 
     <!-- Bites title Stripe -->
-    <dimen name="bites_stripe_height">1.5dp</dimen>
+    <dimen name="bites_stripe_height">1dp</dimen>
     <dimen name="bites_stripe_margin_left">16dp</dimen>
     <dimen name="bites_stripe_margin_right">16dp</dimen>
 
@@ -61,7 +63,7 @@
     <dimen name="bite_card_location_size">20dp</dimen>
     <dimen name="bite_card_location_text_margin_left">16dp</dimen>
 
-    <dimen name="bite_card_stripe_height">1.5dp</dimen>
+    <dimen name="bite_card_stripe_height">1dp</dimen>
 
     <dimen name="bite_card_social_margin_left">32dp</dimen>
     <dimen name="bite_card_social_margin_right">32dp</dimen>
@@ -73,14 +75,14 @@
 
     <!-- Text Sizes -->
     <!-- Toolbar -->
-    <dimen name="font_size_toolbar">22sp</dimen>
+    <dimen name="font_size_toolbar">20sp</dimen>
 
     <!-- Rank Card -->
     <dimen name="font_size_rank_card_title">20sp</dimen>
     <dimen name="font_size_rank_card_text">14sp</dimen>
 
     <!-- Bites title -->
-    <dimen name="font_size_bites_title">22sp</dimen>
+    <dimen name="font_size_bites_title">20sp</dimen>
 
     <!-- Bite Card title -->
     <dimen name="font_size_bite_card_title">20sp</dimen>
