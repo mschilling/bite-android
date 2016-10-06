@@ -1,6 +1,7 @@
 package com.move4mobile.apps.bite;
 
 import android.app.Application;
+import android.graphics.Typeface;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -16,6 +17,17 @@ public class BiteApplication extends Application {
     public void onCreate(){
         super.onCreate();
         FirebaseAnalytics.getInstance(this);
+
+        initFonts();
+    }
+
+    public static class Fonts{
+        public static Typeface COMPASSE, COMPASSE_EXTRA_BOLD_ITALIC;
+    }
+
+    private void initFonts(){
+        Fonts.COMPASSE = Typeface.createFromAsset(getAssets(), "fonts/Compasse.otf");
+        Fonts.COMPASSE_EXTRA_BOLD_ITALIC = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBoldItalic.otf");
     }
 
 }

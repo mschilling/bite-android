@@ -95,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView toolbarText = (TextView) findViewById(R.id.toolbar_text);
+
+        toolbarText.setTypeface(BiteApplication.Fonts.COMPASSE);
+
         toolbarText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

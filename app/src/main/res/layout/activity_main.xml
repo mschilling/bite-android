@@ -22,7 +22,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="?colorToolbarText"
                 android:text="@string/toolbar_title"
-                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold|italic"
                 android:textSize="@dimen/font_size_toolbar"/>
 
