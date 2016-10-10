@@ -42,6 +42,7 @@
 
     <dimen name="bite_card_header_content_margin_start">16dp</dimen>
 
+    <dimen name="bite_card_title_height">24dp</dimen>
     <dimen name="bite_card_title_margin_top">1dp</dimen>
 
     <dimen name="bite_card_emoji_margin_horizontal">1dp</dimen>

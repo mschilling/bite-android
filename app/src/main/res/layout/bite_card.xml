@@ -40,8 +40,8 @@
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/rank_card_title_height"
-                    android:layout_marginTop="@dimen/rank_card_title_margin_top"
+                    android:layout_height="@dimen/bite_card_title_height"
+                    android:layout_marginTop="@dimen/bite_card_title_margin_top"
                     android:text="DOEMEDIEMAAR"
                     android:textColor="?colorAccent"
                     android:textSize="@dimen/font_size_bite_title"
