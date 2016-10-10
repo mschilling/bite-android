@@ -3,18 +3,102 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- Overall Dimens -->
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_elevation_pressed">12dp</dimen>
 
-    <!-- Brand -->
-    <dimen name="brand_margin_bottom">24dp</dimen>
+
+    /////////////////////////////
+    //////       BITES     //////
+    /////////////////////////////
+    <!-- Rank Card -->
+    <dimen name="rank_card_height">72dp</dimen>
+    <dimen name="rank_card_margin">16dp</dimen>
+    <dimen name="rank_card_trophy_padding">16dp</dimen>
+    <dimen name="rank_card_trophy_margin">5dp</dimen>
+
+    <dimen name="rank_card_title_height">24dp</dimen>
+    <dimen name="rank_card_title_margin_top">17dp</dimen>
+
+    <dimen name="rank_card_description_height">20dp</dimen>
+    <dimen name="rank_card_description_margin_bottom">14dp</dimen>
+
+    <dimen name="rank_card_arrow_margin">16dp</dimen>
+
+    <!-- Bites Title -->
+    <dimen name="bites_title_margin_horizontal">16dp</dimen>
+    <dimen name="bites_title_margin_vertical">8dp</dimen>
+
+    <dimen name="bites_title_stripe_height">1dp</dimen>
+    <dimen name="bites_title_stripe_margin">16dp</dimen>
+
+    /////////////////////////////
+    //////   BITES CARD    //////
+    /////////////////////////////
+    <dimen name="bite_card_margin">16dp</dimen>
+    <dimen name="bite_card_header_margin">16dp</dimen>
+
+    <dimen name="bite_card_header_image_size">40dp</dimen>
+
+    <dimen name="bite_card_header_content_margin_start">16dp</dimen>
+
+    <dimen name="bite_card_title_margin_top">1dp</dimen>
+
+    <dimen name="bite_card_emoji_margin_horizontal">1dp</dimen>
+
+    <dimen name="bite_card_location_size_height">12dp</dimen>
+    <dimen name="bite_card_location_size_width">8dp</dimen>
+    <dimen name="bite_card_location_margin_vertical">6dp</dimen>
+    <dimen name="bite_card_location_text_height">24dp</dimen>
+    <dimen name="bite_card_location_text_margin_start">16dp</dimen>
+
+    <dimen name="bite_card_stripe_height">1dp</dimen>
+    <dimen name="bite_card_stripe_margin_start">48dp</dimen>
+
+    <dimen name="bite_card_social_height">48dp</dimen>
+    <dimen name="bite_card_social_margin_start">42dp</dimen>
+    <dimen name="bite_card_social_margin_end">34dp</dimen>
+
+    <dimen name="bite_card_social_image_size">24dp</dimen>
+    <dimen name="bite_card_social_image_margin_vertical">12dp</dimen>
+    <dimen name="bite_card_social_image_margin_horizontal">6dp</dimen>
+
+
+
+
+    /////       TEXT SIZES       /////
+    <!-- Toolbar -->
+    <dimen name="font_size_toolbar">20sp</dimen>
+
+    <!-- Rank Card -->
+    <dimen name="font_size_rank_card_title">16sp</dimen>
+    <dimen name="font_size_rank_card_description">14sp</dimen>
+
+    <!-- Bites title -->
+    <dimen name="font_size_bites_title">20sp</dimen>
+    
+    <!-- Bite Card -->
+    <dimen name="font_size_bite_title">16sp</dimen>
+    <dimen name="font_size_bite_emoji">18sp</dimen>
+    <dimen name="font_size_bite_location">14sp</dimen>
+
+
+
+
+
+
+
+     <!--Brand-->
+    <!--<dimen name="brand_margin_bottom">24dp</dimen>
     <dimen name="brand_margin_start">16dp</dimen>
 
-    <!-- FAB -->
+    &lt;!&ndash; FAB &ndash;&gt;
     <dimen name="fab_margin_end">16dp</dimen>
     <dimen name="fab_margin_bottom">24dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_elevation_pressed">12dp</dimen>
 
-    <!-- Rank Card -->
+    &lt;!&ndash; Rank Card &ndash;&gt;
     <dimen name="rank_card_height">72dp</dimen>
     <dimen name="rank_card_margin">16dp</dimen>
     <dimen name="rank_card_trophy_margin">18dp</dimen>
@@ -23,24 +107,24 @@
     <dimen name="rank_card_text_padding">2dp</dimen>
 
 
-    <!-- Bites title -->
+    &lt;!&ndash; Bites title &ndash;&gt;
     <dimen name="bites_margin_left">16dp</dimen>
     <dimen name="bites_margin_right">16dp</dimen>
     <dimen name="bites_margin_top">16dp</dimen>
     <dimen name="bites_margin_bottom">8dp</dimen>
 
-    <!-- Bites title Stripe -->
+    &lt;!&ndash; Bites title Stripe &ndash;&gt;
     <dimen name="bites_stripe_height">1dp</dimen>
     <dimen name="bites_stripe_margin_left">16dp</dimen>
     <dimen name="bites_stripe_margin_right">16dp</dimen>
 
-    <!-- Bites text -->
+    &lt;!&ndash; Bites text &ndash;&gt;
     <dimen name="bites_text_margin_left">16dp</dimen>
     <dimen name="bites_text_margin_right">16dp</dimen>
     <dimen name="bites_text_margin_top">8dp</dimen>
     <dimen name="bites_text_margin_bottom">8dp</dimen>
 
-    <!-- Bite Card -->
+    &lt;!&ndash; Bite Card &ndash;&gt;
     <dimen name="bite_card_margin">16dp</dimen>
 
     <dimen name="bite_card_header_margin_left">18dp</dimen>
@@ -73,24 +157,24 @@
     <dimen name="bite_card_social_image_size">30dp</dimen>
     <dimen name="bite_card_social_image_margin">4dp</dimen>
 
-    <!-- Text Sizes -->
-    <!-- Toolbar -->
+    &lt;!&ndash; Text Sizes &ndash;&gt;
+    &lt;!&ndash; Toolbar &ndash;&gt;
     <dimen name="font_size_toolbar">20sp</dimen>
 
-    <!-- Rank Card -->
+    &lt;!&ndash; Rank Card &ndash;&gt;
     <dimen name="font_size_rank_card_title">20sp</dimen>
     <dimen name="font_size_rank_card_text">14sp</dimen>
 
-    <!-- Bites title -->
+    &lt;!&ndash; Bites title &ndash;&gt;
     <dimen name="font_size_bites_title">20sp</dimen>
 
-    <!-- Bite Card title -->
+    &lt;!&ndash; Bite Card title &ndash;&gt;
     <dimen name="font_size_bite_card_title">20sp</dimen>
 
-    <!-- Bite Card emoji -->
+    &lt;!&ndash; Bite Card emoji &ndash;&gt;
     <dimen name="font_size_bite_card_emoji">18sp</dimen>
 
-    <!-- Bite Card location -->
-    <dimen name="font_size_bite_card_location">16sp</dimen>
+    &lt;!&ndash; Bite Card location &ndash;&gt;
+    <dimen name="font_size_bite_card_location">16sp</dimen>-->
 
 </resources>

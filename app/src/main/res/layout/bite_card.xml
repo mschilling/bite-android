@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="@dimen/bite_card_margin"
     android:layout_marginStart="@dimen/bite_card_margin"
     android:layout_marginEnd="@dimen/bite_card_margin"
     android:backgroundTint="?cardViewBackground"
@@ -20,31 +20,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/bite_card_header_margin"
+            android:layout_marginEnd="@dimen/bite_card_header_margin"
+            android:layout_marginTop="@dimen/bite_card_header_margin"
             android:layout_marginBottom="4dp"
             android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/bite_card_header_image_size"
+                    android:layout_height="@dimen/bite_card_header_image_size"
                     android:src="@drawable/ic_shipit"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/person_description" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/bite_card_header_content_margin_start"
                 android:orientation="vertical">
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="1dp"
+                    android:layout_height="@dimen/rank_card_title_height"
+                    android:layout_marginTop="@dimen/rank_card_title_margin_top"
                     android:text="DOEMEDIEMAAR"
-                    android:textColor="?colorBiteCardTitleText"
-                    android:textSize="16sp"
+                    android:textColor="?colorAccent"
+                    android:textSize="@dimen/font_size_bite_title"
                     app:customFont="@string/compasse_extra_bold_italic"/>
 
                 <LinearLayout
@@ -55,37 +55,35 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
-                        android:textSize="@dimen/font_size_bite_card_emoji"
+                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
+                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
+                        android:textSize="@dimen/font_size_bite_emoji"
                         android:text="🌭"
                         app:customFont="@string/compasse"/>
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
-                        android:textSize="@dimen/font_size_bite_card_emoji"
+                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
+                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
+                        android:textSize="@dimen/font_size_bite_emoji"
                         android:text="🌭"
                         app:customFont="@string/compasse"/>
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
-                        android:textSize="@dimen/font_size_bite_card_emoji"
+                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
+                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
+                        android:textSize="@dimen/font_size_bite_emoji"
                         android:text="🌭"
                         app:customFont="@string/compasse"/>
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_left"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_right"
-                        android:textSize="@dimen/font_size_bite_card_emoji"
+                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
+                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
+                        android:textSize="@dimen/font_size_bite_emoji"
                         android:text="🌭"
                         app:customFont="@string/compasse"/>
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -93,85 +91,86 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="8dp"
-                        android:layout_height="12dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
+                        android:layout_width="@dimen/bite_card_location_size_width"
+                        android:layout_height="@dimen/bite_card_location_size_height"
+                        android:layout_marginTop="@dimen/bite_card_location_margin_vertical"
+                        android:layout_marginBottom="@dimen/bite_card_location_margin_vertical"
                         android:src="@drawable/ic_location"
-                        android:contentDescription="@string/location_description" />
+                        android:contentDescription="@string/location_description"
+                        android:tint="?android:textColorSecondary"/>
 
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="@dimen/bite_card_location_text_margin_left"
+                        android:layout_height="@dimen/bite_card_location_text_height"
+                        android:layout_marginStart="@dimen/bite_card_location_text_margin_start"
                         android:gravity="center_vertical"
                         android:text="Gramsbergen"
-                        android:textSize="14sp"
-                        android:textColor="#9b9b9b"
+                        android:textSize="@dimen/font_size_bite_location"
+                        android:textColor="?android:textColorSecondary"
                         app:customFont="@string/compasse"/>
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
 
         <!-- Stripe -->
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/bite_card_stripe_height"
-            android:layout_marginStart="48dp"
-            android:background="?colorBiteCardStripe"/>
+            android:layout_marginStart="@dimen/bite_card_stripe_margin_start"
+            android:background="?colorCardStripe"/>
 
         <!-- Social -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginEnd="34dp"
-            android:gravity="start">
+            android:layout_height="@dimen/bite_card_social_height"
+            android:layout_marginStart="@dimen/bite_card_social_margin_start"
+            android:layout_marginEnd="@dimen/bite_card_social_margin_end">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="@dimen/bite_card_social_image_size"
+                android:layout_height="@dimen/bite_card_social_image_size"
+                android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginBottom="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
+                android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
                 android:src="@drawable/ic_shipit"
                 android:contentDescription="@string/person_description" />
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="@dimen/bite_card_social_image_size"
+                android:layout_height="@dimen/bite_card_social_image_size"
+                android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginBottom="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
+                android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
                 android:src="@drawable/ic_shipit"
                 android:contentDescription="@string/person_description" />
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="@dimen/bite_card_social_image_size"
+                android:layout_height="@dimen/bite_card_social_image_size"
+                android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginBottom="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
+                android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
                 android:src="@drawable/ic_shipit"
                 android:contentDescription="@string/person_description" />
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="@dimen/bite_card_social_image_size"
+                android:layout_height="@dimen/bite_card_social_image_size"
+                android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginBottom="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
+                android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
                 android:src="@drawable/ic_shipit"
                 android:contentDescription="@string/person_description" />
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="@dimen/bite_card_social_image_size"
+                android:layout_height="@dimen/bite_card_social_image_size"
+                android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginBottom="@dimen/bite_card_social_image_margin_vertical"
+                android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
+                android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
                 android:src="@drawable/ic_shipit"
                 android:contentDescription="@string/person_description" />
 

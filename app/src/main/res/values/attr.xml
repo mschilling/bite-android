@@ -4,10 +4,18 @@
         <attr name="customFont" format="string"/>
     </declare-styleable>
 
-    <!-- Toolbar -->
+    <!-- General CardView -->
+    <attr name="cardViewBackground" format="reference|color"/>
+
+    <!-- FAB -->
+    <attr name="colorFabRipple" format="reference|color"/>
+
+    <attr name="colorCardStripe" format="reference|color"/>
+
+    <!--&lt;!&ndash; Toolbar &ndash;&gt;
     <attr name="colorToolbarText" format="reference|color"/>
 
-    <!-- Main Activity -->
+    &lt;!&ndash; Main Activity &ndash;&gt;
     <attr name="colorRankTitleText" format="reference|color"/>
     <attr name="colorRankDescriptionText" format="reference|color"/>
 
@@ -15,16 +23,16 @@
     <attr name="colorBitesStripe" format="reference|color"/>
     <attr name="colorBitesDescriptionText" format="reference|color"/>
 
-    <!-- FAB -->
+    &lt;!&ndash; FAB &ndash;&gt;
     <attr name="colorFab" format="reference|color"/>
-    <attr name="colorFabRipple" format="reference|color"/>
 
-    <!-- General CardView -->
+
+    &lt;!&ndash; General CardView &ndash;&gt;
     <attr name="cardViewBackground" format="reference|color"/>
 
-    <!-- Bite Card -->
+    &lt;!&ndash; Bite Card &ndash;&gt;
     <attr name="colorBiteCardTitleText" format="reference|color"/>
     <attr name="colorBiteCardLocationText" format="reference|color"/>
-    <attr name="colorBiteCardStripe" format="reference|color"/>
+    <attr name="colorBiteCardStripe" format="reference|color"/>-->
 
 </resources>

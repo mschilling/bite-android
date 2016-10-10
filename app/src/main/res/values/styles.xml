@@ -20,17 +20,19 @@
         <item name="android:windowBackground">@color/colorBackground</item>
 
         <!-- Default text -->
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColorPrimary">@color/textPrimary</item>
-        <item name="android:textColorSecondary">@color/textSecondary</item>
+        <item name="android:textColorPrimary">@color/colorTextPrimary</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondary</item>
 
         <item name="cardViewBackground">@color/colorCardViewBackground</item>
 
-        <!-- Toolbar -->
+        <item name="colorCardStripe">@color/colorCardStripe</item>
+
+        <item name="colorFabRipple">@color/colorFabRipple</item>
+
+        <!-- &lt;!&ndash; Toolbar &ndash;&gt;
         <item name="colorToolbarText">@color/colorToolbarText</item>
 
-        <!-- Main Activity -->
+        &lt;!&ndash; Main Activity &ndash;&gt;
         <item name="colorRankTitleText">@color/colorRankTitleText</item>
         <item name="colorRankDescriptionText">@color/colorRankDescriptionText</item>
         <item name="colorBitesTitleText">@color/colorBitesTitleText</item>
@@ -38,11 +40,11 @@
         <item name="colorBitesDescriptionText">@color/colorBitesDescriptionText</item>
 
         <item name="colorFab">@color/colorFab</item>
-        <item name="colorFabRipple">@color/colorFabRipple</item>
+
 
         <item name="colorBiteCardTitleText">@color/colorBiteCardTitleText</item>
         <item name="colorBiteCardLocationText">@color/colorBiteCardLocationText</item>
-        <item name="colorBiteCardStripe">@color/colorBiteCardStripe</item>
+        <item name="colorBiteCardStripe">@color/colorBiteCardStripe</item>-->
 
     </style>
 
@@ -66,17 +68,19 @@
         <item name="android:windowBackground">@color/colorBackground_Light</item>
 
         <!-- Default text -->
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColorPrimary">@color/textPrimary_Light</item>
-        <item name="android:textColorSecondary">@color/textSecondary_Light</item>
+        <item name="android:textColorPrimary">@color/colorTextPrimary_Light</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondary_Light</item>
 
         <item name="cardViewBackground">@color/colorCardViewBackground_Light</item>
 
-        <!-- Toolbar -->
+        <item name="colorCardStripe">@color/colorCardStripe_Light</item>
+
+        <item name="colorFabRipple">@color/colorFabRipple_Light</item>
+
+        <!-- &lt;!&ndash; Toolbar &ndash;&gt;
         <item name="colorToolbarText">@color/colorToolbarText_Light</item>
 
-        <!-- Main Activity -->
+        &lt;!&ndash; Main Activity &ndash;&gt;
         <item name="colorRankTitleText">@color/colorRankTitleText_Light</item>
         <item name="colorRankDescriptionText">@color/colorRankDescriptionText_Light</item>
         <item name="colorBitesTitleText">@color/colorBitesTitleText_Light</item>
@@ -84,11 +88,11 @@
         <item name="colorBitesDescriptionText">@color/colorBitesDescriptionText_Light</item>
 
         <item name="colorFab">@color/colorFab_Light</item>
-        <item name="colorFabRipple">@color/colorFabRipple_Light</item>
+
 
         <item name="colorBiteCardTitleText">@color/colorBiteCardTitleText_Light</item>
         <item name="colorBiteCardLocationText">@color/colorBiteCardLocationText_Light</item>
-        <item name="colorBiteCardStripe">@color/colorBiteCardStripe_Light</item>
+        <item name="colorBiteCardStripe">@color/colorBiteCardStripe_Light</item>-->
 
     </style>
 

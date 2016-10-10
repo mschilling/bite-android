@@ -16,13 +16,13 @@
         android:baselineAligned="false">
 
         <LinearLayout
-            android:layout_width="@dimen/rank_card_height"
+            android:layout_width="72dp"
             android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/rank_card_trophy_margin"
+                android:layout_margin="18dp"
                 android:src="@drawable/ic_trophy"
                 android:contentDescription="@string/trophy_description" />
 
@@ -38,14 +38,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/rank_card_text_padding"
+                android:padding="2dp"
                 android:text="Patat Normaal"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/rank_card_text_padding"
+                android:padding="2dp"
                 android:text="€1,85"
                 android:textSize="14sp"/>
 
@@ -59,22 +59,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/rank_card_text_padding"
+                android:padding="2dp"
                 android:text="-"
                 android:layout_margin="4dp"
                 android:textSize="18sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/rank_card_text_padding"
-                android:textColor="?colorRankTitleText"
+                android:padding="2dp"
+                android:textColor="?android:colorAccent"
                 android:text="1"
                 android:layout_margin="4dp"
                 android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/rank_card_text_padding"
+                android:padding="2dp"
                 android:text="+"
                 android:layout_margin="4dp"
                 android:textSize="18sp"/>
