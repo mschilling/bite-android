@@ -10,7 +10,7 @@
         android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:backgroundTint="@color/colorBackground_Light">
+        android:backgroundTint="?android:windowBackground">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                     android:id="@+id/toolbar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?colorAccent"
+                    android:textColor="?android:colorControlNormal"
                     android:text="@string/toolbar_title_restaurant"
                     android:fontFamily="sans-serif-medium"
                     android:textStyle="bold|italic"

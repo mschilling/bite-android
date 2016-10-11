@@ -15,7 +15,7 @@
 
     <color name="colorCardViewBackground">#404040</color>
 
-    <color name="colorCardStripe">#1f000000</color>
+    <color name="colorCardStripe">#1fffffff</color>
 
     <color name="colorFabRipple">#6e6e6e</color>
 
@@ -89,5 +89,13 @@
     <color name="colorBiteCardTitleText_Light">#ec9630</color>
     <color name="colorBiteCardLocationText_Light">#9b9b9b</color>
     <color name="colorBiteCardStripe_Light">#eeddcc</color>-->
+
+
+
+    <!-- Bite Light Theme -->
+    <color name="bite_colorPrimary_Light">#ec9630</color>
+    <color name="bite_colorPrimaryDark_Light">#e2902e</color>
+    <color name="bite_colorControlNormal_Light">#fff</color>
+
 
 </resources>

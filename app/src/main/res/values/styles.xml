@@ -20,6 +20,8 @@
         <item name="android:windowBackground">@color/colorBackground</item>
 
         <!-- Default text -->
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColorPrimary">@color/colorTextPrimary</item>
         <item name="android:textColorSecondary">@color/colorTextSecondary</item>
 
@@ -68,6 +70,8 @@
         <item name="android:windowBackground">@color/colorBackground_Light</item>
 
         <!-- Default text -->
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColorPrimary">@color/colorTextPrimary_Light</item>
         <item name="android:textColorSecondary">@color/colorTextSecondary_Light</item>
 
@@ -95,6 +99,23 @@
         <item name="colorBiteCardStripe">@color/colorBiteCardStripe_Light</item>-->
 
     </style>
+
+    <style name="AppTheme.Bite.Light" parent="AppTheme.Light">
+        <item name="isLightTheme">true</item>
+
+        <!-- Status bar -->
+        <item name="colorPrimary">@color/bite_colorPrimary_Light</item>
+        <!-- Toolbar -->
+        <item name="colorPrimaryDark">@color/bite_colorPrimaryDark_Light</item>
+        <!-- Light Toolbar -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Back arrow -->
+        <item name="android:colorControlNormal">@color/bite_colorControlNormal_Light</item>
+    </style>
+
+
+
 
     <style name="AppTheme.Launcher" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>

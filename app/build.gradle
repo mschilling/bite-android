@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2" //24.0.2
     defaultConfig {
         applicationId "com.move4mobile.apps.bite"
-        minSdkVersion 23
+        minSdkVersion 23 //For windowLightStatusBar
         targetSdkVersion 24
         versionCode 1
         versionName "1.0-avacado"
