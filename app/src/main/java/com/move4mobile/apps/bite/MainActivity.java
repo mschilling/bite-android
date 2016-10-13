@@ -3,13 +3,9 @@ package com.move4mobile.apps.bite;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.preference.PreferenceManager;
-import android.support.annotation.ColorInt;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,15 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.move4mobile.apps.bite.databinding.BiteCardBinding;
-
-import me.priyesh.chroma.ChromaDialog;
-import me.priyesh.chroma.ColorMode;
-import me.priyesh.chroma.ColorSelectListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = ".MainActivity";
+    private static final String TAG = ".MainActgit ivity";
     private FirebaseAnalytics mFirebaseAnalytics;
 
     private static Toast toast;
@@ -41,13 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private int nCards = 0;
 
-    private ThemeUtils themeUtils;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        themeUtils = ThemeUtils.getInstance(getApplicationContext());
 
         isDarkThemeUnlocked = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_dark_theme_enabled", false);
 
@@ -59,10 +46,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setTheme(theme);
 
-        //ActivityMainBinding binding =
-        DataBindingUtil.setContentView(this, R.layout.activity_main);
-        //binding.setColorMe(CM);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         if (savedInstanceState != null) {
             // Restore value of members from saved state
@@ -71,18 +55,15 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < nCards; i++){
                 LayoutInflater vi = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 LinearLayout ll = (LinearLayout) findViewById(R.id.nested_scroll_view_layout);
-                //View cardView = vi.inflate(R.layout.bite_card, ll, false);
-
-                BiteCardBinding binding = DataBindingUtil.inflate(vi, R.layout.bite_card, ll, false);
-
-                binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                View cardView = vi.inflate(R.layout.bite_card, ll, false);
+                cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                         startActivity(intent);
                     }
                 });
-                ll.addView(binding.getRoot());
+                ll.addView(cardView);
             }
         }
 
@@ -97,21 +78,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LayoutInflater vi = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
                 LinearLayout ll = (LinearLayout) findViewById(R.id.nested_scroll_view_layout);
-
-                BiteCardBinding binding = DataBindingUtil.inflate(vi, R.layout.bite_card, ll, false);
-
-                //View cardView = vi.inflate(R.layout.bite_card, ll, false);
-
-                binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                View cardView = vi.inflate(R.layout.bite_card, ll, false);
+                cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                         startActivity(intent);
                     }
                 });
-                ll.addView(binding.getRoot());
+                ll.addView(cardView);
                 nCards++;
                 Snackbar.make(findViewById(R.id.coordinator_layout), "Bite added...", Snackbar.LENGTH_SHORT).show();
             }
@@ -150,28 +126,6 @@ public class MainActivity extends AppCompatActivity {
                         toast.show();
                     }
                 }
-            }
-        });
-
-        toolbarText.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                new ChromaDialog.Builder()
-                        .initialColor(ContextCompat.getColor(getApplication(), R.color.colorAccent_Light))
-                        .colorMode(ColorMode.RGB) // There's also ARGB and HSV
-                        .onColorSelected(new ColorSelectListener() {
-                            @Override
-                            public void onColorSelected(@ColorInt int i) {
-                                String strColor = String.format("#%06X", 0xFFFFFF & i);
-                                Toast.makeText(getApplicationContext(), "Color chosen:" + strColor, Toast.LENGTH_SHORT).show();
-
-                                themeUtils.setAccentColor(Color.parseColor(strColor));
-                                recreate();
-                            }
-                        })
-                        .create()
-                        .show(getSupportFragmentManager(), "ChromaDialog");
-                return false;
             }
         });
     }

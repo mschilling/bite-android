@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <data>
-        <variable
-            name="themeUtils"
-            type="com.move4mobile.apps.bite.ThemeUtils"/>
-    </data>
-
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -27,7 +21,7 @@
                 android:id="@+id/toolbar_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@{themeUtils.accentColor}"
+                android:textColor="?colorAccent"
                 android:text="@string/toolbar_title"
                 android:textSize="@dimen/font_size_toolbar"
                 app:customFont="@string/compasse_extra_bold_italic"/>
@@ -36,7 +30,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <ImageView
-        android:id="@+id/brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/bite_logo"
@@ -44,7 +37,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_gravity="bottom|start"
-        android:tint="@{themeUtils.accentColor}"/>
+        android:tint="?colorAccent"/>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
@@ -101,7 +94,7 @@
                             android:layout_height="@dimen/rank_card_title_height"
                             android:layout_marginTop="@dimen/rank_card_title_margin_top"
                             android:text="@string/rank_card_title"
-                            android:textColor="@{themeUtils.accentColor}"
+                            android:textColor="?colorAccent"
                             android:textSize="@dimen/font_size_rank_card_title"
                             app:customFont="@string/compasse_extra_bold_italic"/>
 
@@ -126,7 +119,7 @@
                             android:layout_marginEnd="@dimen/rank_card_arrow_margin"
                             android:src="@drawable/ic_arrow_forward"
                             android:contentDescription="@string/arrow_description"
-                            android:tint="@{themeUtils.accentColor}"/>
+                            android:tint="?colorAccent"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -142,7 +135,7 @@
                 android:layout_marginTop="@dimen/bites_title_margin_vertical"
                 android:layout_marginBottom="@dimen/bites_title_margin_vertical"
                 android:text="@string/bites"
-                android:textColor="@{themeUtils.accentColor}"
+                android:textColor="?colorAccent"
                 android:textSize="@dimen/font_size_bites_title"
                 app:customFont="@string/compasse_extra_bold_italic"/>
 
@@ -153,7 +146,7 @@
                 android:layout_marginStart="@dimen/bites_title_stripe_margin"
                 android:layout_marginEnd="@dimen/bites_title_stripe_margin"
                 android:layout_marginBottom="@dimen/bites_title_stripe_margin"
-                android:background="@{themeUtils.accentColor}"/>
+                android:background="?colorAccent"/>
 
             <!-- Including layout/bite_card -->
 
@@ -171,10 +164,9 @@
         app:pressedTranslationZ="@dimen/fab_elevation_pressed"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|end"
-        android:backgroundTint="@{themeUtils.accentColor}"
+        android:backgroundTint="?colorAccent"
         app:rippleColor="?colorFabRipple"
         android:src="@drawable/ic_add_white"
         android:clickable="true"/>
 
 </android.support.design.widget.CoordinatorLayout>
-</layout>
