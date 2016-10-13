@@ -24,21 +24,28 @@
                 android:layout_width="match_parent"
                 android:background="?attr/colorPrimary"
                 app:layout_collapseMode="pin"
-                android:elevation="3dp">
+                android:elevation="3dp"
+                android:layout_gravity="top">
 
-                <TextView
+                <com.move4mobile.apps.bite.TextViewCustom
                     android:id="@+id/toolbar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?android:colorControlNormal"
                     android:text="@string/toolbar_title_restaurant"
-                    android:fontFamily="sans-serif-medium"
-                    android:textStyle="bold|italic"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
 
             </android.support.v7.widget.Toolbar>
 
-            <include layout="@layout/bite_card_restaurant"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize">
+
+                <include layout="@layout/bite_card_restaurant"/>
+
+            </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

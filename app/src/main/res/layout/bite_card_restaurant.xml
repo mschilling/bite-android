@@ -3,157 +3,180 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="72dp"
+    android:layout_marginTop="8dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="8dp"
     app:layout_collapseMode="none"
     android:backgroundTint="?cardViewBackground"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:stateListAnimator="@animator/lift_on_touch">
+    android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_menu_person"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/person_description" />
-
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_menu_person"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:layout_margin="4dp"
+                android:layout_marginLeft="16dp"
                 android:orientation="vertical">
 
-                <TextView
+                <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:text="GESTART DOOR ANON"
-                    android:textColor="?colorAccent"
-                    android:textSize="20sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textStyle="italic|bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:text="Bestelling sluit om 13:37"
+                    android:layout_height="24dp"
                     android:textSize="16sp"
+                    android:textColor="?colorAccent"
+                    android:text="GESTART DOOR ROBERT"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
+
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:textSize="14sp"
                     android:textColor="?android:textColorSecondary"
-                    android:textStyle="normal"/>
+                    android:text="Gestart om 12:00, sluit om 13:37"
+                    app:customFont="@string/compasse"/>
 
             </LinearLayout>
+
         </LinearLayout>
 
         <!-- Stripe -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/bite_card_stripe_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:background="?colorCardStripe"/>
 
-        <!-- Social -->
+        <!-- Emojis -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:gravity="center">
 
-            <TextView
+            <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="32sp"
-                android:text="💦"/>
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:textSize="28sp"
+                android:text="💦"
+                app:customFont="@string/compasse_extra_bold_italic"/>
 
-            <TextView
+            <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="32sp"
-                android:text="💦"/>
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:textSize="28sp"
+                android:text="💦"
+                app:customFont="@string/compasse_extra_bold_italic"/>
 
-            <TextView
+            <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="32sp"
-                android:text="💦"/>
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:textSize="28sp"
+                android:text="💦"
+                app:customFont="@string/compasse_extra_bold_italic"/>
 
         </LinearLayout>
 
         <!-- Stripe -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/bite_card_stripe_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:background="?colorCardStripe"/>
 
-    <!-- Stats -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        <!-- Stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:baselineAligned="false">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textSize="42sp"
-            android:text="\?"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textSize="42sp"
-            android:text="\?"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textSize="42sp"
-            android:text="\?"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:baselineAligned="false">
 
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="\?"
+                    android:textSize="44sp"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:baselineAligned="false">
 
-    </LinearLayout>
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="\?"
+                    android:textSize="44sp"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:baselineAligned="false">
+
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="\?"
+                    android:textSize="44sp"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
