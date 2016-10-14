@@ -66,7 +66,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,7 +75,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="NEVER"
                         app:customFont="@string/compasse"/>
@@ -86,7 +87,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -94,7 +96,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="FORGETTI"
                         app:customFont="@string/compasse"/>
@@ -106,8 +108,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:backgroundTint="?colorAccent"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -115,7 +117,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="HARAMBE"
                         app:customFont="@string/compasse"/>
@@ -127,7 +129,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,7 +138,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="GNOME"
                         app:customFont="@string/compasse"/>
@@ -147,7 +150,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -155,7 +159,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="CAVEMAN"
                         app:customFont="@string/compasse"/>
@@ -167,7 +171,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -175,7 +180,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="SAVAGE"
                         app:customFont="@string/compasse"/>
@@ -187,7 +192,8 @@
                     android:layout_marginEnd="4dp"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true">
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,7 +201,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
-                        android:textColor="?colorAccent"
+                        android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="SHIPIT"
                         app:customFont="@string/compasse"/>
