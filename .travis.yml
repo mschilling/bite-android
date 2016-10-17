@@ -4,13 +4,13 @@ android:
     - tools
     - platform-tools
     - build-tool-23.0.3
-    - build-tool-24.0.2
-    - android-M
-    - android-N
+    - android-24
+    - extra-google-google_play_services
     - oraclejdk8
 before_install:
   - chmod +x gradlew
 script:
+  - java -version
   - ./gradlew --version
   - ./gradlew clean build --debug
 notifications:
