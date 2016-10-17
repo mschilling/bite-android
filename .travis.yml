@@ -4,8 +4,8 @@ jdk: oraclejdk8
 
 android:
   components:
-   	- tools
-   	- platform-tools
+    - tools
+    - platform-tools
 
 # The BuildTools version used by your project
     - build-tools-24.0.2
