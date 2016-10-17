@@ -3,8 +3,10 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tool-23.0.2
+    - build-tool-23.0.3
+    - build-tool-24.0.2
     - android-M
+    - android-N
     - oraclejdk8
 before_install:
   - chmod +x gradlew
