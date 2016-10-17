@@ -5,7 +5,11 @@ android:
     - platform-tools
     - build-tool-23.0.2
     - android-M
+    - oraclejdk8
 before_install:
   - chmod +x gradlew
 script:
-  - ./gradlew clean build
+  - ./gradlew --version
+  - ./gradlew clean build --debug
+notifications:
+  email: false
