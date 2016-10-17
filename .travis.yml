@@ -1,4 +1,5 @@
 language: android
+sudo: required
 android:
   components:
     - tools
@@ -7,9 +8,13 @@ android:
     - android-24
     - extra-google-google_play_services
     - oraclejdk8
+jdk:
+  - oraclejdk8
+install: true
 before_install:
   - chmod +x gradlew
 script:
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer
   - java -version
   - ./gradlew --version
   - ./gradlew clean build --debug
