@@ -6,15 +6,20 @@ android:
   components:
 #    - tools
 #    - platform-tools
-    - build-tool-23.0.3
+
+# The BuildTools version used by your project
+    - build-tools-23.0.3
+
+# The SDK version used to compile your project
     - android-24
+
     - extra-google-google_play_services
 #    - oraclejdk8
 #install: true
-before_install:
-  - chmod +x gradlew
-before_script:
-  - echo y | android update sdk --no-ui --filter build-tools-24.0.0,android-24,build-tools-23.0.3,android-23,extra-android-m2repository
+#before_install:
+#  - chmod +x gradlew
+#before_script:
+#  - echo y | android update sdk --no-ui --filter build-tools-24.0.0,android-24,build-tools-23.0.3,android-23,extra-android-m2repository
 script:
 #  - sudo apt-get update && sudo apt-get install oracle-java8-installer
 #  - java -version
