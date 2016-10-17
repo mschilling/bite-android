@@ -131,4 +131,8 @@
         <item name="android:windowBackground">@drawable/launcher</item>
     </style>
 
+
+    <style name="AppTheme.Light.Red" parent="AppTheme.Light">
+        <item name="colorAccent">#b12525</item>
+    </style>
 </resources>
