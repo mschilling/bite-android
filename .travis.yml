@@ -1,24 +1,24 @@
 language: android
-sudo: required
+jdk: oraclejdk8
+#sudo: required
+
 android:
   components:
-    - tools
-    - platform-tools
+#    - tools
+#    - platform-tools
     - build-tool-23.0.3
     - android-24
     - extra-google-google_play_services
-    - oraclejdk8
-jdk:
-  - oraclejdk8
-install: true
+#    - oraclejdk8
+#install: true
 before_install:
   - chmod +x gradlew
 before_script:
   - echo y | android update sdk --no-ui --filter build-tools-24.0.0,android-24,build-tools-23.0.3,android-23,extra-android-m2repository
 script:
-  - sudo apt-get update && sudo apt-get install oracle-java8-installer
-  - java -version
-  - ./gradlew --version
-  - ./gradlew clean build --debug
+#  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+#  - java -version
+#  - ./gradlew --version
+  - ./gradlew clean build --debug --verbose
 notifications:
   email: false
