@@ -5,5 +5,7 @@ android:
     - platform-tools
     - build-tool-23.0.2
     - android-M
+before_install:
+  - chmod +x gradlew
 script:
-    - ./gradlew clean build
+  - ./gradlew clean build
