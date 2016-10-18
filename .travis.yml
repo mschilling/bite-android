@@ -16,6 +16,7 @@ android:
     - extra-android-m2repository
     - extra-android-support
     - extra-google-google_play_services
+    - extra-google-m2repository
 #    - oraclejdk8
 #install: true
 before_install:
