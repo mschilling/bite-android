@@ -27,6 +27,6 @@ script:
 #  - sudo apt-get update && sudo apt-get install oracle-java8-installer
 #  - java -version
 #  - ./gradlew --version
-  - ./gradlew clean build --debug
+  - ./gradlew clean build
 notifications:
   email: false
