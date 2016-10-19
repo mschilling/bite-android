@@ -164,7 +164,7 @@
         app:pressedTranslationZ="@dimen/fab_elevation_pressed"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|end"
-        android:backgroundTint="?colorAccent"
+        app:backgroundTint="?colorAccent"
         app:rippleColor="?colorFabRipple"
         android:src="@drawable/ic_add_white"
         android:clickable="true"/>
