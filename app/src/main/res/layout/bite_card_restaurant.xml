@@ -132,31 +132,103 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp">
+                    <RelativeLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/circle"
+                        android:gravity="center">
+                        <com.move4mobile.apps.bite.TextViewCustom
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="911"
+                            android:textSize="14sp"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="38dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/snack_button"
+                        android:gravity="center">
+
+                        <com.move4mobile.apps.bite.TextViewCustom
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="HARAM"
+                            android:textSize="9sp"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                </RelativeLayout>
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="\?"
-                    android:textSize="44sp"
-                    app:customFont="@string/compasse_extra_bold_italic"/>
+                    android:text="No.1 besteller"
+                    android:textSize="10sp"
+                    app:customFont="@string/compasse"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp">
+
+                    <RelativeLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/circle"
+                        android:gravity="center">
+                        <com.move4mobile.apps.bite.TextViewCustom
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="1.337"
+                            android:textSize="14sp"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="38dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/snack_button"
+                        android:gravity="center">
+
+                        <com.move4mobile.apps.bite.TextViewCustom
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="BAE"
+                            android:textSize="9sp"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                </RelativeLayout>
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="\?"
-                    android:textSize="44sp"
-                    app:customFont="@string/compasse_extra_bold_italic"/>
+                    android:text="No.1 besteller"
+                    android:textSize="10sp"
+                    app:customFont="@string/compasse"/>
 
             </LinearLayout>
             <LinearLayout
@@ -167,21 +239,24 @@
                 android:baselineAligned="false"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/circle"
-                    android:gravity="center">
-                    <ImageView
-                        android:id="@+id/image_besteller"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp" />
-                </LinearLayout>
-
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp">
+                    <RelativeLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/circle">
+                        <ImageView
+                            android:id="@+id/image_besteller"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginStart="3dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
                     android:textAlignment="center"
                     android:text="No.1 besteller"
                     android:textSize="10sp"

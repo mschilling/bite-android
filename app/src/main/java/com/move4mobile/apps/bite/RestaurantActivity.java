@@ -75,7 +75,7 @@ public class RestaurantActivity extends AppCompatActivity {
         }
 
         final ImageView imageView = (ImageView) findViewById(R.id.image_besteller);
-        Glide.with(this).load("https://avatars2.githubusercontent.com/u/7045335?v=3&s=400").asBitmap().centerCrop().into(new BitmapImageViewTarget(imageView) {
+        Glide.with(this).load("http://assets.nydailynews.com/polopoly_fs/1.2654880.1464639106!/img/httpImage/image.jpg_gen/derivatives/article_750/552448316.jpg").asBitmap().centerCrop().into(new BitmapImageViewTarget(imageView) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =
