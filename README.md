@@ -1,4 +1,4 @@
-# Bite - Android
+# Bite - Android [![Build Status](https://travis-ci.org/mschilling/bite-android.svg?branch=master)](https://travis-ci.org/mschilling/bite-android)
 
 The Android app for Bite
 
