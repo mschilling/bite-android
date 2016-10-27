@@ -4,6 +4,10 @@
         <attr name="customFont" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="RelativeLayoutCircle">
+        <attr name="customCircleColor" format="reference|color"/>
+    </declare-styleable>
+
     <!-- General CardView -->
     <attr name="cardViewBackground" format="reference|color"/>
 

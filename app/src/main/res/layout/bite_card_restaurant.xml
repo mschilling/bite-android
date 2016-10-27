@@ -138,11 +138,13 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="58dp">
-                    <RelativeLayout
+                    <com.move4mobile.apps.bite.RelativeLayoutCircle
+                        android:id="@+id/stats_"
                         android:layout_width="52dp"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
-                        android:gravity="center">
+                        android:gravity="center"
+                        app:customCircleColor="#d93335">
                         <com.move4mobile.apps.bite.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -150,7 +152,7 @@
                             android:text="911"
                             android:textSize="14sp"
                             app:customFont="@string/compasse"/>
-                    </RelativeLayout>
+                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
                     <RelativeLayout
                         android:layout_width="38dp"
                         android:layout_height="16dp"
@@ -173,7 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="No.1 besteller"
+                    android:text="Door jou besteld"
                     android:textSize="10sp"
                     app:customFont="@string/compasse"/>
 
@@ -191,11 +193,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="58dp">
 
-                    <RelativeLayout
+                    <com.move4mobile.apps.bite.RelativeLayoutCircle
                         android:layout_width="52dp"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
-                        android:gravity="center">
+                        android:gravity="center"
+                        app:customCircleColor="?colorAccent">
                         <com.move4mobile.apps.bite.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -203,7 +206,7 @@
                             android:text="1.337"
                             android:textSize="14sp"
                             app:customFont="@string/compasse"/>
-                    </RelativeLayout>
+                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
                     <RelativeLayout
                         android:layout_width="38dp"
                         android:layout_height="16dp"
@@ -226,7 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="No.1 besteller"
+                    android:text="Totaal besteld"
                     android:textSize="10sp"
                     app:customFont="@string/compasse"/>
 
@@ -242,17 +245,18 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="58dp">
-                    <RelativeLayout
+                    <com.move4mobile.apps.bite.RelativeLayoutCircle
                         android:layout_width="52dp"
                         android:layout_height="52dp"
-                        android:background="@drawable/circle">
+                        android:background="@drawable/circle"
+                        app:customCircleColor="#4d9bc5">
                         <ImageView
                             android:id="@+id/image_besteller"
                             android:layout_width="46dp"
                             android:layout_height="46dp"
                             android:layout_marginTop="3dp"
                             android:layout_marginStart="3dp"/>
-                    </RelativeLayout>
+                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
                 </RelativeLayout>
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="match_parent"
