@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.move4mobile.apps.bite.LoginActivity">
+    <com.move4mobile.apps.bite.TextViewCustom
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:textSize="98sp"
+        android:text="OH, HI!"
+        android:textColor="?colorAccent"
+        android:gravity="bottom|center_horizontal"
+        app:customFont="@string/compasse_extra_bold_italic"/>
+
+    <com.move4mobile.apps.bite.TextViewCustom
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:textSize="14sp"
+        android:text="Leuk dat je even komt kijken!\n BITE is momenteel alleen te gebruiken door medewerkers van Move4Mobile."
+        android:gravity="bottom|center_horizontal"
+        app:customFont="@string/compasse"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signin"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        app:buttonSize="wide"
+        app:colorScheme="dark"
+        android:elevation="0dp"/>
+
+    <com.move4mobile.apps.bite.TextViewCustom
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:textSize="14sp"
+        android:text="powered by"
+        android:gravity="bottom|center_horizontal"
+        app:customFont="@string/compasse"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/m4m_logo"/>
+</LinearLayout>

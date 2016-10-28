@@ -25,14 +25,14 @@
         <activity
             android:name=".MainActivity"
             android:label="BITES"
-            android:launchMode="singleTop">
-
-        </activity>
+            android:launchMode="singleTop"/>
         <activity
             android:name=".RestaurantActivity"
             android:label="Restaurant"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login"/>
     </application>
 
 </manifest>
