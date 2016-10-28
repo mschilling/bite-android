@@ -53,7 +53,7 @@
                     android:layout_height="24dp"
                     android:textSize="14sp"
                     android:textColor="?android:textColorSecondary"
-                    android:text="Gestart om 12:00, sluit om 13:37"
+                    android:text="Gestart om 9:11, sluit om 13:37"
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>
@@ -138,8 +138,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="58dp">
+
                     <com.move4mobile.apps.bite.RelativeLayoutCircle
-                        android:id="@+id/stats_"
                         android:layout_width="52dp"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
@@ -151,15 +151,17 @@
                             android:textAlignment="center"
                             android:text="911"
                             android:textSize="14sp"
+                            android:textColor="#d93335"
                             app:customFont="@string/compasse"/>
                     </com.move4mobile.apps.bite.RelativeLayoutCircle>
-                    <RelativeLayout
+                    <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
                         android:layout_width="38dp"
                         android:layout_height="16dp"
                         android:layout_marginTop="38dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/snack_button"
-                        android:gravity="center">
+                        android:background="@drawable/stats_title"
+                        android:gravity="center"
+                        app:customStatsTitleColor="#d93335">
 
                         <com.move4mobile.apps.bite.TextViewCustom
                             android:layout_width="match_parent"
@@ -167,15 +169,19 @@
                             android:textAlignment="center"
                             android:text="HARAM"
                             android:textSize="9sp"
-                            app:customFont="@string/compasse"/>
-                    </RelativeLayout>
+                            android:textColor="@android:color/white"
+                            app:customFont="@string/compasse"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:id="@+id/textViewCustom" />
+                    </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
                 </RelativeLayout>
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Door jou besteld"
+                    android:text="Totaal besteld"
                     android:textSize="10sp"
                     app:customFont="@string/compasse"/>
 
@@ -205,15 +211,17 @@
                             android:textAlignment="center"
                             android:text="1.337"
                             android:textSize="14sp"
+                            android:textColor="?colorAccent"
                             app:customFont="@string/compasse"/>
                     </com.move4mobile.apps.bite.RelativeLayoutCircle>
-                    <RelativeLayout
+                    <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
                         android:layout_width="38dp"
                         android:layout_height="16dp"
                         android:layout_marginTop="38dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/snack_button"
-                        android:gravity="center">
+                        android:background="@drawable/stats_title"
+                        android:gravity="center"
+                        app:customStatsTitleColor="?colorAccent">
 
                         <com.move4mobile.apps.bite.TextViewCustom
                             android:layout_width="match_parent"
@@ -221,8 +229,9 @@
                             android:textAlignment="center"
                             android:text="BAE"
                             android:textSize="9sp"
+                            android:textColor="@android:color/white"
                             app:customFont="@string/compasse"/>
-                    </RelativeLayout>
+                    </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
                 </RelativeLayout>
 
                 <com.move4mobile.apps.bite.TextViewCustom
@@ -234,6 +243,7 @@
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

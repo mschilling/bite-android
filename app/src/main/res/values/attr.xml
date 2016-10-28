@@ -8,6 +8,10 @@
         <attr name="customCircleColor" format="reference|color"/>
     </declare-styleable>
 
+    <declare-styleable name="RelativeLayoutStatsTitle">
+        <attr name="customStatsTitleColor" format="reference|color"/>
+    </declare-styleable>
+
     <!-- General CardView -->
     <attr name="cardViewBackground" format="reference|color"/>
 
