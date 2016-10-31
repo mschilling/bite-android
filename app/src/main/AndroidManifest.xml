@@ -25,7 +25,8 @@
         <activity
             android:name=".MainActivity"
             android:label="BITES"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Light"/>
         <activity
             android:name=".RestaurantActivity"
             android:label="Restaurant"
