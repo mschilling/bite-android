@@ -9,7 +9,7 @@
     <application
         android:name=".BiteApplication"
         android:allowBackup="true"
-        android:icon="@drawable/bite_logo"
+        android:icon="@drawable/ic_launcher_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Light">
@@ -30,10 +30,12 @@
         <activity
             android:name=".RestaurantActivity"
             android:label="Restaurant"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.Bite.Light"/>
         <activity
             android:name=".LoginActivity"
-            android:label="Login"/>
+            android:label="Login"
+            android:theme="@style/AppTheme.Light"/>
     </application>
 
 </manifest>

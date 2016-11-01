@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = ".MainActgit ivity";
+    private static final String TAG = ".MainActivity";
     private FirebaseAnalytics mFirebaseAnalytics;
 
     private static Toast toast;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        isDarkThemeUnlocked = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_dark_theme_enabled", false);
+        /*isDarkThemeUnlocked = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_dark_theme_enabled", false);
 
         int theme;
         if(isDarkThemeUnlocked){
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             theme = R.style.AppTheme_Light;
         }
-        setTheme(theme);
+        setTheme(theme);*/
 
         setContentView(R.layout.activity_main);
 

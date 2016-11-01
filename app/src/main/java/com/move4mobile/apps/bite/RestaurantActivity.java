@@ -26,12 +26,12 @@ public class RestaurantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int theme = PreferenceManager.getDefaultSharedPreferences(this).getInt("pref_theme", R.style.AppTheme_Light);
+        /*int theme = PreferenceManager.getDefaultSharedPreferences(this).getInt("pref_theme", R.style.AppTheme_Light);
         if(theme == R.style.AppTheme_Light){
             setTheme(R.style.AppTheme_Bite_Light);
         } else {
             setTheme(R.style.AppTheme);
-        }
+        }*/
 
         setContentView(R.layout.activity_restaurant);
 

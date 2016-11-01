@@ -115,8 +115,6 @@
     </style>
 
 
-
-
     <style name="AppTheme.Launcher" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
