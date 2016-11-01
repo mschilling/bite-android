@@ -30,8 +30,8 @@
     </android.support.design.widget.AppBarLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="82dp"
+        android:layout_height="24dp"
         android:src="@drawable/bite_logo"
         android:contentDescription="@string/brand_description"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
