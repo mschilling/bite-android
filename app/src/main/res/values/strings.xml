@@ -3,6 +3,9 @@
     <string name="toolbar_title">HEY, ANON!</string>
     <string name="action_account">Account</string>
 
+    <!-- OAuth -->
+    <string name="oauth_web_client_id">389337808613-0p56858ehmjkn3drs28tlh5bue1fa5mi.apps.googleusercontent.com</string>
+
     <string name="brand_description">Bite Logo</string>
     <string name="trophy_description">Trophy image</string>
     <string name="arrow_description">Arrow image</string>
