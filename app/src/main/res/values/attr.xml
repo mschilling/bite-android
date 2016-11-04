@@ -6,6 +6,7 @@
 
     <declare-styleable name="RelativeLayoutCircle">
         <attr name="customCircleColor" format="reference|color"/>
+        <attr name="customStrokeWidth" format="reference|dimension"/>
     </declare-styleable>
 
     <declare-styleable name="RelativeLayoutStatsTitle">

@@ -8,22 +8,28 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.move4mobile.apps.bite.LoginActivity">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"/>
     <com.move4mobile.apps.bite.TextViewCustom
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
-        android:textSize="98sp"
+        android:textSize="86sp"
         android:text="OH, HI!"
         android:textColor="?colorAccent"
         android:gravity="bottom|center_horizontal"
         app:customFont="@string/compasse_extra_bold_italic"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <com.move4mobile.apps.bite.TextViewCustom
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:paddingStart="28dp"
@@ -38,14 +44,56 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <RelativeLayout
+        android:id="@+id/google_user_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible">
+
+        <com.move4mobile.apps.bite.RelativeLayoutCircle
+            android:id="@+id/circle_google_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/circle"
+            app:customCircleColor="?colorAccent"
+            app:customStrokeWidth="3dp">
+
+            <ImageView
+                android:id="@+id/google_account_image"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:visibility="visible"/>
+
+        </com.move4mobile.apps.bite.RelativeLayoutCircle>
+        <com.move4mobile.apps.bite.TextViewCustom
+            android:id="@+id/google_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/circle_google_image"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            app:customFont="@string/compasse_extra_bold_italic"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
         app:buttonSize="wide"
         app:colorScheme="dark"
         android:elevation="0dp"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <com.move4mobile.apps.bite.TextViewCustom
         android:layout_width="match_parent"
@@ -62,6 +110,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:src="@drawable/m4m_logo"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 
@@ -28,17 +27,18 @@ public class RelativeLayoutCircle extends RelativeLayout {
 
     private void setCircleColor(Context ctx, AttributeSet attrs) {
         TypedArray a = ctx.obtainStyledAttributes(attrs, R.styleable.RelativeLayoutCircle);
-        int color = a.getColor(0, getResources().getColor(R.color.colorAccent, ctx.getTheme()));
-        setCircleColor(ctx, color);
+        int color = a.getColor(R.styleable.RelativeLayoutCircle_customCircleColor, getResources().getColor(R.color.colorAccent, ctx.getTheme()));
+        float width = a.getDimension(R.styleable.RelativeLayoutCircle_customStrokeWidth, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2F, getResources().getDisplayMetrics()));
+        setCircleColor(ctx, color, width);
         a.recycle();
     }
 
-    public void setCircleColor(Context ctx, int color){
+    public void setCircleColor(Context ctx, int color, float width){
         GradientDrawable bgDrawable = (GradientDrawable) getBackground();
 
-        DisplayMetrics dm = getResources().getDisplayMetrics() ;
-        float strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, dm);
+        /*DisplayMetrics dm = getResources().getDisplayMetrics() ;
+        float strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, dm);*/
 
-        bgDrawable.setStroke((int) strokeWidth, color);
+        bgDrawable.setStroke((int) width, color);
     }
 }
