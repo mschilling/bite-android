@@ -27,16 +27,22 @@
             android:name=".MainActivity"
             android:label="BITES"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.Light"/>
+            android:theme="@style/AppTheme.Light" />
         <activity
             android:name=".RestaurantActivity"
             android:label="Restaurant"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.Bite.Light"/>
+            android:theme="@style/AppTheme.Bite.Light" />
         <activity
             android:name=".LoginActivity"
             android:label="Login"
-            android:theme="@style/AppTheme.Login.Light"/>
+            android:theme="@style/AppTheme.Login.Light" />
+        <activity
+            android:name=".UpdateDialog"
+            android:label="Bite Update"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"/>
     </application>
 
 </manifest>

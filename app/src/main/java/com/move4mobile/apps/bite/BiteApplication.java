@@ -1,9 +1,18 @@
 package com.move4mobile.apps.bite;
 
 import android.app.Application;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 /**
  * Created by casvd on 28-9-2016.
@@ -13,15 +22,53 @@ public class BiteApplication extends Application {
 
     private static final String TAG = ".BiteApplication";
 
+    private FirebaseDatabase database;
+    private DatabaseReference androidVersionRef;
+
+    private static int versionCode;
+    private static String versionName;
+
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
         FirebaseAnalytics.getInstance(this);
+        database = FirebaseDatabase.getInstance();
+        androidVersionRef = database.getReference("android_app");
+
+        versionCode = BuildConfig.VERSION_CODE;
+        versionName = BuildConfig.VERSION_NAME;
 
         initFonts();
+
+        androidVersionRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                setAppVersion(dataSnapshot);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                setAppVersion(dataSnapshot);
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                setAppVersion(dataSnapshot);
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                setAppVersion(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //Failed to read
+            }
+        });
     }
 
-    public static class Fonts{
+    public static class Fonts {
         public static Typeface COMPASSE, COMPASSE_EXTRA_BOLD_ITALIC;
 
         public static Typeface getFont(String asset){
@@ -36,9 +83,69 @@ public class BiteApplication extends Application {
         }
     }
 
-    private void initFonts(){
+    private void initFonts() {
         Fonts.COMPASSE = Typeface.createFromAsset(getAssets(), "fonts/Compasse.otf");
         Fonts.COMPASSE_EXTRA_BOLD_ITALIC = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBoldItalic.otf");
+    }
+
+    private void setAppVersion(DataSnapshot dataSnapshot) {
+        Log.d(TAG, dataSnapshot.toString());
+        if (Objects.equals(dataSnapshot.getKey(), "version_code")) {
+            if(versionCode < ((Long)dataSnapshot.getValue()).intValue()){
+                versionCode = ((Long)dataSnapshot.getValue()).intValue();
+                checkUpdate();
+            }
+        } else if (Objects.equals(dataSnapshot.getKey(), "version_name")) {
+            //myVersionName = (String) dataSnapshot.getValue();
+            switch (versionName.compareToIgnoreCase((String)dataSnapshot.getValue())) {
+                case 1:
+                    Log.e(TAG, "Smaller");
+                    //Can you timetravel?
+                    //You have a newer version than that exists in today's world...
+                    versionName = (String)dataSnapshot.getValue();
+                    break;
+                case 0:
+                    Log.e(TAG, "Equals");
+                    //Current version
+                    break;
+                case -1:
+                    Log.e(TAG, "Bigger");
+                    //Newer version
+                    versionName = (String)dataSnapshot.getValue();
+                    checkUpdate();
+                    break;
+                default:
+                    Log.e(TAG, "WHAT");
+                    //Way newer version
+                    //Yer way behind
+                    versionName = (String)dataSnapshot.getValue();
+                    checkUpdate();
+                    break;
+            }
+        }
+    }
+
+    private void checkUpdate() {
+        if(versionCode > BuildConfig.VERSION_CODE && !versionName.equalsIgnoreCase(BuildConfig.VERSION_NAME)){
+            showUpdateMessage();
+        }
+    }
+
+    private void showUpdateMessage() {
+        if(UpdateDialog.active){
+            UpdateDialog updateDialog = UpdateDialog.getInstance();
+            updateDialog.showUpdateMessage();
+        } else {
+            Intent intent = new Intent(this, UpdateDialog.class);
+            startActivity(intent);
+        }
+    }
+
+    protected static int getNewVersionCode() {
+        return versionCode;
+    }
+    protected static String getNewVersionName() {
+        return versionName;
     }
 
 }
