@@ -137,6 +137,7 @@ public class BiteApplication extends Application {
             updateDialog.showUpdateMessage();
         } else {
             Intent intent = new Intent(this, UpdateDialog.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
     }
