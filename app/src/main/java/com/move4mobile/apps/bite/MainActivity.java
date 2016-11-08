@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 /**
  * Created by casvd on 8-11-2016.
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivityFireAuth {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onLoggedIn() {
+        super.onLoggedIn();
+        TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_text);
+        String displayName = getUser().getDisplayName();
+        String firstName = displayName.split("\\s+")[0];
+        toolbarTitle.setText(getString(R.string.toolbar_title, firstName.toUpperCase()));
     }
 
     @Override
