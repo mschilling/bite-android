@@ -53,8 +53,15 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onLoggedIn();
         TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_text);
         String displayName = getUser().getDisplayName();
-        String firstName = displayName.split("\\s+")[0];
-        toolbarTitle.setText(getString(R.string.toolbar_title, firstName.toUpperCase()));
+        String firstName = null;
+        if (displayName != null) {
+            firstName = displayName.split("\\s+")[0];
+        }
+        if (firstName != null) {
+            toolbarTitle.setText(getString(R.string.toolbar_title, firstName.toUpperCase()));
+        } else {
+            toolbarTitle.setText(getString(R.string.toolbar_title, "ANON"));
+        }
     }
 
     @Override
