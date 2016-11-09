@@ -31,6 +31,14 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by casvd on 3-11-2016.
@@ -43,6 +51,9 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
 
     private GoogleApiClient mGoogleApiClient;
     private GoogleSignInAccount account;
+
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mRefUsers;
 
     private ImageView imageView;
     private TextView textView;
@@ -65,6 +76,9 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
                 .enableAutoManage(this, this) //Activity // OnConnectionFailedListener
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        mDatabase = FirebaseDatabase.getInstance();
+        mRefUsers = mDatabase.getReference("users");
 
         SignInButton mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
         mSignInButton.setOnClickListener(this);
@@ -120,6 +134,8 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
     protected void onLoggedIn() {
         super.onLoggedIn();
 
+        checkIfUserExists();
+
         if(progressDialog != null){
             progressDialog.cancel();
             progressDialog = null;
@@ -128,6 +144,27 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void checkIfUserExists() {
+        final DatabaseReference userRef = mRefUsers.child(getUser().getUid());
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() == null){
+                    Log.d(TAG, "Creating new user in database...");
+                    User user = new User(getUser());
+                    Map<String, User> map = new HashMap<>();
+                    map.put("data", user);
+                    userRef.setValue(map);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        });
     }
 
     @Override
