@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
         mDatabase.goOnline();
         if(adapter == null) {
-            adapter = new BitesAdapter(Bite.class, R.layout.bite_card, BiteViewHolder.class, mRefOrders);
+            adapter = new BitesAdapter(Bite.class, R.layout.bite_card, BiteViewHolder.class, mRefOrders, getBaseContext());
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -123,8 +123,6 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
             }
         });
-
-
     }
 
     private void updateToolbarTitle(DataSnapshot data) {

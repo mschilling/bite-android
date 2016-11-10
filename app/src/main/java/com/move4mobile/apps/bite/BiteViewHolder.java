@@ -13,12 +13,14 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
 
     static final String TAG = "BiteViewHolder";
     ImageView mImageView;
-    TextViewCustom mTextViewCustom;
+    TextViewCustom mTextTitle;
+    TextViewCustom mTextLocation;
 
     public BiteViewHolder(View v) {
         super(v);
-        mImageView = (ImageView) v.findViewById(R.id.bite_card_created_by_image);
-        mTextViewCustom = (TextViewCustom) v.findViewById(R.id.bite_card_restaurant_title_text);
+        mImageView = (ImageView) v.findViewById(R.id.bite_card_created);
+        mTextTitle = (TextViewCustom) v.findViewById(R.id.bite_card_restaurant_title);
+        mTextLocation = (TextViewCustom) v.findViewById(R.id.bite_card_location);
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override

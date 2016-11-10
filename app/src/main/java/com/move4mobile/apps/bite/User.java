@@ -13,6 +13,10 @@ public class User {
     private String email;
     private String photo_url;
 
+    public User() {
+
+    }
+
     public User(String display_name, String name, String email, String photo_url) {
         this.display_name = display_name;
         this.name = name;
