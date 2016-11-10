@@ -27,7 +27,7 @@ public class User {
         this.photo_url = String.valueOf(user.getPhotoUrl());
     }
 
-    public String getDisplayName() {
+    public String getDisplay_name() {
         return display_name;
     }
 
@@ -39,7 +39,7 @@ public class User {
         return email;
     }
 
-    public String getPhotoUrl() {
+    public String getPhoto_url() {
         return photo_url;
     }
 }

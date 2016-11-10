@@ -7,8 +7,8 @@ android {
         applicationId "com.move4mobile.apps.bite"
         minSdkVersion 23 //For windowLightStatusBar
         targetSdkVersion 24
-        versionCode 12
-        versionName "1.3.6-Cas"
+        versionCode 13
+        versionName "1.3.7-Cas"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     println("Version name: " + defaultConfig.versionName)

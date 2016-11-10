@@ -6,14 +6,18 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by casvd on 8-11-2016.
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrders;
+    private DatabaseReference mRefUserData;
     private FirebaseRecyclerAdapter adapter;
 
     private LinearLayoutManager linearLayoutManager;
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivityFireAuth {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        updateToolbarTitle(null);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_bites);
         mRecyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
         mRefOrders = mDatabase.getReference("orders");
+        mRefUserData = mDatabase.getReference("users");
     }
 
     @Override
@@ -104,18 +112,33 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onLoggedIn();
 
         mDatabase.goOnline();
+        mRefUserData.child(getUser().getUid()).child("data").child("display_name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                updateToolbarTitle(dataSnapshot);
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
+    private void updateToolbarTitle(DataSnapshot data) {
         TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_text);
-        String displayName = getUser().getDisplayName();
-        String firstName = null;
-        if (displayName != null) {
-            firstName = displayName.split("\\s+")[0];
-        }
-        if (firstName != null) {
-            toolbarTitle.setText(getString(R.string.toolbar_title, firstName.toUpperCase()));
+        String username;
+        if(data != null) {
+            username = (String) data.getValue();
+            if(username == null || username.isEmpty()) {
+                username = "ANON";
+            }
         } else {
-            toolbarTitle.setText(getString(R.string.toolbar_title, "ANON"));
+            username = "ANON";
         }
+        toolbarTitle.setText(getString(R.string.toolbar_title, username.toUpperCase()));
     }
 
     @Override
