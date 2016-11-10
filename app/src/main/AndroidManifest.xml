@@ -43,6 +43,12 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"/>
+        <activity
+            android:name=".UsernameDialog"
+            android:label="Set Username"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"/>
     </application>
 
 </manifest>

@@ -8,26 +8,27 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class User {
 
-    private String username;
+    private String display_name;
     private String name;
     private String email;
     private String photo_url;
 
-    public User(String username, String name, String email, String photo_url) {
-        this.username = username;
+    public User(String display_name, String name, String email, String photo_url) {
+        this.display_name = display_name;
         this.name = name;
         this.email = email;
         this.photo_url = photo_url;
     }
+
     public User(FirebaseUser user) {
-        this.username = user.getDisplayName();
+        this.display_name = user.getDisplayName();
         this.name = user.getDisplayName();
         this.email = user.getEmail();
         this.photo_url = String.valueOf(user.getPhotoUrl());
     }
 
-    public String getUsername() {
-        return username;
+    public String getDisplayName() {
+        return display_name;
     }
 
     public String getName() {
@@ -38,7 +39,7 @@ public class User {
         return email;
     }
 
-    public String getPhoto_url() {
+    public String getPhotoUrl() {
         return photo_url;
     }
 }

@@ -43,7 +43,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
         mRefStoreName.child("data").child("name").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Log.e(TAG, dataSnapshot.toString());
+                    //Log.e(TAG, dataSnapshot.toString());
                     viewHolder.mTextViewCustom.setText(dataSnapshot.getValue(String.class).toUpperCase());
                 }
 
@@ -52,9 +52,6 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
 
                 }
             });
-
-        // TODO: Set the View
-        Log.e(TAG, "Creating View... " + getRef(position).getKey());
     }
 
 }

@@ -152,11 +152,13 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null){
-                    Log.d(TAG, "Creating new user in database...");
                     User user = new User(getUser());
                     Map<String, User> map = new HashMap<>();
                     map.put("data", user);
                     userRef.setValue(map);
+                    Log.d(TAG, "Added user");
+
+                    changeUserName();
                 }
             }
 
@@ -165,6 +167,11 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
                 Log.e(TAG, databaseError.toString());
             }
         });
+    }
+
+    private void changeUserName() {
+        Intent intent = new Intent(this, UsernameDialog.class);
+        startActivity(intent);
     }
 
     @Override
