@@ -73,31 +73,34 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //Log.e(TAG, dataSnapshot.toString());
                     final User user = dataSnapshot.getValue(User.class);
-                    Glide.with(mContext).load(user.getPhoto_url())
-                            .asBitmap()
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_shipit)
-                            .into(new BitmapImageViewTarget(viewHolder.mImageView){
+                    if(user != null) {
 
-                                @Override
-                                protected void setResource(Bitmap resource) {
-                                    RoundedBitmapDrawable circularBitmapDrawable =
-                                            RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
-                                    circularBitmapDrawable.setCircular(true);
-                                    viewHolder.mImageView.setImageDrawable(circularBitmapDrawable);
-                                }
-                            });
-                    viewHolder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            Toast toast = Toast.makeText(v.getContext(), user.getDisplay_name() + " | " + user.getName(), Toast.LENGTH_SHORT);
-                            int[] loc = new int[2];
-                            v.getLocationInWindow(loc);
-                            toast.setGravity(Gravity.TOP|Gravity.START, loc[0], loc[1] + v.getHeight()/2);
-                            toast.show();
-                            return false;
-                        }
-                    });
+                        Glide.with(mContext).load(user.getPhoto_url())
+                                .asBitmap()
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_shipit)
+                                .into(new BitmapImageViewTarget(viewHolder.mImageView) {
+
+                                    @Override
+                                    protected void setResource(Bitmap resource) {
+                                        RoundedBitmapDrawable circularBitmapDrawable =
+                                                RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
+                                        circularBitmapDrawable.setCircular(true);
+                                        viewHolder.mImageView.setImageDrawable(circularBitmapDrawable);
+                                    }
+                                });
+                        viewHolder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                Toast toast = Toast.makeText(v.getContext(), user.getDisplay_name() + " | " + user.getName(), Toast.LENGTH_SHORT);
+                                int[] loc = new int[2];
+                                v.getLocationInWindow(loc);
+                                toast.setGravity(Gravity.TOP | Gravity.START, loc[0], loc[1] + v.getHeight() / 2);
+                                toast.show();
+                                return false;
+                            }
+                        });
+                    }
                 }
 
                 @Override
