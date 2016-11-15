@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivityFireAuth {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
-                mRefOrders.push().setValue(b);
+                /*Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
+                mRefOrders.push().setValue(b);*/
             }
         });
     }
