@@ -33,7 +33,7 @@ public class UsernameDialog extends AppCompatActivityFireAuth {
     @Override
     protected void onLoggedIn() {
         super.onLoggedIn();
-        mRefDisplayName = mRefDisplayName.child(getUser().getUid()).child("data").child("display_name");
+        mRefDisplayName = mRefDisplayName.child(getUser().getUid()).child("display_name");
         showUsernameDialog();
     }
 

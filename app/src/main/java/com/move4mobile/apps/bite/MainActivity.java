@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onLoggedIn();
 
         mDatabase.goOnline();
-        mRefUserData.child(getUser().getUid()).child("data").child("display_name").addValueEventListener(new ValueEventListener() {
+        mRefUserData.child(getUser().getUid()).child("display_name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 updateToolbarTitle(dataSnapshot);
