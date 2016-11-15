@@ -7,12 +7,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
     private LinearLayoutManager linearLayoutManager;
 
+    private ImageView firebaseStatusImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +58,24 @@ public class MainActivity extends AppCompatActivityFireAuth {
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
+        firebaseStatusImage = (ImageView) findViewById(R.id.connection_state);
+
+        TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+        textView.setText(getString(R.string.bites, 0));
+
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
         mRefOrders = mDatabase.getReference("orders");
         mRefUserData = mDatabase.getReference("users");
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.main_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
+                mRefOrders.push().setValue(b);
+            }
+        });
     }
 
     @Override
@@ -83,6 +100,17 @@ public class MainActivity extends AppCompatActivityFireAuth {
                                     lastVisiblePosition == (positionStart - 1))) {
                         mRecyclerView.scrollToPosition(positionStart);
                     }
+
+                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
+                }
+
+                @Override
+                public void onItemRangeRemoved(int positionStart, int itemCount) {
+                    super.onItemRangeRemoved(positionStart, itemCount);
+
+                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
                 }
             });
             mRecyclerView.setAdapter(adapter);
@@ -123,7 +151,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.e(TAG, databaseError.toString());
             }
         });
     }
@@ -149,5 +177,16 @@ public class MainActivity extends AppCompatActivityFireAuth {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onConnect() {
+        super.onConnect();
+        firebaseStatusImage.setImageDrawable(getDrawable(R.drawable.ic_cloud_queue_black));
+    }
+    @Override
+    protected void onDisconnect() {
+        super.onDisconnect();
+        firebaseStatusImage.setImageDrawable(getDrawable(R.drawable.ic_cloud_off_black));
     }
 }

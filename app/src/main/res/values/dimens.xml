@@ -30,12 +30,14 @@
     <dimen name="bites_title_margin_vertical">8dp</dimen>
 
     <dimen name="bites_title_stripe_height">1dp</dimen>
-    <dimen name="bites_title_stripe_margin">16dp</dimen>
+    <dimen name="bites_title_stripe_margin_horizontal">16dp</dimen>
+    <dimen name="bites_title_stripe_margin_vertical">8dp</dimen>
 
     /////////////////////////////
     ////// BITES CARD //////
     /////////////////////////////
-    <dimen name="bite_card_margin">16dp</dimen>
+    <dimen name="bite_card_margin_horizontal">16dp</dimen>
+    <dimen name="bite_card_margin_vertical">8dp</dimen>
     <dimen name="bite_card_header_margin">16dp</dimen>
 
     <dimen name="bite_card_header_image_size">40dp</dimen>

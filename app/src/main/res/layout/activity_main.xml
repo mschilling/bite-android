@@ -17,6 +17,14 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_width="match_parent">
 
+            <ImageView
+                android:id="@+id/connection_state"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_cloud_off_black"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Firebase connection status" />
+
             <com.move4mobile.apps.bite.TextViewCustom
                 android:id="@+id/toolbar_text"
                 android:layout_width="wrap_content"
@@ -128,6 +136,7 @@
 
             <!-- Title -->
             <com.move4mobile.apps.bite.TextViewCustom
+                android:id="@+id/bites_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/bites_title_margin_horizontal"
@@ -143,9 +152,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bites_title_stripe_height"
-                android:layout_marginStart="@dimen/bites_title_stripe_margin"
-                android:layout_marginEnd="@dimen/bites_title_stripe_margin"
-                android:layout_marginBottom="@dimen/bites_title_stripe_margin"
+                android:layout_marginStart="@dimen/bites_title_stripe_margin_horizontal"
+                android:layout_marginEnd="@dimen/bites_title_stripe_margin_horizontal"
+                android:layout_marginBottom="@dimen/bites_title_stripe_margin_vertical"
                 android:background="?colorAccent"/>
 
             <!-- Including layout/bite_card -->

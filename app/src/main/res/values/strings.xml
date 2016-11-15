@@ -17,7 +17,7 @@
     <string name="rank_card_text">Je staat op de 1337ste plek ANON!</string>
 
 
-    <string name="bites">BITES (1337) ¯\\_(ツ)_/¯</string>
+    <string name="bites">BITES (%1$d) ¯\\_(ツ)_/¯</string>
     <string name="bites_text">Er staan momenteel 1337 BITES open. Je kunt aanhaken of zelf een nieuwe BITE openen!</string>
 
     <string name="toolbar_title_restaurant">Nothing to see here... Yet🌚</string>

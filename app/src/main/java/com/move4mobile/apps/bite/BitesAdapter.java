@@ -1,6 +1,7 @@
 package com.move4mobile.apps.bite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -49,7 +50,16 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     }
 
     @Override
-    protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, int position) {
+    protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
+
+        viewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), RestaurantActivity.class);
+                intent.putExtra("key", getRef(position).getKey());
+                v.getContext().startActivity(intent);
+            }
+        });
 
         mRefStoreName = mDatabase.getReference("stores/"+model.getStore());
         mRefStoreName.child("data").addValueEventListener(new ValueEventListener() {
@@ -63,7 +73,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    Log.e(TAG, databaseError.toString());
                 }
             });
 
@@ -105,7 +115,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    Log.e(TAG, databaseError.toString());
                 }
             });
 

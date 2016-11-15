@@ -10,6 +10,12 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by casvd on 3-11-2016.
@@ -23,11 +29,20 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     private FirebaseUser user;
 
+    private FirebaseDatabase database;
+    //private DatabaseReference myConnectionsRef;
+    private DatabaseReference lastOnlineRef;
+    private DatabaseReference connectedRef;
+    private ValueEventListener listener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e(TAG, "BORN");
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
     }
 
     @Override
@@ -56,6 +71,45 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     protected void onLoggedIn() {
         Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+
+        if(listener != null) return;
+
+        //myConnectionsRef = database.getReference("users").child(user.getUid()).child("connections");
+        lastOnlineRef = database.getReference("users").child(user.getUid()).child("lastOnline");
+        connectedRef = database.getReference(".info/connected");
+
+        listener = connectedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean connected = dataSnapshot.getValue(Boolean.class);
+                if (connected) {
+                    onConnect();
+                    //DatabaseReference con = myConnectionsRef.push();
+                    //con.setValue(Boolean.TRUE);
+
+                    // when this device disconnects, remove it
+                    //con.onDisconnect().removeValue();
+
+                    // when I disconnect, update the last time I was seen online
+                    lastOnlineRef.onDisconnect().setValue(ServerValue.TIMESTAMP);
+                } else {
+                    onDisconnect();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG, "Listener was cancelled at .info/connected");
+            }
+        });
+    }
+
+    protected void onDisconnect() {
+        Log.d(TAG, "NOT CONNECTED");
+    }
+
+    protected void onConnect() {
+        Log.d(TAG, "CONNECTED");
     }
 
     protected void onLoggedOut() {
@@ -95,5 +149,13 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     protected void signInWithCredentialException(Exception exception) {
         Log.d(TAG, "signInWithCredential", exception);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(listener == null) return;
+        connectedRef.removeEventListener(listener);
+        listener = null;
     }
 }
