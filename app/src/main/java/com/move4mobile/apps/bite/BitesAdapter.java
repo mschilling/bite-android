@@ -30,7 +30,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefStoreName;
-    private DatabaseReference mRefUserDetails;
+    private DatabaseReference mRefUserData;
 
     private Context mContext;
 
@@ -77,8 +77,8 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 }
             });
 
-        mRefUserDetails = mDatabase.getReference("users/"+model.getOpened_by());
-        mRefUserDetails.addValueEventListener(new ValueEventListener() {
+        mRefUserData = mDatabase.getReference("users/"+model.getOpened_by());
+        mRefUserData.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //Log.e(TAG, dataSnapshot.toString());

@@ -38,7 +38,6 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e(TAG, "BORN");
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();

@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onConnect();
         firebaseStatusImage.setImageDrawable(getDrawable(R.drawable.ic_cloud_queue_black));
     }
+
     @Override
     protected void onDisconnect() {
         super.onDisconnect();
