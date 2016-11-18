@@ -71,6 +71,10 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG, dataSnapshot.toString());
 
+                if(mRefStore != null) mRefStore.removeEventListener(storeListener);
+                if(mRefProducts != null) mRefProducts.removeEventListener(productsListener);
+                if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
+
                 Bite bite = dataSnapshot.getValue(Bite.class);
                 mRefStore = mDatabase.getReference("stores").child(bite.getStore());
                 mRefProducts = mDatabase.getReference("products").child(bite.getStore());
