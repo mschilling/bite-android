@@ -36,6 +36,7 @@
             android:layout_margin="12dp">
 
             <com.move4mobile.apps.bite.TextViewCustom
+                android:id="@+id/menu_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
@@ -44,10 +45,11 @@
                 android:textSize="16sp"
                 app:customFont="@string/compasse"/>
             <com.move4mobile.apps.bite.TextViewCustom
+                android:id="@+id/menu_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
-                android:text="€1,85"
+                android:text="€13,37"
                 android:textSize="14sp"
                 app:customFont="@string/compasse"/>
 

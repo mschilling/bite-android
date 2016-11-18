@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,9 +32,10 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private String key;
 
     private TextViewCustom textViewCustomToolbarText;
-
     private ImageView imageViewStartedBy;
     private TextViewCustom textViewCustomStartedBy;
+    private RecyclerView mRecyclerView;
+    private LinearLayoutManager linearLayoutManager;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrder;
@@ -43,6 +47,8 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private ValueEventListener storeListener;
     private ValueEventListener productsListener;
     private ValueEventListener userListener;
+
+    private FirebaseRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,11 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         textViewCustomToolbarText = (TextViewCustom) findViewById(R.id.toolbar_text);
         imageViewStartedBy = (ImageView) findViewById(R.id.bite_card_started_by_image);
         textViewCustomStartedBy = (TextViewCustom) findViewById(R.id.bite_card_started_by);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_menu);
+        mRecyclerView.setHasFixedSize(false);
+        mRecyclerView.setNestedScrollingEnabled(false);
+        linearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,7 +88,18 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
                 Bite bite = dataSnapshot.getValue(Bite.class);
                 mRefStore = mDatabase.getReference("stores").child(bite.getStore());
-                mRefProducts = mDatabase.getReference("products").child(bite.getStore());
+                mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
+                if(adapter == null) {
+                    adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext());
+                    /*adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                        @Override
+                        public void onItemRangeInserted(int positionStart, int itemCount) {
+                            super.onItemRangeInserted(positionStart, itemCount);
+                            Log.e("TAG", "Inserted");
+                        }
+                    });*/
+                    mRecyclerView.setAdapter(adapter);
+                }
                 mRefUserData = mDatabase.getReference("users").child(bite.getOpened_by());
 
                 mRefStore.addValueEventListener(storeListener);
@@ -148,17 +170,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
     protected void onLoggedIn() {
         super.onLoggedIn();
-
-        /*if(mRefStore != null) {
-            if (mRefOrder != null && storeListener != null) mRefStore.removeEventListener(storeListener);
-            if (mRefProducts != null && productsListener != null) mRefProducts.removeEventListener(productsListener);
-            if (mRefUserData != null && userListener != null) mRefUserData.removeEventListener(userListener);
-        }*/
-
         mRefOrder = mDatabase.getReference("orders").child(key);
-
         mRefOrder.addValueEventListener(orderListener);
     }
 

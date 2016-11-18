@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class BiteViewHolder extends RecyclerView.ViewHolder {
 
-    static final String TAG = "BiteViewHolder";
+    private static final String TAG = "BiteViewHolder";
     View view;
     ImageView mImageView;
     TextViewCustom mTextTitle;
