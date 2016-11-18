@@ -39,6 +39,7 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -47,13 +48,43 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     @Override
     public void onStart() {
         super.onStart();
+        Log.d(TAG, "onStart");
+
         mAuth.addAuthStateListener(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        Log.d(TAG, "onStop");
         mAuth.removeAuthStateListener(this);
+        if(listener == null) return;
+        connectedRef.removeEventListener(listener);
+        listener = null;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
     }
 
     @Override
@@ -74,7 +105,7 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
         if(listener != null) return;
 
         //myConnectionsRef = database.getReference("users").child(user.getUid()).child("connections");
-        lastOnlineRef = database.getReference("users").child(user.getUid()).child("lastOnline");
+        lastOnlineRef = database.getReference("users").child(user.getUid()).child("last_online");
         connectedRef = database.getReference(".info/connected");
 
         listener = connectedRef.addValueEventListener(new ValueEventListener() {
@@ -148,13 +179,5 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     protected void signInWithCredentialException(Exception exception) {
         Log.d(TAG, "signInWithCredential", exception);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(listener == null) return;
-        connectedRef.removeEventListener(listener);
-        listener = null;
     }
 }

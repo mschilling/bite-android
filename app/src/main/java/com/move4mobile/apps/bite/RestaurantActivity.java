@@ -39,6 +39,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private DatabaseReference mRefProducts;
     private DatabaseReference mRefUserData;
 
+    private ValueEventListener orderListener;
     private ValueEventListener storeListener;
     private ValueEventListener productsListener;
     private ValueEventListener userListener;
@@ -64,6 +65,82 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
+
+        orderListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, dataSnapshot.toString());
+
+                Bite bite = dataSnapshot.getValue(Bite.class);
+                mRefStore = mDatabase.getReference("stores").child(bite.getStore());
+                mRefProducts = mDatabase.getReference("products").child(bite.getStore());
+                mRefUserData = mDatabase.getReference("users").child(bite.getOpened_by());
+
+                mRefStore.addValueEventListener(storeListener);
+                mRefProducts.addValueEventListener(productsListener);
+                mRefUserData.addValueEventListener(userListener);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
+        storeListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, dataSnapshot.toString());
+                Store store = dataSnapshot.getValue(Store.class);
+                if(store != null) {
+                    textViewCustomToolbarText.setText(store.getName());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
+        productsListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, dataSnapshot.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
+        userListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, dataSnapshot.toString());
+                User user = dataSnapshot.getValue(User.class);
+                if(user != null){
+                    textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplay_name().toUpperCase()));
+                    Glide.with(getApplicationContext()).load(user.getPhoto_url())
+                            .asBitmap()
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_shipit)
+                            .into(new BitmapImageViewTarget(imageViewStartedBy) {
+
+                                @Override
+                                protected void setResource(Bitmap resource) {
+                                    RoundedBitmapDrawable circularBitmapDrawable =
+                                            RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), resource);
+                                    circularBitmapDrawable.setCircular(true);
+                                    imageViewStartedBy.setImageDrawable(circularBitmapDrawable);
+                                }
+                            });
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
     }
 
     @Override
@@ -78,78 +155,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
         mRefOrder = mDatabase.getReference("orders").child(key);
 
-        mRefOrder.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, dataSnapshot.toString());
-
-                Bite bite = dataSnapshot.getValue(Bite.class);
-                mRefStore = mDatabase.getReference("stores").child(bite.getStore());
-                mRefProducts = mDatabase.getReference("products").child(bite.getStore());
-                mRefUserData = mDatabase.getReference("users").child(bite.getOpened_by());
-
-                mRefStore.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.d(TAG, dataSnapshot.toString());
-                        Store store = dataSnapshot.getValue(Store.class);
-                        if(store != null) {
-                            textViewCustomToolbarText.setText(store.getName());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, databaseError.toString());
-                    }
-                });
-                mRefProducts.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.d(TAG, dataSnapshot.toString());
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, databaseError.toString());
-                    }
-                });
-                mRefUserData.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.d(TAG, dataSnapshot.toString());
-                        User user = dataSnapshot.getValue(User.class);
-                        if(user != null){
-                            textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplay_name().toUpperCase()));
-                            Glide.with(getApplicationContext()).load(user.getPhoto_url())
-                                    .asBitmap()
-                                    .centerCrop()
-                                    .placeholder(R.drawable.ic_shipit)
-                                    .into(new BitmapImageViewTarget(imageViewStartedBy) {
-
-                                        @Override
-                                        protected void setResource(Bitmap resource) {
-                                            RoundedBitmapDrawable circularBitmapDrawable =
-                                                    RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), resource);
-                                            circularBitmapDrawable.setCircular(true);
-                                            imageViewStartedBy.setImageDrawable(circularBitmapDrawable);
-                                        }
-                                    });
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, databaseError.toString());
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, databaseError.toString());
-            }
-        });
+        mRefOrder.addValueEventListener(orderListener);
     }
 
     @Override
@@ -158,5 +164,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(mRefOrder != null) mRefOrder.removeEventListener(orderListener);
+        if(mRefStore != null) mRefStore.removeEventListener(storeListener);
+        if(mRefProducts != null) mRefProducts.removeEventListener(productsListener);
+        if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
     }
 }

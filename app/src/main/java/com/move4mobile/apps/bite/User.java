@@ -12,6 +12,7 @@ public class User {
     private String name;
     private String email;
     private String photo_url;
+    private long last_online;
 
     public User() {
 
@@ -22,6 +23,14 @@ public class User {
         this.name = name;
         this.email = email;
         this.photo_url = photo_url;
+    }
+
+    public User(String display_name, String name, String email, String photo_url, long last_online) {
+        this.display_name = display_name;
+        this.name = name;
+        this.email = email;
+        this.photo_url = photo_url;
+        this.last_online = last_online;
     }
 
     public User(FirebaseUser user) {
@@ -45,5 +54,9 @@ public class User {
 
     public String getPhoto_url() {
         return photo_url;
+    }
+
+    public long getLast_online() {
+        return last_online;
     }
 }
