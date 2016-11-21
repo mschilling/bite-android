@@ -11,6 +11,10 @@
     /////////////////////////////
     ////// BITES //////
     /////////////////////////////
+    <!-- Toolbar -->
+    <dimen name="bites_toolbar_firebase_status_size">24dp</dimen>
+    <dimen name="bites_toolbar_firebase_status_margin">16dp</dimen>
+
     <!-- Rank Card -->
     <dimen name="rank_card_height">72dp</dimen>
     <dimen name="rank_card_margin">16dp</dimen>
@@ -32,6 +36,10 @@
     <dimen name="bites_title_stripe_height">1dp</dimen>
     <dimen name="bites_title_stripe_margin_horizontal">16dp</dimen>
     <dimen name="bites_title_stripe_margin_vertical">8dp</dimen>
+
+    <!-- Brand -->
+    <dimen name="brand_width">82dp</dimen>
+    <dimen name="brand_height">24dp</dimen>
 
     /////////////////////////////
     ////// BITES CARD //////
