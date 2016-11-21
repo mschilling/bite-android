@@ -3,90 +3,81 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="72dp"
-    app:cardElevation="0dp"
-    app:cardCornerRadius="0dp"
+    android:layout_height="@dimen/bite_restaurant_menu_item_height"
+    app:cardElevation="@dimen/bite_restaurant_menu_item_elevation"
+    app:cardCornerRadius="@dimen/bite_restaurant_menu_item_corner_radius"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:baselineAligned="false">
-
         <LinearLayout
-            android:layout_width="72dp"
+            android:layout_width="@dimen/bite_restaurant_menu_item_trophy_size"
             android:layout_height="match_parent">
-
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/bite_restaurant_menu_item_trophy_margin"
                 android:src="@drawable/ic_trophy"
                 android:contentDescription="@string/trophy_description" />
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="@integer/bite_restaurant_menu_item_text_layout_weight"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_margin="12dp">
-
+            android:layout_margin="@dimen/bite_restaurant_menu_item_text_layout_margin">
             <com.move4mobile.apps.bite.TextViewCustom
                 android:id="@+id/menu_item_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="@dimen/bite_restaurant_menu_item_text_padding"
                 android:text="Patat Normaal"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_title"
                 app:customFont="@string/compasse"/>
             <com.move4mobile.apps.bite.TextViewCustom
                 android:id="@+id/menu_item_price"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="@dimen/bite_restaurant_menu_item_text_padding"
                 android:text="€13,37"
-                android:textSize="14sp"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_price"
                 app:customFont="@string/compasse"/>
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="@dimen/bite_restaurant_menu_item_text_layout_margin"
             android:orientation="horizontal">
             <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/bite_restaurant_menu_item_action_padding"
                 android:text="-"
-                android:textSize="24sp"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_action"
                 app:customFont="@string/compasse_extra_bold_italic"/>
             <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/bite_restaurant_menu_item_action_padding"
                 android:textColor="?android:colorAccent"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="@dimen/bite_restaurant_menu_item_amount_margin"
+                android:layout_marginEnd="@dimen/bite_restaurant_menu_item_amount_margin"
                 android:text="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_amount"
                 app:customFont="@string/compasse_extra_bold_italic"/>
             <com.move4mobile.apps.bite.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/bite_restaurant_menu_item_action_padding"
                 android:text="+"
-                android:textSize="24sp"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_action"
                 app:customFont="@string/compasse_extra_bold_italic"/>
         </LinearLayout>
-
     </LinearLayout>
-
-
 </android.support.v7.widget.CardView>

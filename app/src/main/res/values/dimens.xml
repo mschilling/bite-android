@@ -108,4 +108,24 @@
     <dimen name="font_size_login_welcome_description">14sp</dimen>
     <dimen name="font_size_powered_by">14sp</dimen>
 
+    <!-- Bite restaurant menu item -->
+    <dimen name="font_size_bite_restaurant_menu_item_title">16sp</dimen>
+    <dimen name="font_size_bite_restaurant_menu_item_price">14sp</dimen>
+
+    <dimen name="font_size_bite_restaurant_menu_item_action">24sp</dimen>
+    <dimen name="font_size_bite_restaurant_menu_item_amount">20sp</dimen>
+
+    /////////////////////////////
+    ////// BITE MENU ITEM //////
+    ////////////////////////////
+    <dimen name="bite_restaurant_menu_item_height">72dp</dimen>
+    <dimen name="bite_restaurant_menu_item_elevation">0dp</dimen>
+    <dimen name="bite_restaurant_menu_item_corner_radius">0dp</dimen>
+    <dimen name="bite_restaurant_menu_item_trophy_size">72dp</dimen>
+    <dimen name="bite_restaurant_menu_item_trophy_margin">20dp</dimen>
+    <dimen name="bite_restaurant_menu_item_text_layout_margin">12dp</dimen>
+    <dimen name="bite_restaurant_menu_item_text_padding">2dp</dimen>
+    <dimen name="bite_restaurant_menu_item_action_padding">8dp</dimen>
+    <dimen name="bite_restaurant_menu_item_amount_margin">16dp</dimen>
+
 </resources>
