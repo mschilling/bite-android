@@ -6,6 +6,9 @@
     <!-- OAuth -->
     <string name="oauth_web_client_id">389337808613-0p56858ehmjkn3drs28tlh5bue1fa5mi.apps.googleusercontent.com</string>
 
+    <string name="login_welcome_title">OH, HI!</string>
+    <string name="login_welcome_description">Leuk dat je even komt kijken!\n BITE is momenteel alleen te gebruiken door medewerkers van Move4Mobile.</string>
+
     <string name="brand_description">Bite Logo</string>
     <string name="firebase_connection_status">Firebase connection status</string>
     <string name="trophy_description">Trophy image</string>
@@ -26,5 +29,4 @@
 
     <string name="compasse">compasse</string>
     <string name="compasse_extra_bold_italic">compasse_extra_bold_italic</string>
-
 </resources>

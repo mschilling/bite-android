@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_login"
@@ -11,38 +12,34 @@
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1.5"/>
+        android:layout_weight="@integer/login_view_header"/>
     <com.move4mobile.apps.bite.TextViewCustom
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="46dp"
-        android:textSize="86sp"
-        android:text="OH, HI!"
+        android:textSize="@dimen/font_size_login_welcome_title"
+        android:text="@string/login_welcome_title"
         android:textColor="?colorAccent"
         android:gravity="bottom|center_horizontal"
         app:customFont="@string/compasse_extra_bold_italic"/>
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="@integer/login_view_spacing"/>
 
     <com.move4mobile.apps.bite.TextViewCustom
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:paddingStart="28dp"
-        android:paddingEnd="28dp"
-        android:textSize="14sp"
-        android:text="Leuk dat je even komt kijken!\n BITE is momenteel alleen te gebruiken door medewerkers van Move4Mobile."
+        android:layout_marginStart="@dimen/login_welcome_description_margin"
+        android:layout_marginEnd="@dimen/login_welcome_description_margin"
+        android:textSize="@dimen/font_size_login_welcome_description"
+        android:text="@string/login_welcome_description"
         android:gravity="bottom|center_horizontal"
         app:customFont="@string/compasse"/>
 
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="@integer/login_view_spacing"/>
 
     <RelativeLayout
         android:id="@+id/google_user_details"
@@ -53,18 +50,18 @@
 
         <com.move4mobile.apps.bite.RelativeLayoutCircle
             android:id="@+id/circle_google_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/login_circle_size"
+            android:layout_height="@dimen/login_circle_size"
             android:background="@drawable/circle"
             app:customCircleColor="?colorAccent"
-            app:customStrokeWidth="3dp">
+            app:customStrokeWidth="@dimen/login_circle_stroke_width">
 
             <ImageView
                 android:id="@+id/google_account_image"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="@dimen/login_circle_image_size"
+                android:layout_height="@dimen/login_circle_image_size"
+                android:layout_marginTop="@dimen/login_circle_image_margin"
+                android:layout_marginStart="@dimen/login_circle_image_margin"
                 android:visibility="visible"/>
 
         </com.move4mobile.apps.bite.RelativeLayoutCircle>
@@ -80,30 +77,25 @@
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="@integer/login_view_spacing"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="185dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:buttonSize="wide"
-        app:colorScheme="dark"
-        android:elevation="0dp"/>
+        app:colorScheme="dark"/>
 
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="@integer/login_view_spacing"/>
 
     <com.move4mobile.apps.bite.TextViewCustom
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        android:paddingStart="28dp"
-        android:paddingEnd="28dp"
-        android:textSize="14sp"
+        android:layout_marginBottom="@dimen/login_powered_by_margin"
+        android:textSize="@dimen/font_size_powered_by"
         android:text="powered by"
         android:gravity="bottom|center_horizontal"
         app:customFont="@string/compasse"/>
@@ -114,5 +106,5 @@
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="@integer/login_view_spacing"/>
 </LinearLayout>
