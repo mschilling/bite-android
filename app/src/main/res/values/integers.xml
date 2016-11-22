@@ -10,7 +10,7 @@
     <item name="login_view_header" type="integer" format="float">1.5</item>
     <integer name="login_view_spacing">1</integer>
 
+    <integer name="bite_card_header_text_weight">1</integer>
     <integer name="bite_restaurant_menu_item_text_layout_weight">1</integer>
-
     <integer name="bite_card_restaurant_stats_weight">1</integer>
 </resources>

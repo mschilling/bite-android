@@ -99,23 +99,23 @@ public class BiteApplication extends Application {
             //myVersionName = (String) dataSnapshot.getValue();
             switch (versionName.compareToIgnoreCase((String)dataSnapshot.getValue())) {
                 case 1:
-                    Log.e(TAG, "Smaller");
+                    //Log.e(TAG, "Smaller");
                     //Can you timetravel?
                     //You have a newer version than that exists in today's world...
                     versionName = (String)dataSnapshot.getValue();
                     break;
                 case 0:
-                    Log.e(TAG, "Equals");
+                    //Log.e(TAG, "Equals");
                     //Current version
                     break;
                 case -1:
-                    Log.e(TAG, "Bigger");
+                    //Log.e(TAG, "Bigger");
                     //Newer version
                     versionName = (String)dataSnapshot.getValue();
                     checkUpdate();
                     break;
                 default:
-                    Log.e(TAG, "WHAT");
+                    //Log.e(TAG, "WHAT");
                     //Way newer version
                     //Yer way behind
                     versionName = (String)dataSnapshot.getValue();

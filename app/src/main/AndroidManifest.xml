@@ -49,6 +49,12 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"/>
+        <activity
+            android:name=".RemoveBiteDialog"
+            android:label="Remove Bite"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"/>
     </application>
 
 </manifest>

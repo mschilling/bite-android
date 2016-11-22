@@ -183,6 +183,7 @@
         app:backgroundTint="?colorAccent"
         app:rippleColor="?colorFabRipple"
         android:src="@drawable/ic_add_white"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:visibility="gone"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -36,9 +36,10 @@
                 android:contentDescription="@string/person_description" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/bite_card_header_content_margin_start"
+                android:layout_weight="@integer/bite_card_header_text_weight"
                 android:orientation="vertical">
 
                 <com.move4mobile.apps.bite.TextViewCustom
@@ -119,6 +120,13 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/bite_card_remove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:drawable/ic_menu_delete"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

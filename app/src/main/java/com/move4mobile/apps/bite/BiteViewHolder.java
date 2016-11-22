@@ -2,6 +2,7 @@ package com.move4mobile.apps.bite;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 /**
@@ -15,6 +16,7 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
     ImageView mImageView;
     TextViewCustom mTextTitle;
     TextViewCustom mTextLocation;
+    Button mButtonRemove;
 
     public BiteViewHolder(View v) {
         super(v);
@@ -22,5 +24,6 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
         mImageView = (ImageView) v.findViewById(R.id.bite_card_created);
         mTextTitle = (TextViewCustom) v.findViewById(R.id.bite_card_restaurant_title);
         mTextLocation = (TextViewCustom) v.findViewById(R.id.bite_card_location);
+        mButtonRemove = (Button) v.findViewById(R.id.bite_card_remove);
     }
 }

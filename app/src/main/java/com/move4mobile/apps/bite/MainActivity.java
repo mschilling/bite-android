@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,11 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
@@ -41,6 +40,8 @@ public class MainActivity extends AppCompatActivityFireAuth {
     private LinearLayoutManager linearLayoutManager;
 
     private ImageView firebaseStatusImage;
+
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +71,12 @@ public class MainActivity extends AppCompatActivityFireAuth {
         mRefOrders = mDatabase.getReference("orders");
         mRefUserData = mDatabase.getReference("users");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.main_fab);
+        fab = (FloatingActionButton) findViewById(R.id.main_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
-                mRefOrders.push().setValue(b);*/
+                Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
+                mRefOrders.push().setValue(b);
             }
         });
     }
@@ -85,38 +86,6 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onStart();
 
         mDatabase.goOnline();
-        if(adapter == null) {
-            adapter = new BitesAdapter(Bite.class, R.layout.bite_card, BiteViewHolder.class, mRefOrders, getBaseContext());
-            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-                @Override
-                public void onItemRangeInserted(int positionStart, int itemCount) {
-                    super.onItemRangeInserted(positionStart, itemCount);
-                    int friendlyMessageCount = adapter.getItemCount();
-                    int lastVisiblePosition =
-                            linearLayoutManager.findLastCompletelyVisibleItemPosition();
-                    // If the recycler view is initially being loaded or the
-                    // user is at the bottom of the list, scroll to the bottom
-                    // of the list to show the newly added message.
-                    if (lastVisiblePosition == -1 ||
-                            (positionStart >= (friendlyMessageCount - 1) &&
-                                    lastVisiblePosition == (positionStart - 1))) {
-                        mRecyclerView.scrollToPosition(positionStart);
-                    }
-
-                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
-                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
-                }
-
-                @Override
-                public void onItemRangeRemoved(int positionStart, int itemCount) {
-                    super.onItemRangeRemoved(positionStart, itemCount);
-
-                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
-                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
-                }
-            });
-            mRecyclerView.setAdapter(adapter);
-        }
     }
 
     @Override
@@ -145,17 +114,93 @@ public class MainActivity extends AppCompatActivityFireAuth {
         super.onLoggedIn();
 
         mDatabase.goOnline();
-        mRefUserData.child(getUser().getUid()).child("display_name").addValueEventListener(new ValueEventListener() {
+        mRefUserData = mRefUserData.child(getUser().getUid());
+        mRefUserData.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                updateToolbarTitle(dataSnapshot);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                userChildEventHandler(dataSnapshot, s);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                userChildEventHandler(dataSnapshot, s);
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                userChildEventHandler(dataSnapshot);
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                userChildEventHandler(dataSnapshot);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, databaseError.toString());
+
             }
         });
+
+        if(adapter == null) {
+            adapter = new BitesAdapter(Bite.class, R.layout.bite_card, BiteViewHolder.class, mRefOrders, getBaseContext(), getUser());
+            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    super.onItemRangeInserted(positionStart, itemCount);
+                    int friendlyMessageCount = adapter.getItemCount();
+                    int lastVisiblePosition =
+                            linearLayoutManager.findLastCompletelyVisibleItemPosition();
+                    // If the recycler view is initially being loaded or the
+                    // user is at the bottom of the list, scroll to the bottom
+                    // of the list to show the newly added message.
+                    if (lastVisiblePosition == -1 ||
+                            (positionStart >= (friendlyMessageCount - 1) &&
+                                    lastVisiblePosition == (positionStart - 1))) {
+                        mRecyclerView.scrollToPosition(positionStart);
+                    }
+                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
+                }
+
+                @Override
+                public void onItemRangeRemoved(int positionStart, int itemCount) {
+                    super.onItemRangeRemoved(positionStart, itemCount);
+                    adapter.notifyDataSetChanged();
+                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
+                }
+
+
+            });
+            mRecyclerView.setAdapter(adapter);
+        }
+    }
+
+    private void userChildEventHandler(DataSnapshot data, String s){
+        switch (data.getKey()) {
+            case "display_name":
+                updateToolbarTitle(data);
+                break;
+            case "admin":
+                updateAddBiteFAB(data);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void userChildEventHandler(DataSnapshot data){
+        userChildEventHandler(data, "");
+    }
+
+    private void updateAddBiteFAB(DataSnapshot data){
+        if(data.getValue() == null) return;
+        if(data.getValue(Boolean.class)) {
+            fab.setVisibility(View.VISIBLE);
+        } else {
+            fab.setVisibility(View.GONE);
+        }
     }
 
     private void updateToolbarTitle(DataSnapshot data) {
