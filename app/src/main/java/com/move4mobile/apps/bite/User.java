@@ -1,6 +1,8 @@
 package com.move4mobile.apps.bite;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 /**
  * Created by casvd on 9-11-2016.
@@ -13,24 +15,27 @@ public class User {
     private String email;
     private String photo_url;
     private long last_online;
+    private boolean admin;
 
     public User() {
 
     }
 
-    public User(String display_name, String name, String email, String photo_url) {
+    public User(String display_name, String name, String email, String photo_url, boolean admin) {
         this.display_name = display_name;
         this.name = name;
         this.email = email;
         this.photo_url = photo_url;
+        this.admin = admin;
     }
 
-    public User(String display_name, String name, String email, String photo_url, long last_online) {
+    public User(String display_name, String name, String email, String photo_url, long last_online, boolean admin) {
         this.display_name = display_name;
         this.name = name;
         this.email = email;
         this.photo_url = photo_url;
         this.last_online = last_online;
+        this.admin = admin;
     }
 
     public User(FirebaseUser user) {
@@ -38,6 +43,7 @@ public class User {
         this.name = user.getDisplayName();
         this.email = user.getEmail();
         this.photo_url = String.valueOf(user.getPhotoUrl());
+        this.last_online = System.currentTimeMillis();
     }
 
     public String getDisplay_name() {
@@ -58,5 +64,9 @@ public class User {
 
     public long getLast_online() {
         return last_online;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
 }

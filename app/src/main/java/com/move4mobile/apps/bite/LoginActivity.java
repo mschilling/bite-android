@@ -144,11 +144,14 @@ public class LoginActivity extends AppCompatActivityFireAuth implements GoogleAp
     }
 
     private void checkIfUserExists() {
+        Log.e(TAG,"checkUser");
         final DatabaseReference userRef = mRefUsers.child(getUser().getUid());
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() == null){
+                Log.e(TAG,dataSnapshot.toString());
+                if(dataSnapshot.getValue() == null || dataSnapshot.getChildrenCount() <= 1){
+                    Log.e(TAG, "null");
                     User user = new User(getUser());
                     userRef.setValue(user);
                     Log.d(TAG, "Added user");
