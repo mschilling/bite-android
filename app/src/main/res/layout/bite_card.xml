@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_title_height"
                     android:layout_marginTop="@dimen/bite_card_title_margin_top"
-                    android:text="DOEMEDIEMAAR"
+                    android:text="@string/loading"
                     android:textColor="?colorAccent"
                     android:textSize="@dimen/font_size_bite_title"
                     app:customFont="@string/compasse_extra_bold_italic" />
@@ -112,7 +112,7 @@
                         android:layout_height="@dimen/bite_card_location_text_height"
                         android:layout_marginStart="@dimen/bite_card_location_text_margin_start"
                         android:gravity="center_vertical"
-                        android:text="Gramsbergen"
+                        android:text="@string/loading"
                         android:textColor="?android:textColorSecondary"
                         android:textSize="@dimen/font_size_bite_location"
                         app:customFont="@string/compasse" />

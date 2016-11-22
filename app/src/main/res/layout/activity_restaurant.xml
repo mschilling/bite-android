@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:background="?attr/colorPrimary"
                 app:layout_collapseMode="pin"
-                android:elevation="3dp"
+                android:elevation="@dimen/restaurant_toolbar_elevation"
                 android:layout_gravity="top">
 
                 <com.move4mobile.apps.bite.TextViewCustom
@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="?android:colorControlNormal"
                     android:text="@string/toolbar_title_restaurant"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/font_size_restaurant_toolbar_title"
                     app:customFont="@string/compasse_extra_bold_italic"/>
 
             </android.support.v7.widget.Toolbar>
@@ -56,14 +56,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginTop="@dimen/restaurant_chips_margin_vertical"
+                android:layout_marginBottom="@dimen/restaurant_chips_margin_vertical">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -71,10 +71,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="NEVER"
@@ -82,9 +82,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -92,10 +92,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="FORGETTI"
@@ -103,9 +103,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -113,10 +113,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="HARAMBE"
@@ -124,9 +124,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -134,10 +134,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="GNOME"
@@ -145,9 +145,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -155,10 +155,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="CAVEMAN"
@@ -166,9 +166,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -176,10 +176,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="SAVAGE"
@@ -187,9 +187,9 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_height="@dimen/restaurant_chip_height"
+                    android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
                     android:layout_gravity="center"
                     android:background="@drawable/snack_button"
                     android:gravity="center"
@@ -197,10 +197,10 @@
                     <com.move4mobile.apps.bite.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                        android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
                         android:textColor="@drawable/snack_button_text"
                         android:textAlignment="center"
                         android:text="SHIPIT"
@@ -225,11 +225,10 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                >
+                android:layout_marginTop="@dimen/restaurant_cardview_menu_margin_top"
+                android:layout_marginBottom="@dimen/restaurant_cardview_menu_margin_bottom"
+                android:layout_marginStart="@dimen/restaurant_cardview_menu_margin_horizontal"
+                android:layout_marginEnd="@dimen/restaurant_cardview_menu_margin_horizontal">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_menu"

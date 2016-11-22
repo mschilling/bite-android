@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
+
 /**
  * Created by casvd on 15-11-2016.
  */
@@ -144,7 +146,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.d(TAG, dataSnapshot.toString());
                 User user = dataSnapshot.getValue(User.class);
                 if(user != null){
-                    textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplay_name().toUpperCase()));
+                    textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplay_name().toUpperCase(Locale.getDefault())));
                     Glide.with(getApplicationContext()).load(user.getPhoto_url())
                             .asBitmap()
                             .centerCrop()

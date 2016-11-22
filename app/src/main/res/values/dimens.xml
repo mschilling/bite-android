@@ -86,6 +86,59 @@
 
     <dimen name="login_powered_by_margin">10dp</dimen>
 
+    /////////////////////////////
+    ////// BITE MENU ITEM //////
+    ////////////////////////////
+    <dimen name="bite_restaurant_menu_item_height">72dp</dimen>
+    <dimen name="bite_restaurant_menu_item_elevation">0dp</dimen>
+    <dimen name="bite_restaurant_menu_item_corner_radius">0dp</dimen>
+    <dimen name="bite_restaurant_menu_item_trophy_size">72dp</dimen>
+    <dimen name="bite_restaurant_menu_item_trophy_margin">20dp</dimen>
+    <dimen name="bite_restaurant_menu_item_text_layout_margin">12dp</dimen>
+    <dimen name="bite_restaurant_menu_item_text_padding">2dp</dimen>
+    <dimen name="bite_restaurant_menu_item_action_padding">8dp</dimen>
+    <dimen name="bite_restaurant_menu_item_amount_margin">16dp</dimen>
+
+    /////////////////////////////
+    ////// BITE CARD //////
+    ////////////////////////////
+    <dimen name="bite_card_restaurant_height">228dp</dimen>
+    <dimen name="bite_card_restaurant_margin_bottom">8dp</dimen>
+
+    <dimen name="bite_card_restaurant_header_height">48dp</dimen>
+    <dimen name="bite_card_restaurant_header_margin">16dp</dimen>
+    <dimen name="bite_card_restaurant_header_margin_bottom">8dp</dimen>
+    <dimen name="bite_card_restaurant_started_by_image_size">40dp</dimen>
+    <dimen name="bite_card_restaurant_header_text_margin_start">16dp</dimen>
+    <dimen name="bite_card_restaurant_header_text_height">24dp</dimen>
+
+    <dimen name="bite_card_restaurant_emoji_height">48dp</dimen>
+    <dimen name="bite_card_restaurant_emoji_margin_vertical">8dp</dimen>
+
+    <dimen name="bite_card_restaurant_stats_height">74dp</dimen>
+    <dimen name="bite_card_restaurant_stats_margin_vertical">8dp</dimen>
+    <dimen name="bite_card_restaurant_stat_height">58dp</dimen>
+    <dimen name="bite_card_restaurant_stat_circle_size">52dp</dimen>
+    <dimen name="bite_card_restaurant_stat_title_width">38dp</dimen>
+    <dimen name="bite_card_restaurant_stat_title_height">16dp</dimen>
+    <dimen name="bite_card_restaurant_stat_title_margin_top">38dp</dimen>
+    <dimen name="bite_card_restaurant_stat_circle_image_size">46dp</dimen>
+    <dimen name="bite_card_restaurant_stat_circle_image_margin">3dp</dimen>
+
+    /////////////////////////////
+    ////// RESTAURANT //////
+    ////////////////////////////
+    <dimen name="restaurant_toolbar_elevation">3dp</dimen>
+
+    <dimen name="restaurant_chips_margin_vertical">8dp</dimen>
+    <dimen name="restaurant_chip_height">32dp</dimen>
+    <dimen name="restaurant_chip_margin_horizontal">4dp</dimen>
+    <dimen name="restaurant_chip_text_padding_vertical">6dp</dimen>
+    <dimen name="restaurant_chip_text_padding_horizontal">12dp</dimen>
+
+    <dimen name="restaurant_cardview_menu_margin_horizontal">16dp</dimen>
+    <dimen name="restaurant_cardview_menu_margin_bottom">16dp</dimen>
+    <dimen name="restaurant_cardview_menu_margin_top">8dp</dimen>
 
     ///// TEXT SIZES /////
     <!-- Toolbar -->
@@ -115,17 +168,15 @@
     <dimen name="font_size_bite_restaurant_menu_item_action">24sp</dimen>
     <dimen name="font_size_bite_restaurant_menu_item_amount">20sp</dimen>
 
-    /////////////////////////////
-    ////// BITE MENU ITEM //////
-    ////////////////////////////
-    <dimen name="bite_restaurant_menu_item_height">72dp</dimen>
-    <dimen name="bite_restaurant_menu_item_elevation">0dp</dimen>
-    <dimen name="bite_restaurant_menu_item_corner_radius">0dp</dimen>
-    <dimen name="bite_restaurant_menu_item_trophy_size">72dp</dimen>
-    <dimen name="bite_restaurant_menu_item_trophy_margin">20dp</dimen>
-    <dimen name="bite_restaurant_menu_item_text_layout_margin">12dp</dimen>
-    <dimen name="bite_restaurant_menu_item_text_padding">2dp</dimen>
-    <dimen name="bite_restaurant_menu_item_action_padding">8dp</dimen>
-    <dimen name="bite_restaurant_menu_item_amount_margin">16dp</dimen>
+    <!-- Bite restaurant card -->
+    <dimen name="font_size_bite_card_restaurant_header_text_title">16sp</dimen>
+    <dimen name="font_size_bite_card_restaurant_header_text_time">14sp</dimen>
+    <dimen name="font_size_bite_card_restaurant_stat">14sp</dimen>
+    <dimen name="font_size_bite_card_restaurant_stat_title">9sp</dimen>
+    <dimen name="font_size_bite_card_restaurant_stat_description">10sp</dimen>
+
+    <!-- Restaurant -->
+    <dimen name="font_size_restaurant_toolbar_title">20sp</dimen>
+
 
 </resources>

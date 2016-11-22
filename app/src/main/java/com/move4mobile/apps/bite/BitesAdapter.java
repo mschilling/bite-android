@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
+
 /**
  * Created by casvd on 8-11-2016.
  */
@@ -67,7 +69,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //Log.e(TAG, dataSnapshot.toString());
                     Store store = dataSnapshot.getValue(Store.class);
-                    viewHolder.mTextTitle.setText(store.getName().toUpperCase());
+                    viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
                     viewHolder.mTextLocation.setText(store.getLocation());
                 }
 

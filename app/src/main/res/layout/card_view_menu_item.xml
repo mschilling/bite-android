@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/bite_restaurant_menu_item_text_padding"
-                android:text="Patat Normaal"
+                android:text="@string/loading"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/font_size_bite_restaurant_menu_item_title"
                 app:customFont="@string/compasse"/>
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/bite_restaurant_menu_item_text_padding"
-                android:text="€13,37"
+                android:text="@string/loading"
                 android:textSize="@dimen/font_size_bite_restaurant_menu_item_price"
                 app:customFont="@string/compasse"/>
         </LinearLayout>

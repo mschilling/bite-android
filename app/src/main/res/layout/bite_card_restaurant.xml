@@ -2,11 +2,11 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="228dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="8dp"
+    android:layout_height="@dimen/bite_card_restaurant_height"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginBottom="@dimen/bite_card_restaurant_margin_bottom"
     app:layout_collapseMode="none"
     android:backgroundTint="?cardViewBackground"
     android:clickable="true"
@@ -19,41 +19,41 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/bite_card_restaurant_header_height"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="@dimen/bite_card_restaurant_header_margin"
+            android:layout_marginStart="@dimen/bite_card_restaurant_header_margin"
+            android:layout_marginEnd="@dimen/bite_card_restaurant_header_margin"
+            android:layout_marginBottom="@dimen/bite_card_restaurant_header_margin_bottom">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/bite_card_started_by_image"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/bite_card_restaurant_started_by_image_size"
+                    android:layout_height="@dimen/bite_card_restaurant_started_by_image_size"
                     android:src="@drawable/ic_menu_person"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/bite_card_restaurant_header_text_margin_start"
                 android:orientation="vertical">
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:id="@+id/bite_card_started_by"
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:textSize="16sp"
+                    android:layout_height="@dimen/bite_card_restaurant_header_text_height"
+                    android:textSize="@dimen/font_size_bite_card_restaurant_header_text_title"
                     android:textColor="?colorAccent"
-                    android:text="GESTART DOOR ROBERT"
+                    android:text="@string/loading"
                     app:customFont="@string/compasse_extra_bold_italic"/>
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:textSize="14sp"
+                    android:layout_height="@dimen/bite_card_restaurant_header_text_height"
+                    android:textSize="@dimen/font_size_bite_card_restaurant_header_text_time"
                     android:textColor="?android:textColorSecondary"
                     android:text="Gestart om 9:11, sluit om 13:37"
                     app:customFont="@string/compasse"/>
@@ -66,19 +66,19 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/bite_card_stripe_height"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:background="?colorCardStripe"/>
 
         <!-- Emojis -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/bite_card_restaurant_emoji_height"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/bite_card_restaurant_emoji_margin_vertical"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/bite_card_restaurant_emoji_margin_vertical"
             android:gravity="center">
 
             <com.move4mobile.apps.bite.TextViewCustom
@@ -114,35 +114,35 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/bite_card_stripe_height"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:background="?colorCardStripe"/>
 
         <!-- Stats -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="74dp"
+            android:layout_height="@dimen/bite_card_restaurant_stats_height"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/bite_card_restaurant_stats_margin_vertical"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/bite_card_restaurant_stats_margin_vertical"
             android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="@integer/bite_card_restaurant_stats_weight"
                 android:gravity="center"
                 android:baselineAligned="false"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="58dp">
+                    android:layout_height="@dimen/bite_card_restaurant_stat_height">
 
                     <com.move4mobile.apps.bite.RelativeLayoutCircle
-                        android:layout_width="52dp"
+                        android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
                         android:gravity="center"
@@ -152,14 +152,14 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:text="911"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/font_size_bite_card_restaurant_stat"
                             android:textColor="#d93335"
                             app:customFont="@string/compasse"/>
                     </com.move4mobile.apps.bite.RelativeLayoutCircle>
                     <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
-                        android:layout_width="38dp"
-                        android:layout_height="16dp"
-                        android:layout_marginTop="38dp"
+                        android:layout_width="@dimen/bite_card_restaurant_stat_title_width"
+                        android:layout_height="@dimen/bite_card_restaurant_stat_title_height"
+                        android:layout_marginTop="@dimen/bite_card_restaurant_stat_title_margin_top"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/stats_title"
                         android:gravity="center"
@@ -170,12 +170,11 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:text="HARAM"
-                            android:textSize="9sp"
+                            android:textSize="@dimen/font_size_bite_card_restaurant_stat_title"
                             android:textColor="@android:color/white"
                             app:customFont="@string/compasse"
                             android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true"
-                            android:id="@+id/textViewCustom" />
+                            android:layout_alignParentStart="true"/>
                     </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
                 </RelativeLayout>
 
@@ -183,26 +182,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Totaal besteld"
-                    android:textSize="10sp"
+                    android:text="Door jou besteld"
+                    android:textSize="@dimen/font_size_bite_card_restaurant_stat_description"
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="@integer/bite_card_restaurant_stats_weight"
                 android:gravity="center"
                 android:baselineAligned="false"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="58dp">
+                    android:layout_height="@dimen/bite_card_restaurant_stat_height">
 
                     <com.move4mobile.apps.bite.RelativeLayoutCircle
-                        android:layout_width="52dp"
+                        android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
                         android:gravity="center"
@@ -212,14 +210,14 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:text="1.337"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/font_size_bite_card_restaurant_stat"
                             android:textColor="?colorAccent"
                             app:customFont="@string/compasse"/>
                     </com.move4mobile.apps.bite.RelativeLayoutCircle>
                     <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
-                        android:layout_width="38dp"
-                        android:layout_height="16dp"
-                        android:layout_marginTop="38dp"
+                        android:layout_width="@dimen/bite_card_restaurant_stat_title_width"
+                        android:layout_height="@dimen/bite_card_restaurant_stat_title_height"
+                        android:layout_marginTop="@dimen/bite_card_restaurant_stat_title_margin_top"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/stats_title"
                         android:gravity="center"
@@ -230,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:text="BAE"
-                            android:textSize="9sp"
+                            android:textSize="@dimen/font_size_bite_card_restaurant_stat_title"
                             android:textColor="@android:color/white"
                             app:customFont="@string/compasse"/>
                     </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
@@ -241,7 +239,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="Totaal besteld"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/font_size_bite_card_restaurant_stat_description"
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>
@@ -249,25 +247,25 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="@integer/bite_card_restaurant_stats_weight"
                 android:gravity="center"
                 android:baselineAligned="false"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="58dp">
+                    android:layout_height="@dimen/bite_card_restaurant_stat_height">
                     <com.move4mobile.apps.bite.RelativeLayoutCircle
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
+                        android:layout_height="@dimen/bite_card_restaurant_stat_circle_size"
                         android:background="@drawable/circle"
                         app:customCircleColor="#4d9bc5">
                         <ImageView
                             android:id="@+id/image_besteller"
-                            android:layout_width="46dp"
-                            android:layout_height="46dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginStart="3dp"/>
+                            android:layout_width="@dimen/bite_card_restaurant_stat_circle_image_size"
+                            android:layout_height="@dimen/bite_card_restaurant_stat_circle_image_size"
+                            android:layout_marginTop="@dimen/bite_card_restaurant_stat_circle_image_margin"
+                            android:layout_marginStart="@dimen/bite_card_restaurant_stat_circle_image_margin"/>
                     </com.move4mobile.apps.bite.RelativeLayoutCircle>
                 </RelativeLayout>
                 <com.move4mobile.apps.bite.TextViewCustom
@@ -275,7 +273,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="No.1 besteller"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/font_size_bite_card_restaurant_stat_description"
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>

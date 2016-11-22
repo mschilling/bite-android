@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
+
 /**
  * Created by casvd on 8-11-2016.
  */
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         } else {
             username = "ANON";
         }
-        toolbarTitle.setText(getString(R.string.toolbar_title, username.toUpperCase()));
+        toolbarTitle.setText(getString(R.string.toolbar_title, username.toUpperCase(Locale.getDefault())));
     }
 
     @Override

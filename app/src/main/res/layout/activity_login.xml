@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/login_powered_by_margin"
         android:textSize="@dimen/font_size_powered_by"
-        android:text="powered by"
+        android:text="@string/powered_by"
         android:gravity="bottom|center_horizontal"
         app:customFont="@string/compasse"/>
     <ImageView
