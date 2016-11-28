@@ -96,7 +96,7 @@
 
     <!-- Bite Light Theme -->
     <color name="bite_colorPrimary_Light">#ec9630</color>
-    <color name="bite_colorPrimaryDark_Light">#e2902e</color>
+    <color name="bite_colorPrimaryDark_Light">#CC7713</color>
     <color name="bite_colorControlNormal_Light">#fff</color>
 
 

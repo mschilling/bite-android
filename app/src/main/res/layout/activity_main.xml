@@ -14,7 +14,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
-
             <ImageView
                 android:id="@+id/connection_state"
                 android:layout_width="@dimen/bites_toolbar_firebase_status_size"
@@ -32,8 +31,17 @@
                 android:textColor="?colorAccent"
                 android:textSize="@dimen/font_size_toolbar"
                 app:customFont="@string/compasse_extra_bold_italic" />
-
         </android.support.v7.widget.Toolbar>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-8dp"
+            android:layout_marginTop="-10dp"
+            android:indeterminate="true"
+            android:visibility="visible"/>
+
     </android.support.design.widget.AppBarLayout>
 
     <ImageView

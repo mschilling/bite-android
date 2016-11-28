@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
     private RecyclerView mRecyclerView;
     private LinearLayout mEmptyBites;
+    private ProgressBar mProgressBar;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrders;
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mEmptyBites = (LinearLayout) findViewById(R.id.empty_bites);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         firebaseStatusImage = (ImageView) findViewById(R.id.connection_state);
 
@@ -201,6 +204,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
             default:
                 break;
         }
+        mProgressBar.setVisibility(View.GONE);
     }
 
     private void userChildEventHandler(DataSnapshot data){
