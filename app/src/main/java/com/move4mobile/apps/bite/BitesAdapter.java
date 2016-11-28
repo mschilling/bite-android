@@ -87,8 +87,10 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //Log.e(TAG, dataSnapshot.toString());
                     Store store = dataSnapshot.getValue(Store.class);
-                    viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
-                    viewHolder.mTextLocation.setText(store.getLocation());
+                    if(store != null) {
+                        viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
+                        viewHolder.mTextLocation.setText(store.getLocation());
+                    }
                 }
 
                 @Override

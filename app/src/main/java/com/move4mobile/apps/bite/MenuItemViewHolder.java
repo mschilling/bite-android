@@ -13,6 +13,9 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
     View v;
     TextViewCustom mTextTitle;
     TextViewCustom mTextPrice;
+    TextViewCustom mTextRemove;
+    TextViewCustom mTextAdd;
+    TextViewCustom mTextAmount;
 
     public MenuItemViewHolder(View v) {
         super(v);
@@ -21,5 +24,8 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
         mTextTitle.setSelected(true);
         mTextTitle.setHorizontallyScrolling(true);
         mTextPrice = (TextViewCustom) v.findViewById(R.id.menu_item_price);
+        mTextRemove = (TextViewCustom) v.findViewById(R.id.menu_item_remove);
+        mTextAdd = (TextViewCustom) v.findViewById(R.id.menu_item_add);
+        mTextAmount = (TextViewCustom) v.findViewById(R.id.menu_item_amount);
     }
 }

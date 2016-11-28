@@ -92,7 +92,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 mRefStore = mDatabase.getReference("stores").child(bite.getStore());
                 mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
                 if(adapter == null) {
-                    adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext());
+                    adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext(), getUser(), key);
                     /*adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                         @Override
                         public void onItemRangeInserted(int positionStart, int itemCount) {

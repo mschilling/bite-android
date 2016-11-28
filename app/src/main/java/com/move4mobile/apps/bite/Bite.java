@@ -1,7 +1,5 @@
 package com.move4mobile.apps.bite;
 
-import android.util.Log;
-
 /**
  * Created by casvd on 8-11-2016.
  */
