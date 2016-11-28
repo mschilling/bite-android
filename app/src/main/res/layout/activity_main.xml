@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/coordinator_layout">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
 
             <ImageView
                 android:id="@+id/connection_state"
                 android:layout_width="@dimen/bites_toolbar_firebase_status_size"
                 android:layout_height="@dimen/bites_toolbar_firebase_status_size"
-                android:tint="?colorAccent"
-                android:src="@drawable/ic_cloud_off_black"
                 android:layout_marginEnd="@dimen/bites_toolbar_firebase_status_margin"
-                android:contentDescription="@string/firebase_connection_status" />
+                android:contentDescription="@string/firebase_connection_status"
+                android:src="@drawable/ic_cloud_off_black"
+                android:tint="?colorAccent" />
 
             <com.move4mobile.apps.bite.TextViewCustom
                 android:id="@+id/toolbar_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?colorAccent"
                 android:text="@string/toolbar_title"
+                android:textColor="?colorAccent"
                 android:textSize="@dimen/font_size_toolbar"
-                app:customFont="@string/compasse_extra_bold_italic"/>
+                app:customFont="@string/compasse_extra_bold_italic" />
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
@@ -40,12 +39,12 @@
     <ImageView
         android:layout_width="@dimen/brand_width"
         android:layout_height="@dimen/brand_height"
-        android:src="@drawable/bite_logo"
-        android:contentDescription="@string/brand_description"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_gravity="bottom|start"
-        android:tint="?colorAccent"/>
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:contentDescription="@string/brand_description"
+        android:src="@drawable/bite_logo"
+        android:tint="?colorAccent" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
@@ -65,16 +64,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/rank_card_height"
                 android:layout_margin="@dimen/rank_card_margin"
-                app:cardBackgroundColor="?cardViewBackground"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:stateListAnimator="@animator/lift_on_touch">
+                android:stateListAnimator="@animator/lift_on_touch"
+                app:cardBackgroundColor="?cardViewBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="@dimen/rank_card_height"
@@ -84,12 +83,13 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="@dimen/rank_card_trophy_margin"
                             android:layout_marginEnd="@dimen/rank_card_trophy_margin"
-                            android:src="@drawable/ic_trophy"
-                            android:contentDescription="@string/trophy_description" />
+                            android:layout_marginStart="@dimen/rank_card_trophy_margin"
+                            android:contentDescription="@string/trophy_description"
+                            android:src="@drawable/ic_trophy" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -104,7 +104,7 @@
                             android:text="@string/rank_card_title"
                             android:textColor="?colorAccent"
                             android:textSize="@dimen/font_size_rank_card_title"
-                            app:customFont="@string/compasse_extra_bold_italic"/>
+                            app:customFont="@string/compasse_extra_bold_italic" />
 
                         <com.move4mobile.apps.bite.TextViewCustom
                             android:layout_width="wrap_content"
@@ -113,21 +113,23 @@
                             android:text="@string/rank_card_text"
                             android:textColor="?android:textColorPrimary"
                             android:textSize="@dimen/font_size_rank_card_description"
-                            app:customFont="@string/compasse"/>
+                            app:customFont="@string/compasse" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="@integer/rank_card_arrow_weight"
                         android:gravity="end|center_vertical">
+
                         <ImageView
                             android:layout_width="@dimen/rank_card_arrow_margin"
                             android:layout_height="@dimen/rank_card_arrow_margin"
                             android:layout_marginEnd="@dimen/rank_card_arrow_margin"
-                            android:src="@drawable/ic_arrow_forward"
                             android:contentDescription="@string/arrow_description"
-                            android:tint="?colorAccent"/>
+                            android:src="@drawable/ic_arrow_forward"
+                            android:tint="?colorAccent" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -139,23 +141,23 @@
                 android:id="@+id/bites_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/bites_title_margin_horizontal"
-                android:layout_marginEnd="@dimen/bites_title_margin_horizontal"
-                android:layout_marginTop="@dimen/bites_title_margin_vertical"
                 android:layout_marginBottom="@dimen/bites_title_margin_vertical"
+                android:layout_marginEnd="@dimen/bites_title_margin_horizontal"
+                android:layout_marginStart="@dimen/bites_title_margin_horizontal"
+                android:layout_marginTop="@dimen/bites_title_margin_vertical"
                 android:text="@string/bites"
                 android:textColor="?colorAccent"
                 android:textSize="@dimen/font_size_bites_title"
-                app:customFont="@string/compasse_extra_bold_italic"/>
+                app:customFont="@string/compasse_extra_bold_italic" />
 
             <!-- Stripe -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bites_title_stripe_height"
-                android:layout_marginStart="@dimen/bites_title_stripe_margin_horizontal"
-                android:layout_marginEnd="@dimen/bites_title_stripe_margin_horizontal"
                 android:layout_marginBottom="@dimen/bites_title_stripe_margin_vertical"
-                android:background="?colorAccent"/>
+                android:layout_marginEnd="@dimen/bites_title_stripe_margin_horizontal"
+                android:layout_marginStart="@dimen/bites_title_stripe_margin_horizontal"
+                android:background="?colorAccent" />
 
             <!-- Including layout/bite_card -->
             <android.support.v7.widget.RecyclerView
@@ -163,9 +165,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             </android.support.v7.widget.RecyclerView>
+
+            <!-- Empty Bites -->
+            <LinearLayout
+                android:id="@+id/empty_bites"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/bites_empty_margin_horizontal"
+                android:layout_marginStart="@dimen/bites_empty_margin_horizontal"
+                android:layout_marginTop="@dimen/bites_empty_margin_top"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/bites_empty_logo_height"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/bite_logo_big"
+                    android:tint="@color/colorEmptyBites" />
+
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/bites_empty_title_margin_top"
+                    android:gravity="center"
+                    android:text="@string/empty_bites_title"
+                    android:textSize="@dimen/font_size_empty_title"
+                    android:textColor="@color/colorEmptyBites"
+                    app:customFont="@string/compasse_extra_bold_italic" />
+
+                <com.move4mobile.apps.bite.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/bites_empty_description_margin_vertical"
+                    android:layout_marginBottom="@dimen/bites_empty_description_margin_vertical"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/bites_empty_padding_horizontal"
+                    android:paddingEnd="@dimen/bites_empty_padding_horizontal"
+                    android:text="@string/empty_bites_description"
+                    android:textSize="@dimen/font_size_empty_description"
+                    android:textColor="@color/colorEmptyBites"
+                    app:customFont="@string/compasse" />
+            </LinearLayout>
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
@@ -174,16 +219,16 @@
         android:id="@+id/main_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white"
+        android:visibility="gone"
+        app:backgroundTint="?colorAccent"
         app:elevation="@dimen/fab_elevation"
-        app:pressedTranslationZ="@dimen/fab_elevation_pressed"
         app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|end"
-        app:backgroundTint="?colorAccent"
-        app:rippleColor="?colorFabRipple"
-        android:src="@drawable/ic_add_white"
-        android:clickable="true"
-        android:visibility="gone"/>
+        app:pressedTranslationZ="@dimen/fab_elevation_pressed"
+        app:rippleColor="?colorFabRipple" />
 
 </android.support.design.widget.CoordinatorLayout>

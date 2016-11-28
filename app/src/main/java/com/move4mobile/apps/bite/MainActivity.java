@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
     private static final String TAG = "MainActivity";
 
     private RecyclerView mRecyclerView;
+    private LinearLayout mEmptyBites;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrders;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
         mRecyclerView.setNestedScrollingEnabled(false);
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        mEmptyBites = (LinearLayout) findViewById(R.id.empty_bites);
 
         firebaseStatusImage = (ImageView) findViewById(R.id.connection_state);
 
@@ -159,21 +162,31 @@ public class MainActivity extends AppCompatActivityFireAuth {
                                     lastVisiblePosition == (positionStart - 1))) {
                         mRecyclerView.scrollToPosition(positionStart);
                     }
-                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
-                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
+                    updateBitesList(adapter.getItemCount());
                 }
 
                 @Override
                 public void onItemRangeRemoved(int positionStart, int itemCount) {
                     super.onItemRangeRemoved(positionStart, itemCount);
                     adapter.notifyDataSetChanged();
-                    TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
-                    textView.setText(getString(R.string.bites, adapter.getItemCount()));
+                    updateBitesList(adapter.getItemCount());
                 }
 
 
             });
             mRecyclerView.setAdapter(adapter);
+        }
+    }
+
+    private void updateBitesList(int count) {
+        TextViewCustom textView = (TextViewCustom) findViewById(R.id.bites_title);
+        textView.setText(getString(R.string.bites, count));
+        if(count == 0) {
+            mRecyclerView.setVisibility(View.GONE);
+            mEmptyBites.setVisibility(View.VISIBLE);
+        } else {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            mEmptyBites.setVisibility(View.GONE);
         }
     }
 

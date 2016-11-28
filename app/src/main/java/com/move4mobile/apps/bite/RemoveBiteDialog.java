@@ -17,6 +17,7 @@ public class RemoveBiteDialog extends AppCompatActivityFireAuth {
     private AlertDialog alertDialog;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefBite;
+    private DatabaseReference mRefBiteOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class RemoveBiteDialog extends AppCompatActivityFireAuth {
 
         mDatabase = FirebaseDatabase.getInstance();
         mRefBite = mDatabase.getReference("orders").child(key);
+        mRefBiteOrder = mDatabase.getReference("user_order").child(key);
 
         showRemoveBiteDialog();
     }
@@ -40,6 +42,7 @@ public class RemoveBiteDialog extends AppCompatActivityFireAuth {
                     .setPositiveButton("Aye", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            mRefBiteOrder.setValue(null);
                             mRefBite.setValue(null);
                             finish();
                         }

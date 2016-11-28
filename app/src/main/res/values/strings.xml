@@ -23,6 +23,9 @@
 
 
     <string name="bites">BITES (%1$d) ¯\\_(ツ)_/¯</string>
+    <string name="empty_bites_title">HONGER!</string>
+    <string name="empty_bites_description">Er staan momenteel geen BITES open.\r\nJe kunt zelf een nieuwe BITE openen door op de plus te tikken!</string>
+
 
     <string name="toolbar_title_restaurant">Store de la Anon</string>
     <string name="menu_item_price">€%1$d</string>

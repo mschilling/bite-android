@@ -74,6 +74,13 @@
     <dimen name="bite_card_social_image_margin_vertical">12dp</dimen>
     <dimen name="bite_card_social_image_margin_horizontal">6dp</dimen>
 
+    <dimen name="bites_empty_margin_horizontal">16dp</dimen>
+    <dimen name="bites_empty_margin_top">24dp</dimen>
+    <dimen name="bites_empty_logo_height">110dp</dimen>
+    <dimen name="bites_empty_title_margin_top">32dp</dimen>
+    <dimen name="bites_empty_description_margin_vertical">16dp</dimen>
+    <dimen name="bites_empty_padding_horizontal">64dp</dimen>
+
     /////////////////////////////
     ////// LOGIN //////
     ////////////////////////////
@@ -151,6 +158,10 @@
 
     <!-- Bites title -->
     <dimen name="font_size_bites_title">20sp</dimen>
+
+    <!-- Bites empty -->
+    <dimen name="font_size_empty_title">16sp</dimen>
+    <dimen name="font_size_empty_description">14sp</dimen>
 
     <!-- Bite Card -->
     <dimen name="font_size_bite_title">16sp</dimen>

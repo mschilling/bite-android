@@ -63,6 +63,8 @@
 
     <color name="colorFabRipple_Light">#eeddcc</color>
 
+    <color name="colorEmptyBites">#66000000</color>
+
     <!-- <color name="textPrimary_Light">#9b9b9b</color>
     <color name="textSecondary_Light">#6e6e6e</color>
 
