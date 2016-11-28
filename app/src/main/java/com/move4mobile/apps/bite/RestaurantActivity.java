@@ -102,7 +102,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                     });*/
                     mRecyclerView.setAdapter(adapter);
                 }
-                mRefUserData = mDatabase.getReference("users").child(bite.getOpened_by());
+                mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
 
                 mRefStore.addValueEventListener(storeListener);
                 mRefProducts.addValueEventListener(productsListener);
@@ -146,8 +146,8 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.d(TAG, dataSnapshot.toString());
                 User user = dataSnapshot.getValue(User.class);
                 if(user != null){
-                    textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplay_name().toUpperCase(Locale.getDefault())));
-                    Glide.with(getApplicationContext()).load(user.getPhoto_url())
+                    textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplayName().toUpperCase(Locale.getDefault())));
+                    Glide.with(getApplicationContext()).load(user.getPhotoUrl())
                             .asBitmap()
                             .centerCrop()
                             .placeholder(R.drawable.ic_shipit)

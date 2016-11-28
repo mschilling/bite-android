@@ -2,6 +2,7 @@ package com.move4mobile.apps.bite;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.PropertyName;
 import com.google.firebase.database.ServerValue;
 
 /**
@@ -10,44 +11,52 @@ import com.google.firebase.database.ServerValue;
 
 public class User {
 
-    private String display_name;
+    @PropertyName("display_name")
+    private String displayName;
+
     private String name;
     private String email;
-    private String photo_url;
-    private long last_online;
+
+    @PropertyName("photo_url")
+    private String photoUrl;
+
+    @PropertyName("last_online")
+    private long lastOnline;
+
     private boolean admin;
 
     public User() {
 
     }
 
-    public User(String display_name, String name, String email, String photo_url, boolean admin) {
-        this.display_name = display_name;
+    public User(String displayName, String name, String email, String photoUrl, boolean admin) {
+        this.displayName = displayName;
         this.name = name;
         this.email = email;
-        this.photo_url = photo_url;
+        this.photoUrl = photoUrl;
         this.admin = admin;
     }
 
-    public User(String display_name, String name, String email, String photo_url, long last_online, boolean admin) {
-        this.display_name = display_name;
+    public User(String displayName, String name, String email, String photoUrl, long lastOnline, boolean admin) {
+        this.displayName = displayName;
         this.name = name;
         this.email = email;
-        this.photo_url = photo_url;
-        this.last_online = last_online;
+        this.photoUrl = photoUrl;
+        this.lastOnline = lastOnline;
         this.admin = admin;
     }
 
     public User(FirebaseUser user) {
-        this.display_name = user.getDisplayName();
+        this.displayName = user.getDisplayName();
         this.name = user.getDisplayName();
         this.email = user.getEmail();
-        this.photo_url = String.valueOf(user.getPhotoUrl());
-        this.last_online = System.currentTimeMillis();
+        this.photoUrl = String.valueOf(user.getPhotoUrl());
+        this.lastOnline = System.currentTimeMillis();
     }
 
-    public String getDisplay_name() {
-        return display_name;
+    @PropertyName("display_name")
+    public String getDisplayName() {
+        return displayName;
     }
 
     public String getName() {
@@ -58,12 +67,14 @@ public class User {
         return email;
     }
 
-    public String getPhoto_url() {
-        return photo_url;
+    @PropertyName("photo_url")
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public long getLast_online() {
-        return last_online;
+    @PropertyName("last_online")
+    public long getLastOnline() {
+        return lastOnline;
     }
 
     public boolean isAdmin() {

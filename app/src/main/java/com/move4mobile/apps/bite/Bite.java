@@ -1,37 +1,48 @@
 package com.move4mobile.apps.bite;
 
+import com.google.firebase.database.PropertyName;
+
 /**
  * Created by casvd on 8-11-2016.
  */
 public class Bite {
-    private String opened_by;
+    @PropertyName("opened_by")
+    private String openedBy;
+
     private String store;
-    private long open_time;
-    private long close_time;
+
+    @PropertyName("open_time")
+    private long openTime;
+
+    @PropertyName("close_time")
+    private long closeTime;
 
     public Bite() {
     }
 
-    public Bite(String opened_by, String store, long open_time, long close_time) {
-        this.opened_by = opened_by;
+    public Bite(String openedBy, String store, long openTime, long closeTime) {
+        this.openedBy = openedBy;
         this.store = store;
-        this.open_time = open_time;
-        this.close_time = close_time;
+        this.openTime = openTime;
+        this.closeTime = closeTime;
     }
 
-    public String getOpened_by() {
-        return opened_by;
+    @PropertyName("opened_by")
+    public String getOpenedBy() {
+        return openedBy;
     }
 
     public String getStore() {
         return store;
     }
 
-    public long getOpen_time() {
-        return open_time;
+    @PropertyName("open_time")
+    public long getOpenTime() {
+        return openTime;
     }
 
-    public long getClose_time() {
-        return close_time;
+    @PropertyName("close_time")
+    public long getCloseTime() {
+        return closeTime;
     }
 }

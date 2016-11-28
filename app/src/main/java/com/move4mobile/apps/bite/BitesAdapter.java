@@ -58,7 +58,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     @Override
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
 
-        if(Objects.equals(user.getUid(), model.getOpened_by())) {
+        if(Objects.equals(user.getUid(), model.getOpenedBy())) {
             viewHolder.mButtonRemove.setVisibility(View.VISIBLE);
             viewHolder.mButtonRemove.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,7 +99,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 }
             });
 
-        mRefUserData = mDatabase.getReference("users/"+model.getOpened_by());
+        mRefUserData = mDatabase.getReference("users/"+model.getOpenedBy());
         mRefUserData.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -107,7 +107,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                     final User user = dataSnapshot.getValue(User.class);
                     if(user != null) {
 
-                        Glide.with(mContext).load(user.getPhoto_url())
+                        Glide.with(mContext).load(user.getPhotoUrl())
                                 .asBitmap()
                                 .centerCrop()
                                 .placeholder(R.drawable.ic_shipit)
@@ -124,7 +124,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                         viewHolder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
                             @Override
                             public boolean onLongClick(View v) {
-                                Toast toast = Toast.makeText(v.getContext(), user.getDisplay_name() + " | " + user.getName(), Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(v.getContext(), user.getDisplayName() + " | " + user.getName(), Toast.LENGTH_SHORT);
                                 int[] loc = new int[2];
                                 v.getLocationInWindow(loc);
                                 toast.setGravity(Gravity.TOP | Gravity.START, loc[0], loc[1] + v.getHeight() / 2);

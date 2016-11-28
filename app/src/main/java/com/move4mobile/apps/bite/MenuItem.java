@@ -1,12 +1,15 @@
 package com.move4mobile.apps.bite;
 
+import com.google.firebase.database.PropertyName;
+
 /**
  * Created by casvd on 18-11-2016.
  */
 
 public class MenuItem {
 
-    private String accessory_group;
+    @PropertyName("accessory_group")
+    private String accessoryGroup;
     private String category;
     private String name;
     private long price;
@@ -21,15 +24,16 @@ public class MenuItem {
 
     }
 
-    public MenuItem(String accessory_group, String category, String name, long price) {
-        this.accessory_group = accessory_group;
+    public MenuItem(String accessoryGroup, String category, String name, long price) {
+        this.accessoryGroup = accessoryGroup;
         this.category = category;
         this.name = name;
         this.price = price;
     }
 
-    public String getAccessory_group() {
-        return accessory_group;
+    @PropertyName("accessory_group")
+    public String getAccessoryGroup() {
+        return accessoryGroup;
     }
 
     public String getCategory() {
