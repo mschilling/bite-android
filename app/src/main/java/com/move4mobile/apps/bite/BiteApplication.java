@@ -69,12 +69,16 @@ public class BiteApplication extends Application {
     }
 
     public static class Fonts {
-        public static Typeface COMPASSE, COMPASSE_EXTRA_BOLD_ITALIC;
+        public static Typeface COMPASSE, COMPASSE_BOLD, COMPASSE_EXTRA_BOLD, COMPASSE_EXTRA_BOLD_ITALIC;
 
         public static Typeface getFont(String asset){
             switch (asset) {
                 case "compasse":
                     return COMPASSE;
+                case "compasse_bold":
+                    return COMPASSE_BOLD;
+                case "compasse_extra_bold":
+                    return COMPASSE_EXTRA_BOLD;
                 case "compasse_extra_bold_italic":
                     return COMPASSE_EXTRA_BOLD_ITALIC;
                 default:
@@ -85,6 +89,8 @@ public class BiteApplication extends Application {
 
     private void initFonts() {
         Fonts.COMPASSE = Typeface.createFromAsset(getAssets(), "fonts/Compasse.otf");
+        Fonts.COMPASSE_BOLD = Typeface.createFromAsset(getAssets(), "fonts/Compasse-Bold.otf");
+        Fonts.COMPASSE_EXTRA_BOLD = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBold.otf");
         Fonts.COMPASSE_EXTRA_BOLD_ITALIC = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBoldItalic.otf");
     }
 

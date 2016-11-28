@@ -98,6 +98,7 @@
     <dimen name="bite_restaurant_menu_item_text_padding">2dp</dimen>
     <dimen name="bite_restaurant_menu_item_action_padding">8dp</dimen>
     <dimen name="bite_restaurant_menu_item_amount_margin">16dp</dimen>
+    <dimen name="bite_restaurant_menu_item_action_size">28dp</dimen>
 
     /////////////////////////////
     ////// BITE CARD //////
@@ -177,6 +178,5 @@
 
     <!-- Restaurant -->
     <dimen name="font_size_restaurant_toolbar_title">20sp</dimen>
-
 
 </resources>

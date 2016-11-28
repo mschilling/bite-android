@@ -18,6 +18,8 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
         super(v);
         this.v = v;
         mTextTitle = (TextViewCustom) v.findViewById(R.id.menu_item_title);
+        mTextTitle.setSelected(true);
+        mTextTitle.setHorizontallyScrolling(true);
         mTextPrice = (TextViewCustom) v.findViewById(R.id.menu_item_price);
     }
 }
