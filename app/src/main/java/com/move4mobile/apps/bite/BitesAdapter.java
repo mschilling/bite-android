@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +87,21 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 v.getContext().startActivity(intent);
             }
         });
+
+        //Header extra margin for shadow
+        if(position == 0){
+            DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+            int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, metrics);
+
+            RecyclerView.LayoutParams llp = (RecyclerView.LayoutParams) viewHolder.view.getLayoutParams();
+            llp.setMargins(
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_top) + px,
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_bottom)
+            );
+            viewHolder.view.setLayoutParams(llp);
+        }
 
         mRefStoreName = mDatabase.getReference("stores/"+model.getStore());
         mRefStoreName.addValueEventListener(new ValueEventListener() {

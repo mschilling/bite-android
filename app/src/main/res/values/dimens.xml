@@ -45,7 +45,8 @@
     ////// BITES CARD //////
     /////////////////////////////
     <dimen name="bite_card_margin_horizontal">16dp</dimen>
-    <dimen name="bite_card_margin_vertical">8dp</dimen>
+    <dimen name="bite_card_margin_top">0dp</dimen>
+    <dimen name="bite_card_margin_bottom">16dp</dimen>
     <dimen name="bite_card_header_margin">16dp</dimen>
 
     <dimen name="bite_card_header_image_size">40dp</dimen>
