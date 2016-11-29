@@ -19,28 +19,7 @@
 
     <color name="colorFabRipple">#6e6e6e</color>
 
-    <!--<color name="textPrimary">#9b9b9b</color>
-    <color name="textSecondary">#6e6e6e</color>
-
-    &lt;!&ndash; Toolbar &ndash;&gt;
-    <color name="colorToolbarText">#ec9630</color>
-
-    &lt;!&ndash; Main Activity &ndash;&gt;
-    <color name="colorRankTitleText">#ec9630</color>
-    <color name="colorRankDescriptionText">#9b9b9b</color>
-    <color name="colorBitesTitleText">#ec9630</color>
-    <color name="colorBitesStripe">#ec9630</color>
-    <color name="colorBitesDescriptionText">#9b9b9b</color>
-
-    &lt;!&ndash; FAB &ndash;&gt;
-    <color name="colorFab">#ec9630</color>
-    <color name="colorFabRipple">#6e6e6e</color>
-
-    &lt;!&ndash; Bite Card &ndash;&gt;
-    <color name="colorBiteCardTitleText">#ec9630</color>
-    <color name="colorBiteCardLocationText">#9b9b9b</color>
-    <color name="colorBiteCardStripe">#9b9b9b</color>-->
-
+    <color name="colorEmptyBites">#6f6f6f</color>
 
 
 
@@ -63,34 +42,7 @@
 
     <color name="colorFabRipple_Light">#eeddcc</color>
 
-    <color name="colorEmptyBites">#66000000</color>
-
-    <!-- <color name="textPrimary_Light">#9b9b9b</color>
-    <color name="textSecondary_Light">#6e6e6e</color>
-
-    &lt;!&ndash; FAB &ndash;&gt;
-    <color name="fab_color_Light">#ec9630</color>
-    <color name="fab_color_ripple_Light">#eeddcc</color>
-
-    <color name="colorCardViewBackground_Light">#ffffff</color>
-
-    &lt;!&ndash; Toolbar &ndash;&gt;
-    <color name="colorToolbarText_Light">#ec9630</color>
-
-    &lt;!&ndash; Main Activity &ndash;&gt;
-    <color name="colorRankTitleText_Light">#ec9630</color>
-    <color name="colorRankDescriptionText_Light">#6e6e6e</color>
-    <color name="colorBitesTitleText_Light">#ec9630</color>
-    <color name="colorBitesStripe_Light">#ec9630</color>
-    <color name="colorBitesDescriptionText_Light">#6e6e6e</color>
-
-    &lt;!&ndash; FAB &ndash;&gt;
-    <color name="colorFab_Light">#ec9630</color>
-
-    &lt;!&ndash; Bite Card &ndash;&gt;
-    <color name="colorBiteCardTitleText_Light">#ec9630</color>
-    <color name="colorBiteCardLocationText_Light">#9b9b9b</color>
-    <color name="colorBiteCardStripe_Light">#eeddcc</color>-->
+    <color name="colorEmptyBites_Light">#66000000</color>
 
 
 

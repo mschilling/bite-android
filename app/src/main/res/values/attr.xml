@@ -19,29 +19,10 @@
     <!-- FAB -->
     <attr name="colorFabRipple" format="reference|color"/>
 
+    <!-- Card stipe -->
     <attr name="colorCardStripe" format="reference|color"/>
 
-    <!--&lt;!&ndash; Toolbar &ndash;&gt;
-    <attr name="colorToolbarText" format="reference|color"/>
-
-    &lt;!&ndash; Main Activity &ndash;&gt;
-    <attr name="colorRankTitleText" format="reference|color"/>
-    <attr name="colorRankDescriptionText" format="reference|color"/>
-
-    <attr name="colorBitesTitleText" format="reference|color"/>
-    <attr name="colorBitesStripe" format="reference|color"/>
-    <attr name="colorBitesDescriptionText" format="reference|color"/>
-
-    &lt;!&ndash; FAB &ndash;&gt;
-    <attr name="colorFab" format="reference|color"/>
-
-
-    &lt;!&ndash; General CardView &ndash;&gt;
-    <attr name="cardViewBackground" format="reference|color"/>
-
-    &lt;!&ndash; Bite Card &ndash;&gt;
-    <attr name="colorBiteCardTitleText" format="reference|color"/>
-    <attr name="colorBiteCardLocationText" format="reference|color"/>
-    <attr name="colorBiteCardStripe" format="reference|color"/>-->
+    <!-- Empty Bites -->
+    <attr name="colorEmptyBites" format="reference|color"/>
 
 </resources>

@@ -194,7 +194,7 @@
                     android:layout_height="@dimen/bites_empty_logo_height"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/bite_logo_big"
-                    android:tint="@color/colorEmptyBites" />
+                    android:tint="?colorEmptyBites" />
 
                 <com.move4mobile.apps.bite.TextViewCustom
                     android:layout_width="wrap_content"
@@ -203,7 +203,7 @@
                     android:gravity="center"
                     android:text="@string/empty_bites_title"
                     android:textSize="@dimen/font_size_empty_title"
-                    android:textColor="@color/colorEmptyBites"
+                    android:textColor="?colorEmptyBites"
                     app:customFont="@string/compasse_extra_bold_italic" />
 
                 <com.move4mobile.apps.bite.TextViewCustom
@@ -216,7 +216,7 @@
                     android:paddingEnd="@dimen/bites_empty_padding_horizontal"
                     android:text="@string/empty_bites_description"
                     android:textSize="@dimen/font_size_empty_description"
-                    android:textColor="@color/colorEmptyBites"
+                    android:textColor="?colorEmptyBites"
                     app:customFont="@string/compasse" />
             </LinearLayout>
         </LinearLayout>
@@ -232,6 +232,7 @@
         android:clickable="true"
         android:src="@drawable/ic_add_white"
         android:visibility="gone"
+        android:tint="?android:colorPrimary"
         app:backgroundTint="?colorAccent"
         app:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/nested_scroll_view"
