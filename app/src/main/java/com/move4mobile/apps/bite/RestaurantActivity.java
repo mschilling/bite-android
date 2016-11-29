@@ -89,10 +89,11 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
 
                 Bite bite = dataSnapshot.getValue(Bite.class);
-                mRefStore = mDatabase.getReference("stores").child(bite.getStore());
-                mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
-                if(adapter == null) {
-                    adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext(), getUser(), key);
+                if(bite != null) {
+                    mRefStore = mDatabase.getReference("stores").child(bite.getStore());
+                    mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
+                    if (adapter == null) {
+                        adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext(), getUser(), key);
                     /*adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                         @Override
                         public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -100,13 +101,16 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                             Log.e("TAG", "Inserted");
                         }
                     });*/
-                    mRecyclerView.setAdapter(adapter);
-                }
-                mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
+                        mRecyclerView.setAdapter(adapter);
+                    }
+                    mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
 
-                mRefStore.addValueEventListener(storeListener);
-                mRefProducts.addValueEventListener(productsListener);
-                mRefUserData.addValueEventListener(userListener);
+                    mRefStore.addValueEventListener(storeListener);
+                    mRefProducts.addValueEventListener(productsListener);
+                    mRefUserData.addValueEventListener(userListener);
+                } else {
+                    finish();
+                }
             }
 
             @Override
