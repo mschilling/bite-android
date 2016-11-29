@@ -165,7 +165,7 @@
 
     <!-- Bite Card -->
     <dimen name="font_size_bite_title">16sp</dimen>
-    <dimen name="font_size_bite_emoji">18sp</dimen>
+    <dimen name="font_size_bite_emoji">6sp</dimen>
     <dimen name="font_size_bite_location">14sp</dimen>
 
     <!-- Login Screen -->

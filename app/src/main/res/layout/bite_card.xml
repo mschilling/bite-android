@@ -53,45 +53,10 @@
                     app:customFont="@string/compasse_extra_bold_italic" />
 
                 <LinearLayout
+                    android:id="@+id/bite_card_emoji_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <com.move4mobile.apps.bite.TextViewCustom
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
-                        android:text="🌭"
-                        android:textSize="@dimen/font_size_bite_emoji"
-                        app:customFont="@string/compasse" />
-
-                    <com.move4mobile.apps.bite.TextViewCustom
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
-                        android:text="🌭"
-                        android:textSize="@dimen/font_size_bite_emoji"
-                        app:customFont="@string/compasse" />
-
-                    <com.move4mobile.apps.bite.TextViewCustom
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
-                        android:text="🌭"
-                        android:textSize="@dimen/font_size_bite_emoji"
-                        app:customFont="@string/compasse" />
-
-                    <com.move4mobile.apps.bite.TextViewCustom
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/bite_card_emoji_margin_horizontal"
-                        android:layout_marginStart="@dimen/bite_card_emoji_margin_horizontal"
-                        android:text="🌭"
-                        android:textSize="@dimen/font_size_bite_emoji"
-                        app:customFont="@string/compasse" />
                 </LinearLayout>
 
                 <LinearLayout

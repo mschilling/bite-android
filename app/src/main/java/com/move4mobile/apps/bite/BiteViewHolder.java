@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 /**
  * Created by casvd on 8-11-2016.
@@ -17,6 +18,7 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
     TextViewCustom mTextTitle;
     TextViewCustom mTextLocation;
     Button mButtonRemove;
+    LinearLayout mEmojiList;
 
     public BiteViewHolder(View v) {
         super(v);
@@ -25,5 +27,6 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
         mTextTitle = (TextViewCustom) v.findViewById(R.id.bite_card_restaurant_title);
         mTextLocation = (TextViewCustom) v.findViewById(R.id.bite_card_location);
         mButtonRemove = (Button) v.findViewById(R.id.bite_card_remove);
+        mEmojiList = (LinearLayout) v.findViewById(R.id.bite_card_emoji_list);
     }
 }

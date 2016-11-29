@@ -8,6 +8,8 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -90,6 +93,24 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                     if(store != null) {
                         viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
                         viewHolder.mTextLocation.setText(store.getLocation());
+
+                        if(store.getCategories() != null && store.getCategories().size() > 0) {
+                            viewHolder.mEmojiList.removeAllViews();
+                            for (HashMap<String, String> category: store.getCategories().values()) {
+                                TextView emoji = new TextView(mContext);
+                                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                llp.setMargins((int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                        0,
+                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                        0);
+                                emoji.setLayoutParams(llp);
+                                emoji.setTextSize(mContext.getResources().getDimension(R.dimen.font_size_bite_emoji));
+                                emoji.setTypeface(BiteApplication.Fonts.COMPASSE);
+                                emoji.setText(category.get("emoji"));
+                                viewHolder.mEmojiList.addView(emoji);
+                            }
+                        }
+
                     }
                 }
 
