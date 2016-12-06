@@ -63,6 +63,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
         Intent intent = getIntent();
         key = intent.getStringExtra("key");
+        if(key == null || key.isEmpty()) finish();
         Toast.makeText(this, key, Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_restaurant);
