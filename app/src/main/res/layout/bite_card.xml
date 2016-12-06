@@ -42,7 +42,7 @@
                 android:layout_weight="@integer/bite_card_header_text_weight"
                 android:orientation="vertical">
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:id="@+id/bite_card_restaurant_title"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_title_height"
@@ -72,7 +72,7 @@
                         android:src="@drawable/ic_location"
                         android:tint="?android:textColorSecondary" />
 
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:id="@+id/bite_card_location"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/bite_card_location_text_height"

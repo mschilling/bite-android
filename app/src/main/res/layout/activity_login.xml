@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="@integer/login_view_header"/>
-    <com.move4mobile.apps.bite.TextViewCustom
+    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/font_size_login_welcome_title"
@@ -26,7 +26,7 @@
         android:layout_height="0dp"
         android:layout_weight="@integer/login_view_spacing"/>
 
-    <com.move4mobile.apps.bite.TextViewCustom
+    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/login_welcome_description_margin"
@@ -48,7 +48,7 @@
         android:layout_gravity="center_horizontal"
         android:visibility="visible">
 
-        <com.move4mobile.apps.bite.RelativeLayoutCircle
+        <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle
             android:id="@+id/circle_google_image"
             android:layout_width="@dimen/login_circle_size"
             android:layout_height="@dimen/login_circle_size"
@@ -64,8 +64,8 @@
                 android:layout_marginStart="@dimen/login_circle_image_margin"
                 android:visibility="visible"/>
 
-        </com.move4mobile.apps.bite.RelativeLayoutCircle>
-        <com.move4mobile.apps.bite.TextViewCustom
+        </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle>
+        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
             android:id="@+id/google_account_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
         android:layout_height="0dp"
         android:layout_weight="@integer/login_view_spacing"/>
 
-    <com.move4mobile.apps.bite.TextViewCustom
+    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/login_powered_by_margin"

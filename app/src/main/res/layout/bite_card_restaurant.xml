@@ -41,7 +41,7 @@
                 android:layout_marginStart="@dimen/bite_card_restaurant_header_text_margin_start"
                 android:orientation="vertical">
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:id="@+id/bite_card_started_by"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_header_text_height"
@@ -50,7 +50,7 @@
                     android:text="@string/loading"
                     app:customFont="@string/compasse_extra_bold_italic"/>
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_header_text_height"
                     android:textSize="@dimen/font_size_bite_card_restaurant_header_text_time"
@@ -81,7 +81,7 @@
             android:layout_marginBottom="@dimen/bite_card_restaurant_emoji_margin_vertical"
             android:gravity="center">
 
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -90,7 +90,7 @@
                 android:text="💦"
                 app:customFont="@string/compasse_extra_bold_italic"/>
 
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -99,7 +99,7 @@
                 android:text="💦"
                 app:customFont="@string/compasse_extra_bold_italic"/>
 
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -141,13 +141,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_stat_height">
 
-                    <com.move4mobile.apps.bite.RelativeLayoutCircle
+                    <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle
                         android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
                         android:gravity="center"
                         app:customCircleColor="#d93335">
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
@@ -155,8 +155,8 @@
                             android:textSize="@dimen/font_size_bite_card_restaurant_stat"
                             android:textColor="#d93335"
                             app:customFont="@string/compasse"/>
-                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
-                    <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
+                    </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle>
+                    <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutStatsTitle
                         android:layout_width="@dimen/bite_card_restaurant_stat_title_width"
                         android:layout_height="@dimen/bite_card_restaurant_stat_title_height"
                         android:layout_marginTop="@dimen/bite_card_restaurant_stat_title_margin_top"
@@ -165,7 +165,7 @@
                         android:gravity="center"
                         app:customStatsTitleColor="#d93335">
 
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
@@ -175,10 +175,10 @@
                             app:customFont="@string/compasse"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentStart="true"/>
-                    </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
+                    </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutStatsTitle>
                 </RelativeLayout>
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -199,13 +199,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_stat_height">
 
-                    <com.move4mobile.apps.bite.RelativeLayoutCircle
+                    <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle
                         android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
                         android:layout_height="52dp"
                         android:background="@drawable/circle"
                         android:gravity="center"
                         app:customCircleColor="?colorAccent">
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
@@ -213,8 +213,8 @@
                             android:textSize="@dimen/font_size_bite_card_restaurant_stat"
                             android:textColor="?colorAccent"
                             app:customFont="@string/compasse"/>
-                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
-                    <com.move4mobile.apps.bite.RelativeLayoutStatsTitle
+                    </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle>
+                    <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutStatsTitle
                         android:layout_width="@dimen/bite_card_restaurant_stat_title_width"
                         android:layout_height="@dimen/bite_card_restaurant_stat_title_height"
                         android:layout_marginTop="@dimen/bite_card_restaurant_stat_title_margin_top"
@@ -223,7 +223,7 @@
                         android:gravity="center"
                         app:customStatsTitleColor="?colorAccent">
 
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
@@ -231,10 +231,10 @@
                             android:textSize="@dimen/font_size_bite_card_restaurant_stat_title"
                             android:textColor="@android:color/white"
                             app:customFont="@string/compasse"/>
-                    </com.move4mobile.apps.bite.RelativeLayoutStatsTitle>
+                    </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutStatsTitle>
                 </RelativeLayout>
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -255,7 +255,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_stat_height">
-                    <com.move4mobile.apps.bite.RelativeLayoutCircle
+                    <com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle
                         android:layout_width="@dimen/bite_card_restaurant_stat_circle_size"
                         android:layout_height="@dimen/bite_card_restaurant_stat_circle_size"
                         android:background="@drawable/circle"
@@ -266,9 +266,9 @@
                             android:layout_height="@dimen/bite_card_restaurant_stat_circle_image_size"
                             android:layout_marginTop="@dimen/bite_card_restaurant_stat_circle_image_margin"
                             android:layout_marginStart="@dimen/bite_card_restaurant_stat_circle_image_margin"/>
-                    </com.move4mobile.apps.bite.RelativeLayoutCircle>
+                    </com.move4mobile.apps.bite.customlayoutclasses.RelativeLayoutCircle>
                 </RelativeLayout>
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"

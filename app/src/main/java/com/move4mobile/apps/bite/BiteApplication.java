@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.move4mobile.apps.bite.dialogs.UpdateDialog;
 
 import java.util.Objects;
 
@@ -138,7 +139,7 @@ public class BiteApplication extends Application {
     }
 
     private void showUpdateMessage() {
-        if(UpdateDialog.active){
+        if(UpdateDialog.isActive()){
             UpdateDialog updateDialog = UpdateDialog.getInstance();
             updateDialog.showUpdateMessage();
         } else {
@@ -151,7 +152,7 @@ public class BiteApplication extends Application {
     protected static int getNewVersionCode() {
         return versionCode;
     }
-    protected static String getNewVersionName() {
+    public static String getNewVersionName() {
         return versionName;
     }
 

@@ -23,7 +23,7 @@
                 android:src="@drawable/ic_cloud_off_black"
                 android:tint="?colorAccent" />
 
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/toolbar_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/rank_card_title_height"
                             android:layout_marginTop="@dimen/rank_card_title_margin_top"
@@ -114,7 +114,7 @@
                             android:textSize="@dimen/font_size_rank_card_title"
                             app:customFont="@string/compasse_extra_bold_italic" />
 
-                        <com.move4mobile.apps.bite.TextViewCustom
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/rank_card_description_height"
                             android:layout_marginBottom="@dimen/rank_card_description_margin_bottom"
@@ -145,7 +145,7 @@
             </android.support.v7.widget.CardView>
 
             <!-- Title -->
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/bites_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
                     android:src="@drawable/bite_logo_big"
                     android:tint="?colorEmptyBites" />
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/bites_empty_title_margin_top"
@@ -206,7 +206,7 @@
                     android:textColor="?colorEmptyBites"
                     app:customFont="@string/compasse_extra_bold_italic" />
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/bites_empty_description_margin_vertical"

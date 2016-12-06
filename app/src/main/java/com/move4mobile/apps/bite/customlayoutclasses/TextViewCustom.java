@@ -1,4 +1,4 @@
-package com.move4mobile.apps.bite;
+package com.move4mobile.apps.bite.customlayoutclasses;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.move4mobile.apps.bite.BiteApplication;
+import com.move4mobile.apps.bite.R;
 
 /**
  * Created by casvd on 6-10-2016.

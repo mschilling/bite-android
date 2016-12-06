@@ -12,6 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.move4mobile.apps.bite.objects.MenuItem;
+import com.move4mobile.apps.bite.objects.UserOrder;
 
 /**
  * Created by casvd on 18-11-2016.

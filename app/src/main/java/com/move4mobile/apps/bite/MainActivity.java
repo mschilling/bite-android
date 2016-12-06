@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
@@ -22,6 +24,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
+import com.move4mobile.apps.bite.objects.Bite;
 
 import java.util.Locale;
 
@@ -83,6 +88,15 @@ public class MainActivity extends AppCompatActivityFireAuth {
             public void onClick(View v) {
                 Bite b = new Bite(getUser().getUid(), "-JhLeOlGIEjaIOFHR0xd", System.currentTimeMillis(), System.currentTimeMillis() + 9000);
                 mRefOrders.push().setValue(b);
+            }
+        });
+
+        firebaseStatusImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseMessaging.getInstance().subscribeToTopic("news");
+                Toast.makeText(MainActivity.this, "Subscribed to News", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Subscribed to News");
             }
         });
     }
@@ -174,8 +188,6 @@ public class MainActivity extends AppCompatActivityFireAuth {
                     adapter.notifyDataSetChanged();
                     updateBitesList(adapter.getItemCount());
                 }
-
-
             });
             mRecyclerView.setAdapter(adapter);
         }

@@ -27,7 +27,7 @@
                 android:elevation="@dimen/restaurant_toolbar_elevation"
                 android:layout_gravity="top">
 
-                <com.move4mobile.apps.bite.TextViewCustom
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:id="@+id/toolbar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -89,7 +89,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -110,7 +110,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -131,7 +131,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -152,7 +152,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -173,7 +173,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
@@ -194,7 +194,7 @@
                     android:background="@drawable/snack_button"
                     android:gravity="center"
                     android:clickable="true">
-                    <com.move4mobile.apps.bite.TextViewCustom
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"

@@ -1,4 +1,4 @@
-package com.move4mobile.apps.bite;
+package com.move4mobile.apps.bite.customlayoutclasses;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,6 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
+
+import com.move4mobile.apps.bite.R;
 
 /**
  * Created by casvd on 27-10-2016.

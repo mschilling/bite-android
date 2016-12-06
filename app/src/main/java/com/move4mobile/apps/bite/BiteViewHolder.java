@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
+
 /**
  * Created by casvd on 8-11-2016.
  */

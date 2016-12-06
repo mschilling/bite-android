@@ -3,6 +3,8 @@ package com.move4mobile.apps.bite;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
+
 /**
  * Created by casvd on 18-11-2016.
  */

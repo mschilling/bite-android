@@ -11,7 +11,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +25,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.move4mobile.apps.bite.dialogs.RemoveBiteDialog;
+import com.move4mobile.apps.bite.objects.Bite;
+import com.move4mobile.apps.bite.objects.Store;
+import com.move4mobile.apps.bite.objects.User;
 
 import java.util.HashMap;
 import java.util.Locale;

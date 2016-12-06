@@ -30,7 +30,7 @@
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:layout_margin="@dimen/bite_restaurant_menu_item_text_layout_margin">
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/menu_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 app:customFont="@string/compasse"/>
 
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/menu_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:gravity="center"
             android:layout_marginEnd="@dimen/bite_restaurant_menu_item_text_layout_margin"
             android:orientation="horizontal">
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/menu_item_remove"
                 android:layout_width="@dimen/bite_restaurant_menu_item_action_size"
                 android:layout_height="@dimen/bite_restaurant_menu_item_action_size"
@@ -70,7 +70,7 @@
                 android:clickable="true"
                 app:customFont="@string/compasse_bold"
                 android:visibility="gone"/>
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/menu_item_amount"
                 android:layout_width="@dimen/bite_restaurant_menu_item_action_size"
                 android:layout_height="@dimen/bite_restaurant_menu_item_action_size"
@@ -83,7 +83,7 @@
                 android:layout_marginEnd="@dimen/bite_restaurant_menu_item_amount_margin"
                 app:customFont="@string/compasse_extra_bold"
                 android:visibility="gone"/>
-            <com.move4mobile.apps.bite.TextViewCustom
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/menu_item_add"
                 android:layout_width="@dimen/bite_restaurant_menu_item_action_size"
                 android:layout_height="@dimen/bite_restaurant_menu_item_action_size"

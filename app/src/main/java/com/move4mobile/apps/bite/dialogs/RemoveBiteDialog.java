@@ -1,4 +1,4 @@
-package com.move4mobile.apps.bite;
+package com.move4mobile.apps.bite.dialogs;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.move4mobile.apps.bite.AppCompatActivityFireAuth;
 
 /**
  * Created by casvd on 9-11-2016.

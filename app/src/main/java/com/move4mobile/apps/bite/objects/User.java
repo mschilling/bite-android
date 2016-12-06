@@ -1,4 +1,4 @@
-package com.move4mobile.apps.bite;
+package com.move4mobile.apps.bite.objects;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;

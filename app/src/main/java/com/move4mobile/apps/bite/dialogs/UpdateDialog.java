@@ -1,17 +1,20 @@
-package com.move4mobile.apps.bite;
+package com.move4mobile.apps.bite.dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import com.move4mobile.apps.bite.BiteApplication;
+import com.move4mobile.apps.bite.BuildConfig;
+
 public class UpdateDialog extends Activity {
 
-    protected static boolean active = false;
+    private static boolean active = false;
     private static UpdateDialog _instance = null;
     private AlertDialog alertDialog;
 
-    protected static UpdateDialog getInstance() {
+    public static UpdateDialog getInstance() {
         if(_instance == null){
             _instance = new UpdateDialog();
         }
@@ -26,7 +29,7 @@ public class UpdateDialog extends Activity {
         showUpdateMessage();
     }
 
-    protected void showUpdateMessage () {
+    public void showUpdateMessage() {
         if(alertDialog == null) {
             alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("Bite Update");
@@ -53,5 +56,9 @@ public class UpdateDialog extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         if (alertDialog != null) alertDialog.dismiss();
+    }
+
+    public static boolean isActive() {
+        return active;
     }
 }

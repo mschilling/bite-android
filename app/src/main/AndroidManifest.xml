@@ -44,19 +44,19 @@
             android:label="Login"
             android:theme="@style/AppTheme.Login.Light" />
         <activity
-            android:name=".UpdateDialog"
+            android:name=".dialogs.UpdateDialog"
             android:label="Bite Update"
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"/>
         <activity
-            android:name=".UsernameDialog"
+            android:name=".dialogs.UsernameDialog"
             android:label="Set Username"
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"/>
         <activity
-            android:name=".RemoveBiteDialog"
+            android:name=".dialogs.RemoveBiteDialog"
             android:label="Remove Bite"
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"

@@ -36,6 +36,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.move4mobile.apps.bite.dialogs.UsernameDialog;
+import com.move4mobile.apps.bite.objects.User;
 
 /**
  * Created by casvd on 3-11-2016.
