@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 /**
  * Created by casvd on 3-11-2016.
@@ -33,7 +34,9 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     //private DatabaseReference myConnectionsRef;
     private DatabaseReference lastOnlineRef;
     private DatabaseReference connectedRef;
+    private DatabaseReference fcmtokenRef;
     private ValueEventListener listener;
+    private ValueEventListener fcmlistener;
 
 
     @Override
@@ -58,6 +61,12 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
         super.onStop();
         Log.d(TAG, "onStop");
         mAuth.removeAuthStateListener(this);
+
+        if(fcmlistener != null) {
+            fcmtokenRef.removeEventListener(fcmlistener);
+            fcmlistener = null;
+        }
+
         if(listener == null) return;
         connectedRef.removeEventListener(listener);
         listener = null;
@@ -101,6 +110,28 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
     protected void onLoggedIn() {
         Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+
+        if(fcmlistener == null) {
+            fcmtokenRef = database.getReference("users").child(user.getUid()).child("fcmtoken");
+            fcmlistener = fcmtokenRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.getValue() == null) {
+                        fcmtokenRef.setValue(FirebaseInstanceId.getInstance().getToken());
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        if(MyFirebaseInstanceIDService.isChanged()) {
+            fcmtokenRef.setValue(FirebaseInstanceId.getInstance().getToken());
+            MyFirebaseInstanceIDService.setChanged(false);
+        }
 
         if(listener != null) return;
 

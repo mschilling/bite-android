@@ -12,6 +12,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIDService";
+    private static boolean changed = true;
 
     @Override
     public void onTokenRefresh() {
@@ -27,5 +28,14 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private void sendRegistrationToServer(String token) {
         //// TODO: Send token to app server
+        setChanged(true);
+    }
+
+    public static boolean isChanged() {
+        return changed;
+    }
+
+    public static void setChanged(boolean changed) {
+        MyFirebaseInstanceIDService.changed = changed;
     }
 }
