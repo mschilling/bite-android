@@ -1,5 +1,6 @@
 package com.move4mobile.apps.bite.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import com.move4mobile.apps.bite.AppCompatActivityFireAuth;
  * Created by casvd on 9-11-2016.
  */
 
-public class RemoveBiteDialog extends AppCompatActivityFireAuth {
+public class RemoveBiteDialog extends Activity {
 
     private AlertDialog alertDialog;
     private FirebaseDatabase mDatabase;
@@ -36,24 +37,26 @@ public class RemoveBiteDialog extends AppCompatActivityFireAuth {
 
     private void showRemoveBiteDialog() {
         if (alertDialog == null) {
-            alertDialog = new AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Remove Bite")
-                    .setMessage("Ur ye sure ye want tae remove th' Bite?")
-                    .setPositiveButton("Aye", new DialogInterface.OnClickListener() {
+            alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+            alertDialog.setTitle("Remove Bite");
+            alertDialog.setMessage("Ur ye sure ye want tae remove th' Bite?");
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Aye", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             mRefBiteOrder.setValue(null);
                             mRefBite.setValue(null);
                             finish();
                         }
-                    })
-                    .setNegativeButton("Na", new DialogInterface.OnClickListener() {
+                    });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Na", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
                         }
-                    }).show();
+                    });
+            alertDialog.show();
         }
     }
 
