@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +27,7 @@ import com.move4mobile.apps.bite.objects.MenuItem;
 import com.move4mobile.apps.bite.objects.Store;
 import com.move4mobile.apps.bite.objects.User;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 /**
@@ -39,6 +41,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private String key;
 
     private TextViewCustom textViewCustomToolbarText;
+    private LinearLayout layoutEmojiList;
     private ImageView imageViewStartedBy;
     private TextViewCustom textViewCustomStartedBy;
     private RecyclerView mRecyclerView;
@@ -69,6 +72,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         setContentView(R.layout.activity_restaurant);
 
         textViewCustomToolbarText = (TextViewCustom) findViewById(R.id.toolbar_text);
+        layoutEmojiList = (LinearLayout) findViewById(R.id.bite_card_restaurant_emoji_list);
         imageViewStartedBy = (ImageView) findViewById(R.id.bite_card_started_by_image);
         textViewCustomStartedBy = (TextViewCustom) findViewById(R.id.bite_card_started_by);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_menu);
@@ -131,6 +135,25 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Store store = dataSnapshot.getValue(Store.class);
                 if(store != null) {
                     textViewCustomToolbarText.setText(store.getName());
+
+                    if(store.getCategories() != null && store.getCategories().size() > 0) {
+                        layoutEmojiList.removeAllViews();
+                        for (HashMap<String, String> category: store.getCategories().values()) {
+                            ImageView emo = new ImageView(RestaurantActivity.this);
+                            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
+                                    (int)getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size),
+                                    (int)getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size));
+                            llp.setMargins((int)getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    0,
+                                    (int)getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    0);
+                            emo.setLayoutParams(llp);
+                            emo.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
+                            layoutEmojiList.addView(emo);
+                        }
+                    } else {
+                        layoutEmojiList.removeAllViews();
+                    }
                 }
             }
 

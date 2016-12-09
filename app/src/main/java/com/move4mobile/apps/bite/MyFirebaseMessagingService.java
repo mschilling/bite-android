@@ -56,6 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.d(TAG, "Send Notification method");
         Map<String, String> data = remoteMessage.getData();
         Log.d(TAG, data.get("type") + "");
+        if(data.get("type") == null) return;
         int type = Integer.parseInt(data.get("type"));
         switch (type) {
             case 0:
@@ -74,6 +75,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setColor(getResources().getColor(R.color.colorAccent_Light, getTheme()))
                         .setContentTitle(title)
                         .setContentText(message)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
                         .setLargeIcon(getCircleBitmap(Glide.with(this).load(image).asBitmap().into(250,250).get()))
                         .setLights(Color.RED, 1000, 1000)
                         .setPriority(Notification.PRIORITY_HIGH)

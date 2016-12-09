@@ -43,14 +43,25 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 app:customFont="@string/compasse"/>
 
-            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                android:id="@+id/menu_item_price"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/bite_restaurant_menu_item_text_padding"
-                android:text="@string/loading"
-                android:textSize="@dimen/font_size_bite_restaurant_menu_item_price"
-                app:customFont="@string/compasse"/>
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:src="@drawable/ic_bitecoin"/>
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:id="@+id/menu_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/bite_restaurant_menu_item_text_padding"
+                    android:text="@string/loading"
+                    android:textSize="@dimen/font_size_bite_restaurant_menu_item_price"
+                    app:customFont="@string/compasse"/>
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

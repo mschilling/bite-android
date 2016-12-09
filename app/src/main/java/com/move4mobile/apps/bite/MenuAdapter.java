@@ -1,7 +1,6 @@
 package com.move4mobile.apps.bite;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -63,7 +62,6 @@ public class MenuAdapter extends FirebaseRecyclerAdapter<MenuItem, MenuItemViewH
                         viewHolder.v.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Snackbar.make(viewHolder.v, getRef(position).getKey(), Snackbar.LENGTH_SHORT).show();
                                 order.Add();
                                 dataSnapshot.getRef().setValue(order);
                             }
@@ -91,7 +89,6 @@ public class MenuAdapter extends FirebaseRecyclerAdapter<MenuItem, MenuItemViewH
                         viewHolder.v.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Snackbar.make(viewHolder.v, getRef(position).getKey(), Snackbar.LENGTH_SHORT).show();
                                 order.Add();
                                 dataSnapshot.getRef().setValue(order);
                             }
@@ -103,7 +100,6 @@ public class MenuAdapter extends FirebaseRecyclerAdapter<MenuItem, MenuItemViewH
                     viewHolder.v.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Snackbar.make(viewHolder.v, getRef(position).getKey(), Snackbar.LENGTH_SHORT).show();
                             UserOrder order = new UserOrder();
                             order.Add();
                             dataSnapshot.getRef().setValue(order);

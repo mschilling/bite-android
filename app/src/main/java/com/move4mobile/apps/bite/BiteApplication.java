@@ -3,6 +3,7 @@ package com.move4mobile.apps.bite;
 import android.app.Application;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -40,6 +41,7 @@ public class BiteApplication extends Application {
         versionName = BuildConfig.VERSION_NAME;
 
         initFonts();
+        initEmojis();
 
         androidVersionRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -93,6 +95,50 @@ public class BiteApplication extends Application {
         Fonts.COMPASSE_BOLD = Typeface.createFromAsset(getAssets(), "fonts/Compasse-Bold.otf");
         Fonts.COMPASSE_EXTRA_BOLD = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBold.otf");
         Fonts.COMPASSE_EXTRA_BOLD_ITALIC = Typeface.createFromAsset(getAssets(), "fonts/Compasse-ExtraBoldItalic.otf");
+    }
+
+    public static class Emojis {
+        public static Drawable DESSERT, DRINKS, FISH, FRIES, HAMBURGER, KEBAB, MEAT, PIZZA, SAUCE, SNACKS;
+
+        public static Drawable getEmoji(int id){
+            switch (id) {
+                case 0:
+                    return DESSERT;
+                case 1:
+                    return DRINKS;
+                case 2:
+                    return FISH;
+                case 3:
+                    return FRIES;
+                case 4:
+                    return HAMBURGER;
+                case 5:
+                    return KEBAB;
+                case 6:
+                    return MEAT;
+                case 7:
+                    return PIZZA;
+                case 8:
+                    return SAUCE;
+                case 9:
+                    return SNACKS;
+                default:
+                    return null;
+            }
+        }
+    }
+
+    private void initEmojis() {
+        Emojis.DESSERT = getResources().getDrawable(R.drawable.ic_dessert, getTheme());
+        Emojis.DRINKS = getResources().getDrawable(R.drawable.ic_drinks, getTheme());
+        Emojis.FISH = getResources().getDrawable(R.drawable.ic_fish, getTheme());
+        Emojis.FRIES = getResources().getDrawable(R.drawable.ic_fries, getTheme());
+        Emojis.HAMBURGER = getResources().getDrawable(R.drawable.ic_hamburger, getTheme());
+        Emojis.KEBAB= getResources().getDrawable(R.drawable.ic_kebab, getTheme());
+        Emojis.MEAT = getResources().getDrawable(R.drawable.ic_meat, getTheme());
+        Emojis.PIZZA = getResources().getDrawable(R.drawable.ic_pizza, getTheme());
+        Emojis.SAUCE= getResources().getDrawable(R.drawable.ic_sauce, getTheme());
+        Emojis.SNACKS = getResources().getDrawable(R.drawable.ic_snacks, getTheme());
     }
 
     private void setAppVersion(DataSnapshot dataSnapshot) {

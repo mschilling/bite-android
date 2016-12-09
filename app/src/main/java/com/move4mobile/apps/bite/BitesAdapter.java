@@ -11,8 +11,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -119,20 +119,21 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                         if(store.getCategories() != null && store.getCategories().size() > 0) {
                             viewHolder.mEmojiList.removeAllViews();
                             for (HashMap<String, String> category: store.getCategories().values()) {
-                                TextView emoji = new TextView(mContext);
-                                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                ImageView emoji = new ImageView(mContext);
+                                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
+                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_size),
+                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_size));
                                 llp.setMargins((int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
                                         0,
                                         (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
                                         0);
                                 emoji.setLayoutParams(llp);
-                                emoji.setTextSize(mContext.getResources().getDimension(R.dimen.font_size_bite_emoji));
-                                emoji.setTypeface(BiteApplication.Fonts.COMPASSE);
-                                emoji.setText(category.get("emoji"));
+                                emoji.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
                                 viewHolder.mEmojiList.addView(emoji);
                             }
+                        } else {
+                            viewHolder.mEmojiList.removeAllViews();
                         }
-
                     }
                 }
 

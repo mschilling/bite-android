@@ -72,6 +72,7 @@
 
         <!-- Emojis -->
         <LinearLayout
+            android:id="@+id/bite_card_restaurant_emoji_list"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bite_card_restaurant_emoji_height"
             android:orientation="horizontal"
@@ -80,33 +81,6 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/bite_card_restaurant_emoji_margin_vertical"
             android:gravity="center">
-
-            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:textSize="28sp"
-                android:text="💦"
-                app:customFont="@string/compasse_extra_bold_italic"/>
-
-            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:textSize="28sp"
-                android:text="💦"
-                app:customFont="@string/compasse_extra_bold_italic"/>
-
-            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:textSize="28sp"
-                android:text="💦"
-                app:customFont="@string/compasse_extra_bold_italic"/>
 
         </LinearLayout>
 

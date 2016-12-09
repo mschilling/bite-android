@@ -56,6 +56,7 @@
     <dimen name="bite_card_title_height">24dp</dimen>
     <dimen name="bite_card_title_margin_top">1dp</dimen>
 
+    <dimen name="bite_card_emoji_size">24dp</dimen>
     <dimen name="bite_card_emoji_margin_horizontal">1dp</dimen>
 
     <dimen name="bite_card_location_size_height">12dp</dimen>
@@ -122,6 +123,7 @@
     <dimen name="bite_card_restaurant_header_text_height">24dp</dimen>
 
     <dimen name="bite_card_restaurant_emoji_height">48dp</dimen>
+    <dimen name="bite_card_restaurant_emoji_size">36dp</dimen>
     <dimen name="bite_card_restaurant_emoji_margin_vertical">8dp</dimen>
 
     <dimen name="bite_card_restaurant_stats_height">74dp</dimen>
