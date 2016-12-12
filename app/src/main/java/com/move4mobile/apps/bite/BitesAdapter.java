@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,6 +47,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefStoreName;
     private DatabaseReference mRefUserData;
+    private DatabaseReference mRefSocial;
 
     private Context mContext;
     private FirebaseUser user;
@@ -68,7 +71,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     @Override
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
 
-        if(Objects.equals(user.getUid(), model.getOpenedBy())) {
+        if (Objects.equals(user.getUid(), model.getOpenedBy())) {
             viewHolder.mButtonRemove.setVisibility(View.VISIBLE);
             viewHolder.mButtonRemove.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -92,7 +95,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
         });
 
         //Header extra margin for shadow
-        if(position == 0){
+        if (position == 0) {
             DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
             int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, metrics);
 
@@ -106,83 +109,92 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
             viewHolder.view.setLayoutParams(llp);
         }
 
-        mRefStoreName = mDatabase.getReference("stores/"+model.getStore());
+        mRefStoreName = mDatabase.getReference("stores/" + model.getStore());
         mRefStoreName.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //Log.e(TAG, dataSnapshot.toString());
-                    Store store = dataSnapshot.getValue(Store.class);
-                    if(store != null) {
-                        viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
-                        viewHolder.mTextLocation.setText(store.getLocation());
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Log.e(TAG, dataSnapshot.toString());
+                Store store = dataSnapshot.getValue(Store.class);
+                if (store != null) {
+                    viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
+                    viewHolder.mTextLocation.setText(store.getLocation());
 
-                        if(store.getCategories() != null && store.getCategories().size() > 0) {
-                            viewHolder.mEmojiList.removeAllViews();
-                            for (HashMap<String, String> category: store.getCategories().values()) {
-                                ImageView emoji = new ImageView(mContext);
-                                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
-                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_size),
-                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_size));
-                                llp.setMargins((int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
-                                        0,
-                                        (int)mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
-                                        0);
-                                emoji.setLayoutParams(llp);
-                                emoji.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
-                                viewHolder.mEmojiList.addView(emoji);
-                            }
-                        } else {
-                            viewHolder.mEmojiList.removeAllViews();
+                    if (store.getCategories() != null && store.getCategories().size() > 0) {
+                        viewHolder.mEmojiList.removeAllViews();
+                        for (HashMap<String, String> category : store.getCategories().values()) {
+                            ImageView emoji = new ImageView(mContext);
+                            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
+                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size),
+                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size));
+                            llp.setMargins((int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    0,
+                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    0);
+                            emoji.setLayoutParams(llp);
+                            emoji.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
+                            viewHolder.mEmojiList.addView(emoji);
                         }
+                    } else {
+                        viewHolder.mEmojiList.removeAllViews();
                     }
                 }
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Log.e(TAG, databaseError.toString());
-                }
-            });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        });
 
-        mRefUserData = mDatabase.getReference("users/"+model.getOpenedBy());
+        mRefUserData = mDatabase.getReference("users/" + model.getOpenedBy());
         mRefUserData.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //Log.e(TAG, dataSnapshot.toString());
-                    final User user = dataSnapshot.getValue(User.class);
-                    if(user != null) {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Log.e(TAG, dataSnapshot.toString());
+                final User user = dataSnapshot.getValue(User.class);
+                if (user != null) {
 
-                        Glide.with(mContext).load(user.getPhotoUrl())
-                                .asBitmap()
-                                .centerCrop()
-                                .placeholder(R.drawable.ic_shipit)
-                                .into(new BitmapImageViewTarget(viewHolder.mImageView) {
+                    Glide.with(mContext).load(user.getPhotoUrl())
+                            .asBitmap()
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_shipit)
+                            .into(new BitmapImageViewTarget(viewHolder.mImageView) {
 
-                                    @Override
-                                    protected void setResource(Bitmap resource) {
-                                        RoundedBitmapDrawable circularBitmapDrawable =
-                                                RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
-                                        circularBitmapDrawable.setCircular(true);
-                                        viewHolder.mImageView.setImageDrawable(circularBitmapDrawable);
-                                    }
-                                });
-                        viewHolder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                Toast toast = Toast.makeText(v.getContext(), user.getDisplayName() + " | " + user.getName(), Toast.LENGTH_SHORT);
-                                int[] loc = new int[2];
-                                v.getLocationInWindow(loc);
-                                toast.setGravity(Gravity.TOP | Gravity.START, loc[0], loc[1] + v.getHeight() / 2);
-                                toast.show();
-                                return false;
-                            }
-                        });
-                    }
+                                @Override
+                                protected void setResource(Bitmap resource) {
+                                    RoundedBitmapDrawable circularBitmapDrawable =
+                                            RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
+                                    circularBitmapDrawable.setCircular(true);
+                                    viewHolder.mImageView.setImageDrawable(circularBitmapDrawable);
+                                }
+                            });
+                    viewHolder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            Toast toast = Toast.makeText(v.getContext(), user.getDisplayName() + " | " + user.getName(), Toast.LENGTH_SHORT);
+                            int[] loc = new int[2];
+                            v.getLocationInWindow(loc);
+                            toast.setGravity(Gravity.TOP | Gravity.START, loc[0], loc[1] + v.getHeight() / 2);
+                            toast.show();
+                            return false;
+                        }
+                    });
                 }
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Log.e(TAG, databaseError.toString());
-                }
-            });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        });
+
+        mRefSocial = mDatabase.getReference("user_order/" + getRef(position).getKey());
+        viewHolder.mSocialList.setHasFixedSize(false);
+        viewHolder.mSocialList.setNestedScrollingEnabled(false);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+        viewHolder.mSocialList.setLayoutManager(layoutManager);
+        BiteCardSocialAdapter adapter = new BiteCardSocialAdapter(Object.class, R.layout.bite_card_social, BiteCardSocialViewHolder.class, mRefSocial, mContext);
+        viewHolder.mSocialList.setAdapter(adapter);
     }
 }
