@@ -27,6 +27,7 @@ import com.move4mobile.apps.bite.objects.Bite;
 import com.move4mobile.apps.bite.objects.MenuItem;
 import com.move4mobile.apps.bite.objects.Store;
 import com.move4mobile.apps.bite.objects.User;
+import com.move4mobile.apps.bite.objects.UserOrder;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.HashMap;
@@ -47,7 +48,9 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private ImageView imageViewStartedBy;
     private TextViewCustom textViewCustomStartedBy;
     private RecyclerView mRecyclerView;
+    private RecyclerView mUserOrderRecyclerView;
     private LinearLayoutManager linearLayoutManager;
+    private LinearLayoutManager userOrderLinearLayoutManager;
     private SlidingUpPanelLayout mSlidingPanelLayout;
 
     private FirebaseDatabase mDatabase;
@@ -55,12 +58,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private DatabaseReference mRefStore;
     private DatabaseReference mRefProducts;
     private DatabaseReference mRefUserData;
+    private DatabaseReference mRefUserOrder;
 
     private ValueEventListener orderListener;
     private ValueEventListener storeListener;
     private ValueEventListener userListener;
 
     private FirebaseRecyclerAdapter adapter;
+    private FirebaseRecyclerAdapter userOrderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,11 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         mRecyclerView.setNestedScrollingEnabled(false);
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        mUserOrderRecyclerView = (RecyclerView) findViewById(R.id.user_order_recyclerview);
+        mUserOrderRecyclerView.setHasFixedSize(false);
+        mUserOrderRecyclerView.setNestedScrollingEnabled(false);
+        userOrderLinearLayoutManager = new LinearLayoutManager(this);
+        mUserOrderRecyclerView.setLayoutManager(userOrderLinearLayoutManager);
         mSlidingPanelLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         mSlidingPanelLayout.setFadeOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +111,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         orderListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, dataSnapshot.toString());
-
                 if(mRefStore != null) mRefStore.removeEventListener(storeListener);
                 if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
 
@@ -115,6 +123,23 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                         mRecyclerView.setAdapter(adapter);
                     }
                     mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
+                    mRefUserOrder = mDatabase.getReference("user_order").child(dataSnapshot.getKey()).child(getUser().getUid());
+                    if (userOrderAdapter == null) {
+                        userOrderAdapter = new UserOrderAdapter(UserOrder.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefUserOrder, RestaurantActivity.this, bite.getStore());
+                        userOrderAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                            @Override
+                            public void onItemRangeInserted(int positionStart, int itemCount) {
+                                super.onItemRangeInserted(positionStart, itemCount);
+                            }
+
+                            @Override
+                            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                                super.onItemRangeRemoved(positionStart, itemCount);
+                                userOrderAdapter.notifyDataSetChanged();
+                            }
+                        });
+                        mUserOrderRecyclerView.setAdapter(userOrderAdapter);
+                    }
 
                     mRefStore.addValueEventListener(storeListener);
                     mRefUserData.addValueEventListener(userListener);
