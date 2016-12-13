@@ -2,6 +2,7 @@ package com.move4mobile.apps.bite;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Log;
@@ -33,6 +34,7 @@ public class BiteCardSocialAdapter extends FirebaseRecyclerAdapter<Object, BiteC
     private Context mContext;
 
     private HashMap<String, ValueEventListener> listenerHashMap;
+    private HashMap<String, Drawable> drawableHashMap;
 
     /**
      * @param modelClass      Firebase will marshall the data at a location into an instance of a class that you provide
@@ -46,12 +48,17 @@ public class BiteCardSocialAdapter extends FirebaseRecyclerAdapter<Object, BiteC
         super(modelClass, modelLayout, viewHolderClass, ref);
         mContext = context;
         listenerHashMap = new HashMap<>();
+        drawableHashMap = new HashMap<>();
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
     }
 
     @Override
-    protected void populateViewHolder(final BiteCardSocialViewHolder viewHolder, Object model, int position) {
+    protected void populateViewHolder(final BiteCardSocialViewHolder viewHolder, Object model, final int position) {
+        if(drawableHashMap.get(getRef(position).getKey()) != null && !viewHolder.imageView.getDrawable().equals(drawableHashMap.get(getRef(position).getKey()))) {
+            //Get saved img
+            viewHolder.imageView.setImageDrawable(drawableHashMap.get(getRef(position).getKey()));
+        }
         mRefUserData = mDatabase.getReference("users/" + getRef(position).getKey());
         if (listenerHashMap.get(getRef(position).getKey()) != null) {
             mRefUserData.removeEventListener(listenerHashMap.get(getRef(position).getKey()));
@@ -59,7 +66,7 @@ public class BiteCardSocialAdapter extends FirebaseRecyclerAdapter<Object, BiteC
         listenerHashMap.put(getRef(position).getKey(), mRefUserData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
+                final User user = dataSnapshot.getValue(User.class);
                 if (user != null) {
                     Glide.with(mContext).load(user.getPhotoUrl())
                             .asBitmap()
@@ -72,6 +79,7 @@ public class BiteCardSocialAdapter extends FirebaseRecyclerAdapter<Object, BiteC
                                     RoundedBitmapDrawable circularBitmapDrawable =
                                             RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
                                     circularBitmapDrawable.setCircular(true);
+                                    drawableHashMap.put(getRef(position).getKey(), circularBitmapDrawable);
                                     viewHolder.imageView.setImageDrawable(circularBitmapDrawable);
                                 }
                             });

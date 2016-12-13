@@ -70,7 +70,6 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
 
     @Override
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
-
         if (Objects.equals(user.getUid(), model.getOpenedBy())) {
             viewHolder.mButtonRemove.setVisibility(View.VISIBLE);
             viewHolder.mButtonRemove.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +152,6 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 //Log.e(TAG, dataSnapshot.toString());
                 final User user = dataSnapshot.getValue(User.class);
                 if (user != null) {
-
                     Glide.with(mContext).load(user.getPhotoUrl())
                             .asBitmap()
                             .centerCrop()
@@ -191,10 +189,17 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
         mRefSocial = mDatabase.getReference("user_order/" + getRef(position).getKey());
         viewHolder.mSocialList.setHasFixedSize(false);
         viewHolder.mSocialList.setNestedScrollingEnabled(false);
-        LinearLayoutManager layoutManager
+        final LinearLayoutManager layoutManager
                 = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         viewHolder.mSocialList.setLayoutManager(layoutManager);
-        BiteCardSocialAdapter adapter = new BiteCardSocialAdapter(Object.class, R.layout.bite_card_social, BiteCardSocialViewHolder.class, mRefSocial, mContext);
+        final BiteCardSocialAdapter adapter = new BiteCardSocialAdapter(Object.class, R.layout.bite_card_social, BiteCardSocialViewHolder.class, mRefSocial, mContext);
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                viewHolder.mSocialList.scrollToPosition(positionStart);
+            }
+        });
         viewHolder.mSocialList.setAdapter(adapter);
     }
 }
