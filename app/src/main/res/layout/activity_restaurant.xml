@@ -10,8 +10,8 @@
     app:umanoPanelHeight="56dp"
     app:umanoShadowHeight="1dp"
     app:umanoDragView="@+id/dragView"
+    app:umanoOverlay="true"
     app:umanoScrollableView="@+id/list"
-    android:fitsSystemWindows="true"
     >
     <!-- MAIN LAYOUT -->
     <android.support.design.widget.CoordinatorLayout

@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.move4mobile.apps.bite.objects.Bite;
 import com.move4mobile.apps.bite.objects.MenuItem;
 import com.move4mobile.apps.bite.objects.Store;
 import com.move4mobile.apps.bite.objects.User;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -46,6 +48,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private TextViewCustom textViewCustomStartedBy;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager linearLayoutManager;
+    private SlidingUpPanelLayout mSlidingPanelLayout;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrder;
@@ -55,7 +58,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
     private ValueEventListener orderListener;
     private ValueEventListener storeListener;
-    private ValueEventListener productsListener;
     private ValueEventListener userListener;
 
     private FirebaseRecyclerAdapter adapter;
@@ -80,6 +82,13 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         mRecyclerView.setNestedScrollingEnabled(false);
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        mSlidingPanelLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
+        mSlidingPanelLayout.setFadeOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSlidingPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,7 +104,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.d(TAG, dataSnapshot.toString());
 
                 if(mRefStore != null) mRefStore.removeEventListener(storeListener);
-                if(mRefProducts != null) mRefProducts.removeEventListener(productsListener);
                 if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
 
                 Bite bite = dataSnapshot.getValue(Bite.class);
@@ -103,20 +111,12 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                     mRefStore = mDatabase.getReference("stores").child(bite.getStore());
                     mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
                     if (adapter == null) {
-                        adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, getBaseContext(), getUser(), key);
-                    /*adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-                        @Override
-                        public void onItemRangeInserted(int positionStart, int itemCount) {
-                            super.onItemRangeInserted(positionStart, itemCount);
-                            Log.e("TAG", "Inserted");
-                        }
-                    });*/
+                        adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, RestaurantActivity.this, getUser(), key);
                         mRecyclerView.setAdapter(adapter);
                     }
                     mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
 
                     mRefStore.addValueEventListener(storeListener);
-                    mRefProducts.addValueEventListener(productsListener);
                     mRefUserData.addValueEventListener(userListener);
                 } else {
                     finish();
@@ -155,17 +155,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                         layoutEmojiList.removeAllViews();
                     }
                 }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, databaseError.toString());
-            }
-        };
-        productsListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, dataSnapshot.toString());
             }
 
             @Override
@@ -229,7 +218,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         super.onStop();
         if(mRefOrder != null) mRefOrder.removeEventListener(orderListener);
         if(mRefStore != null) mRefStore.removeEventListener(storeListener);
-        if(mRefProducts != null) mRefProducts.removeEventListener(productsListener);
         if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
     }
 }
