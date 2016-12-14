@@ -17,10 +17,11 @@
         android:orientation="horizontal">
 
         <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+            android:id="@+id/item_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="3 ITEMS"
+            android:text="@string/order_items_count"
             android:textSize="17sp"
             android:textColor="#292e35"
             app:customFont="@string/compasse_extra_bold"/>
@@ -119,21 +120,47 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
+            <LinearLayout
+                android:id="@+id/empty_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="83dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textAlignment="center"
+                    android:text="@string/empty_order_title"
+                    android:textColor="#66000000"
+                    android:textSize="16sp"
+                    app:customFont="@string/compasse_extra_bold_italic"/>
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="84dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="48dp"
+                    android:paddingEnd="48dp"
+                    android:textAlignment="center"
+                    android:text="@string/empty_order_description"
+                    android:textColor="#66000000"
+                    android:textSize="14sp"
+                    app:customFont="@string/compasse"/>
+            </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/user_order_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
             </android.support.v7.widget.RecyclerView>
-            <!--<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <include layout="@layout/card_view_menu_item"/>
-                <include layout="@layout/card_view_menu_item"/>
-                <include layout="@layout/card_view_menu_item"/>
-            </LinearLayout>-->
 
             <!-- Stripe -->
             <View

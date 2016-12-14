@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +51,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private LinearLayoutManager linearLayoutManager;
     private LinearLayoutManager userOrderLinearLayoutManager;
     private SlidingUpPanelLayout mSlidingPanelLayout;
+    private LinearLayout mEmptyOrder;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrder;
@@ -64,8 +64,8 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private ValueEventListener storeListener;
     private ValueEventListener userListener;
 
-    private FirebaseRecyclerAdapter adapter;
-    private FirebaseRecyclerAdapter userOrderAdapter;
+    private MenuAdapter adapter;
+    private UserOrderAdapter userOrderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +99,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 mSlidingPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
             }
         });
+        mEmptyOrder = (LinearLayout) findViewById(R.id.empty_order);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -130,12 +131,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                             @Override
                             public void onItemRangeInserted(int positionStart, int itemCount) {
                                 super.onItemRangeInserted(positionStart, itemCount);
+                                updateOrderView(userOrderAdapter.getItemCount());
                             }
 
                             @Override
                             public void onItemRangeRemoved(int positionStart, int itemCount) {
                                 super.onItemRangeRemoved(positionStart, itemCount);
                                 userOrderAdapter.notifyDataSetChanged();
+                                updateOrderView(userOrderAdapter.getItemCount());
                             }
                         });
                         mUserOrderRecyclerView.setAdapter(userOrderAdapter);
@@ -216,6 +219,16 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.e(TAG, databaseError.toString());
             }
         };
+    }
+
+    private void updateOrderView(int count) {
+        if(count == 0) {
+            mUserOrderRecyclerView.setVisibility(View.GONE);
+            mEmptyOrder.setVisibility(View.VISIBLE);
+        } else {
+            mUserOrderRecyclerView.setVisibility(View.VISIBLE);
+            mEmptyOrder.setVisibility(View.GONE);
+        }
     }
 
     @Override

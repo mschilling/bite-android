@@ -39,7 +39,6 @@ public class UserOrderAdapter extends FirebaseRecyclerAdapter<UserOrder, MenuIte
         super(modelClass, modelLayout, viewHolderClass, ref);
         this.mContext = context;
         this.store = store;
-
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
     }
@@ -95,6 +94,7 @@ public class UserOrderAdapter extends FirebaseRecyclerAdapter<UserOrder, MenuIte
             setInvisible(viewHolder);
         }
     }
+
     private void setVisible(MenuItemViewHolder viewHolder) {
         viewHolder.mTextRemove.setVisibility(View.VISIBLE);
         viewHolder.mTextAdd.setVisibility(View.VISIBLE);

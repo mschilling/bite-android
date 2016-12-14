@@ -218,14 +218,15 @@ public class MainActivity extends AppCompatActivityFireAuth {
         switch (data.getKey()) {
             case "display_name":
                 updateToolbarTitle(data);
+                mProgressBar.setVisibility(View.GONE);
                 break;
             case "admin":
                 updateAddBiteFAB(data);
+                mProgressBar.setVisibility(View.GONE);
                 break;
             default:
                 break;
         }
-        mProgressBar.setVisibility(View.GONE);
     }
 
     private void userChildEventHandler(DataSnapshot data){

@@ -40,4 +40,8 @@
 
     <string name="loading">Loading&#8230;</string>
 
+    <string name="order_items_count">%1$d ITEMS</string>
+    <string name="empty_order_title">HEB JE GEEN HONGER?</string>
+    <string name="empty_order_description">Je kunt items toevoegen door deze kaart weer omlaag te schuiven. Of check bij de Top 5 eens wat je collega’s het meest bestellen!</string>
+
 </resources>
