@@ -99,6 +99,14 @@ public class MainActivity extends AppCompatActivityFireAuth {
                 Log.d(TAG, "Subscribed to News");
             }
         });
+        firebaseStatusImage.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(MainActivity.this, BuildConfig.VERSION_CODE + " | " + BuildConfig.VERSION_NAME, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, BuildConfig.VERSION_CODE + " | " + BuildConfig.VERSION_NAME);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -179,6 +187,7 @@ public class MainActivity extends AppCompatActivityFireAuth {
                                     lastVisiblePosition == (positionStart - 1))) {
                         mRecyclerView.scrollToPosition(positionStart);
                     }
+                    adapter.notifyDataSetChanged();
                     updateBitesList(adapter.getItemCount());
                 }
 

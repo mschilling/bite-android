@@ -24,8 +24,8 @@ public class BiteApplication extends Application {
 
     private static final String TAG = ".BiteApplication";
 
-    private FirebaseDatabase database;
-    private DatabaseReference androidVersionRef;
+    /*private FirebaseDatabase database;
+    private DatabaseReference androidVersionRef;*/
 
     private static int versionCode;
     private static String versionName;
@@ -34,8 +34,8 @@ public class BiteApplication extends Application {
     public void onCreate() {
         super.onCreate();
         FirebaseAnalytics.getInstance(this);
-        database = FirebaseDatabase.getInstance();
-        androidVersionRef = database.getReference("android_app");
+        /*database = FirebaseDatabase.getInstance();
+        androidVersionRef = database.getReference("android_app");*/
 
         versionCode = BuildConfig.VERSION_CODE;
         versionName = BuildConfig.VERSION_NAME;
@@ -43,7 +43,7 @@ public class BiteApplication extends Application {
         initFonts();
         initEmojis();
 
-        androidVersionRef.addChildEventListener(new ChildEventListener() {
+        /*androidVersionRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 setAppVersion(dataSnapshot);
@@ -68,7 +68,7 @@ public class BiteApplication extends Application {
             public void onCancelled(DatabaseError databaseError) {
                 //Failed to read
             }
-        });
+        });*/
     }
 
     public static class Fonts {
@@ -141,7 +141,7 @@ public class BiteApplication extends Application {
         Emojis.SNACKS = getResources().getDrawable(R.drawable.ic_snacks, getTheme());
     }
 
-    private void setAppVersion(DataSnapshot dataSnapshot) {
+    /*private void setAppVersion(DataSnapshot dataSnapshot) {
         Log.d(TAG, dataSnapshot.toString());
         if (Objects.equals(dataSnapshot.getKey(), "version_code")) {
             if(versionCode < ((Long)dataSnapshot.getValue()).intValue()){
@@ -176,15 +176,15 @@ public class BiteApplication extends Application {
                     break;
             }
         }
-    }
+    }*/
 
-    private void checkUpdate() {
+    /*private void checkUpdate() {
         if(versionCode > BuildConfig.VERSION_CODE && !versionName.equalsIgnoreCase(BuildConfig.VERSION_NAME)){
             showUpdateMessage();
         }
-    }
+    }*/
 
-    private void showUpdateMessage() {
+    /*private void showUpdateMessage() {
         if(UpdateDialog.isActive()){
             UpdateDialog updateDialog = UpdateDialog.getInstance();
             updateDialog.showUpdateMessage();
@@ -193,7 +193,7 @@ public class BiteApplication extends Application {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-    }
+    }*/
 
     protected static int getNewVersionCode() {
         return versionCode;
