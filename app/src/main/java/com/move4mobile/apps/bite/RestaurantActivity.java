@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,8 @@ import com.move4mobile.apps.bite.objects.Store;
 import com.move4mobile.apps.bite.objects.User;
 import com.move4mobile.apps.bite.objects.UserOrder;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -63,15 +66,16 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private ValueEventListener orderListener;
     private ValueEventListener storeListener;
     private ValueEventListener userListener;
+    private ValueEventListener userOrderListener;
 
-    private MenuAdapter adapter;
-    private UserOrderAdapter userOrderAdapter;
+    private FirebaseRecyclerAdapter adapter;
+    private FirebaseRecyclerAdapter userOrderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         key = intent.getStringExtra("key");
         if(key == null || key.isEmpty()) finish();
         Toast.makeText(this, key, Toast.LENGTH_SHORT).show();
@@ -108,37 +112,36 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
-
+        final Bite[] bite = new Bite[1];
         orderListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(mRefStore != null) mRefStore.removeEventListener(storeListener);
                 if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
+                if(mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
 
-                Bite bite = dataSnapshot.getValue(Bite.class);
-                if(bite != null) {
-                    mRefStore = mDatabase.getReference("stores").child(bite.getStore());
-                    mRefProducts = mDatabase.getReference("products").child(bite.getStore()).child("products");
+                bite[0] = dataSnapshot.getValue(Bite.class);
+                if(bite[0] != null) {
+                    mRefStore = mDatabase.getReference("stores").child(bite[0].getStore());
+                    mRefProducts = mDatabase.getReference("products").child(bite[0].getStore()).child("products");
                     if (adapter == null) {
                         adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, RestaurantActivity.this, getUser(), key);
                         mRecyclerView.setAdapter(adapter);
                     }
-                    mRefUserData = mDatabase.getReference("users").child(bite.getOpenedBy());
+                    mRefUserData = mDatabase.getReference("users").child(bite[0].getOpenedBy());
                     mRefUserOrder = mDatabase.getReference("user_order").child(dataSnapshot.getKey()).child(getUser().getUid());
                     if (userOrderAdapter == null) {
-                        userOrderAdapter = new UserOrderAdapter(UserOrder.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefUserOrder, RestaurantActivity.this, bite.getStore());
+                        userOrderAdapter = new UserOrderAdapter(UserOrder.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefUserOrder, RestaurantActivity.this, bite[0].getStore());
                         userOrderAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                             @Override
                             public void onItemRangeInserted(int positionStart, int itemCount) {
                                 super.onItemRangeInserted(positionStart, itemCount);
-                                updateOrderView(userOrderAdapter.getItemCount());
                             }
 
                             @Override
                             public void onItemRangeRemoved(int positionStart, int itemCount) {
                                 super.onItemRangeRemoved(positionStart, itemCount);
                                 userOrderAdapter.notifyDataSetChanged();
-                                updateOrderView(userOrderAdapter.getItemCount());
                             }
                         });
                         mUserOrderRecyclerView.setAdapter(userOrderAdapter);
@@ -146,6 +149,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
                     mRefStore.addValueEventListener(storeListener);
                     mRefUserData.addValueEventListener(userListener);
+                    mRefUserOrder.addValueEventListener(userOrderListener);
                 } else {
                     finish();
                 }
@@ -219,9 +223,57 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.e(TAG, databaseError.toString());
             }
         };
+        userOrderListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getChildrenCount() > 0) {
+                    int amount = 0;
+                    final long[] price = {0};
+                    for (final DataSnapshot data : dataSnapshot.getChildren()) {
+                        UserOrder order = data.getValue(UserOrder.class);
+                        if(order != null) {
+                            amount += order.getAmount();
+                            final int finalAmount = amount;
+                            mDatabase.getReference("products").child(bite[0].getStore()).child("products").child(data.getKey()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    MenuItem item = dataSnapshot.getValue(MenuItem.class);
+                                    if(item != null) {
+                                        price[0] += finalAmount * item.getPrice();
+                                        updateOrderPrice(price[0]);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Log.e(TAG, databaseError.toString());
+                                }
+                            });
+                        }
+                    }
+                    updateOrderView(amount);
+                } else {
+                    updateOrderView(0);
+                    updateOrderPrice(0);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
+
+    }
+
+    private void updateOrderPrice(long price) {
+        TextViewCustom orderPrice = (TextViewCustom) findViewById(R.id.total_order_price);
+        orderPrice.setText(getString(R.string.order_items_price, price));
     }
 
     private void updateOrderView(int count) {
+        TextViewCustom orderCount = (TextViewCustom) findViewById(R.id.total_order_count);
+        orderCount.setText(getString(R.string.order_items_count, count));
         if(count == 0) {
             mUserOrderRecyclerView.setVisibility(View.GONE);
             mEmptyOrder.setVisibility(View.VISIBLE);
@@ -257,5 +309,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         if(mRefOrder != null) mRefOrder.removeEventListener(orderListener);
         if(mRefStore != null) mRefStore.removeEventListener(storeListener);
         if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
+        if(mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
     }
 }

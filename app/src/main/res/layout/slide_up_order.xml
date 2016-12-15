@@ -17,7 +17,7 @@
         android:orientation="horizontal">
 
         <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-            android:id="@+id/item_count"
+            android:id="@+id/total_order_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -38,10 +38,11 @@
             android:src="@drawable/ic_bitecoin"/>
 
         <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+            android:id="@+id/total_order_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
-            android:text="13,37"
+            android:text="@string/order_items_price"
             android:textSize="17sp"
             android:textColor="#292e35"
             app:customFont="@string/compasse_extra_bold"/>

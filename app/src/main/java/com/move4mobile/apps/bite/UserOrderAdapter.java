@@ -3,6 +3,7 @@ package com.move4mobile.apps.bite;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -94,6 +95,8 @@ public class UserOrderAdapter extends FirebaseRecyclerAdapter<UserOrder, MenuIte
             setInvisible(viewHolder);
         }
     }
+
+
 
     private void setVisible(MenuItemViewHolder viewHolder) {
         viewHolder.mTextRemove.setVisibility(View.VISIBLE);
