@@ -11,7 +11,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -71,8 +70,8 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     @Override
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
         if (Objects.equals(user.getUid(), model.getOpenedBy())) {
-            viewHolder.mButtonRemove.setVisibility(View.VISIBLE);
-            viewHolder.mButtonRemove.setOnClickListener(new View.OnClickListener() {
+            viewHolder.mButtonMore.setVisibility(View.VISIBLE);
+            viewHolder.mButtonMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), RemoveBiteDialog.class);
@@ -81,7 +80,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                 }
             });
         } else {
-            viewHolder.mButtonRemove.setVisibility(View.GONE);
+            viewHolder.mButtonMore.setVisibility(View.GONE);
         }
 
         viewHolder.view.setOnClickListener(new View.OnClickListener() {

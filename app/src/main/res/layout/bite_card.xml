@@ -87,10 +87,11 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/bite_card_remove"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@android:drawable/ic_menu_delete"
+                android:id="@+id/bite_card_more"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_more_vert_white"
+                android:backgroundTint="?colorAccent"
                 android:visibility="gone"/>
 
         </LinearLayout>
