@@ -286,11 +286,12 @@
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground">
                     <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                        android:id="@+id/bite_bring_it_on_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:textAlignment="center"
-                        android:text="BRING IT ON!"
+                        android:text="@string/bring_it_on"
                         app:customFont="@string/compasse"/>
                 </RelativeLayout>
 

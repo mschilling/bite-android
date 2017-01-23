@@ -9,10 +9,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -30,8 +31,6 @@ import com.move4mobile.apps.bite.objects.User;
 import com.move4mobile.apps.bite.objects.UserOrder;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -44,6 +43,8 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private static final String TAG = "RestaurantActivity";
 
     private String key;
+    private boolean locked = true;
+    private boolean hasOrder;
 
     private TextViewCustom textViewCustomToolbarText;
     private LinearLayout layoutEmojiList;
@@ -55,6 +56,10 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private LinearLayoutManager userOrderLinearLayoutManager;
     private SlidingUpPanelLayout mSlidingPanelLayout;
     private LinearLayout mEmptyOrder;
+    private RelativeLayout mBringItOn;
+    private TextViewCustom mBringItOnText;
+
+    private RecyclerView.OnItemTouchListener onItemTouchListener;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefOrder;
@@ -62,11 +67,13 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private DatabaseReference mRefProducts;
     private DatabaseReference mRefUserData;
     private DatabaseReference mRefUserOrder;
+    private DatabaseReference mRefUserOrderLocked;
 
     private ValueEventListener orderListener;
     private ValueEventListener storeListener;
     private ValueEventListener userListener;
     private ValueEventListener userOrderListener;
+    private ValueEventListener userOrderLockedListener;
 
     private FirebaseRecyclerAdapter adapter;
     private FirebaseRecyclerAdapter userOrderAdapter;
@@ -77,8 +84,8 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
         final Intent intent = getIntent();
         key = intent.getStringExtra("key");
-        if(key == null || key.isEmpty()) finish();
-        Toast.makeText(this, key, Toast.LENGTH_SHORT).show();
+        if (key == null || key.isEmpty()) finish();
+        //Toast.makeText(this, key, Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_restaurant);
 
@@ -104,6 +111,34 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
             }
         });
         mEmptyOrder = (LinearLayout) findViewById(R.id.empty_order);
+        mBringItOn = (RelativeLayout) findViewById(R.id.bite_bring_it_on);
+        mBringItOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(hasOrder)
+                    mRefUserOrderLocked.setValue(locked ? null : true);
+            }
+        });
+        mBringItOnText = (TextViewCustom) findViewById(R.id.bite_bring_it_on_text);
+
+        onItemTouchListener = new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return locked && hasOrder;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        };
+        mRecyclerView.addOnItemTouchListener(onItemTouchListener);
+        mUserOrderRecyclerView.addOnItemTouchListener(onItemTouchListener);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,12 +151,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         orderListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(mRefStore != null) mRefStore.removeEventListener(storeListener);
-                if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
-                if(mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
+                if (mRefStore != null) mRefStore.removeEventListener(storeListener);
+                if (mRefUserData != null) mRefUserData.removeEventListener(userListener);
+                if (mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
+                if (mRefUserOrderLocked != null)
+                    mRefUserOrderLocked.removeEventListener(userOrderLockedListener);
 
                 bite[0] = dataSnapshot.getValue(Bite.class);
-                if(bite[0] != null) {
+                if (bite[0] != null) {
                     mRefStore = mDatabase.getReference("stores").child(bite[0].getStore());
                     mRefProducts = mDatabase.getReference("products").child(bite[0].getStore()).child("products");
                     if (adapter == null) {
@@ -146,10 +183,12 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                         });
                         mUserOrderRecyclerView.setAdapter(userOrderAdapter);
                     }
+                    mRefUserOrderLocked = mDatabase.getReference("user_order_locked").child(dataSnapshot.getKey()).child(getUser().getUid());
 
                     mRefStore.addValueEventListener(storeListener);
                     mRefUserData.addValueEventListener(userListener);
                     mRefUserOrder.addValueEventListener(userOrderListener);
+                    mRefUserOrderLocked.addValueEventListener(userOrderLockedListener);
                 } else {
                     finish();
                 }
@@ -165,19 +204,19 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG, dataSnapshot.toString());
                 Store store = dataSnapshot.getValue(Store.class);
-                if(store != null) {
+                if (store != null) {
                     textViewCustomToolbarText.setText(store.getName());
 
-                    if(store.getCategories() != null && store.getCategories().size() > 0) {
+                    if (store.getCategories() != null && store.getCategories().size() > 0) {
                         layoutEmojiList.removeAllViews();
-                        for (HashMap<String, String> category: store.getCategories().values()) {
+                        for (HashMap<String, String> category : store.getCategories().values()) {
                             ImageView emo = new ImageView(RestaurantActivity.this);
                             LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
-                                    (int)getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size),
-                                    (int)getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size));
-                            llp.setMargins((int)getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    (int) getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size),
+                                    (int) getResources().getDimension(R.dimen.bite_card_restaurant_emoji_size));
+                            llp.setMargins((int) getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
                                     0,
-                                    (int)getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                    (int) getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
                                     0);
                             emo.setLayoutParams(llp);
                             emo.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
@@ -199,7 +238,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG, dataSnapshot.toString());
                 User user = dataSnapshot.getValue(User.class);
-                if(user != null){
+                if (user != null) {
                     textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplayName().toUpperCase(Locale.getDefault())));
                     Glide.with(getApplicationContext()).load(user.getPhotoUrl())
                             .asBitmap()
@@ -231,14 +270,14 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                     final long[] price = {0};
                     for (final DataSnapshot data : dataSnapshot.getChildren()) {
                         UserOrder order = data.getValue(UserOrder.class);
-                        if(order != null) {
+                        if (order != null) {
                             amount += order.getAmount();
                             final int finalAmount = amount;
                             mDatabase.getReference("products").child(bite[0].getStore()).child("products").child(data.getKey()).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     MenuItem item = dataSnapshot.getValue(MenuItem.class);
-                                    if(item != null) {
+                                    if (item != null) {
                                         price[0] += finalAmount * item.getPrice();
                                         updateOrderPrice(price[0]);
                                     }
@@ -263,7 +302,23 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Log.e(TAG, databaseError.toString());
             }
         };
+        userOrderLockedListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Boolean isLocked = dataSnapshot.getValue(Boolean.class);
+                if (isLocked != null) {
+                    locked = isLocked;
+                } else {
+                    locked = false;
+                }
+                updateBringItOn();
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.toString());
+            }
+        };
     }
 
     private void updateOrderPrice(long price) {
@@ -274,13 +329,23 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private void updateOrderView(int count) {
         TextViewCustom orderCount = (TextViewCustom) findViewById(R.id.total_order_count);
         orderCount.setText(getString(R.string.order_items_count, count));
-        if(count == 0) {
+        if (count == 0) {
+            hasOrder = false;
+            mRefUserOrderLocked.setValue(null);
             mUserOrderRecyclerView.setVisibility(View.GONE);
             mEmptyOrder.setVisibility(View.VISIBLE);
         } else {
+            hasOrder = true;
             mUserOrderRecyclerView.setVisibility(View.VISIBLE);
             mEmptyOrder.setVisibility(View.GONE);
         }
+    }
+
+    private void updateBringItOn() {
+        mBringItOn.setBackground(getDrawable(locked && hasOrder ? R.drawable.bring_it_button_locked : R.drawable.bring_it_button));
+        mBringItOnText.setText(getString(locked && hasOrder? R.string.bring_it_on_locked : R.string.bring_it_on));
+        mRecyclerView.setForeground(getDrawable(locked && hasOrder ? android.R.drawable.screen_background_light_transparent : android.R.color.transparent));
+        mUserOrderRecyclerView.setForeground(getDrawable(locked && hasOrder ? android.R.drawable.screen_background_light_transparent : android.R.color.transparent));
     }
 
     @Override
@@ -306,9 +371,15 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     @Override
     public void onStop() {
         super.onStop();
-        if(mRefOrder != null) mRefOrder.removeEventListener(orderListener);
-        if(mRefStore != null) mRefStore.removeEventListener(storeListener);
-        if(mRefUserData != null) mRefUserData.removeEventListener(userListener);
-        if(mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
+        if (mRefOrder != null) mRefOrder.removeEventListener(orderListener);
+        if (mRefStore != null) mRefStore.removeEventListener(storeListener);
+        if (mRefUserData != null) mRefUserData.removeEventListener(userListener);
+        if (mRefUserOrder != null) mRefUserOrder.removeEventListener(userOrderListener);
+        if (mRefUserOrderLocked != null)
+            mRefUserOrderLocked.removeEventListener(userOrderLockedListener);
+        if(onItemTouchListener != null) {
+            mRecyclerView.removeOnItemTouchListener(onItemTouchListener);
+            mUserOrderRecyclerView.removeOnItemTouchListener(onItemTouchListener);
+        }
     }
 }
