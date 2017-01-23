@@ -142,7 +142,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                     int colorSecondary = ta.getColor(1, 0);
                     ta.recycle();
 
-                    if (model.getStatus().equals("notopen")) {
+                    if (model.getStatus().equals("closed")) {
                         viewHolder.mTextTitle.setTextColor(colorSecondary);
                         viewHolder.mEmojiList.setVisibility(View.GONE);
                         viewHolder.mEmojiList.removeAllViews();
