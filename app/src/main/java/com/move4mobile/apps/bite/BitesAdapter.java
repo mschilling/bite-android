@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.LinearLayoutManager;
+import android.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -76,12 +77,34 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
         if (Objects.equals(user.getUid(), model.getOpenedBy())) {
             viewHolder.mButtonMore.setVisibility(View.VISIBLE);
+            final PopupMenu popupMenu = new PopupMenu(mContext, viewHolder.mButtonMore);
+            popupMenu.inflate(R.menu.menu_bite_card);
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(android.view.MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.bite_finish:
+                            getRef(position).updateChildren(new HashMap<String, Object>(){
+                                {
+                                    put("status", "closed");
+                                }
+                            });
+                            break;
+                        case R.id.bite_delete:
+                            Intent intent = new Intent(mContext, RemoveBiteDialog.class);
+                            intent.putExtra("key", getRef(position).getKey());
+                            mContext.startActivity(intent);
+                            break;
+                        default:
+                            break;
+                    }
+                    return true;
+                }
+            });
             viewHolder.mButtonMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), RemoveBiteDialog.class);
-                    intent.putExtra("key", getRef(position).getKey());
-                    v.getContext().startActivity(intent);
+                    popupMenu.show();
                 }
             });
         } else {
