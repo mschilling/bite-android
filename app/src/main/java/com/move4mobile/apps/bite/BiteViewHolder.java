@@ -18,6 +18,7 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
     View view;
     ImageView mImageView;
     TextViewCustom mTextTitle;
+    TextViewCustom mTextClosed;
     TextViewCustom mTextLocation;
     Button mButtonMore;
     LinearLayout mEmojiList;
@@ -28,6 +29,7 @@ public class BiteViewHolder extends RecyclerView.ViewHolder {
         view = v;
         mImageView = (ImageView) v.findViewById(R.id.bite_card_created);
         mTextTitle = (TextViewCustom) v.findViewById(R.id.bite_card_restaurant_title);
+        mTextClosed = (TextViewCustom) v.findViewById(R.id.bite_card_closed);
         mTextLocation = (TextViewCustom) v.findViewById(R.id.bite_card_location);
         mButtonMore = (Button) v.findViewById(R.id.bite_card_more);
         mEmojiList = (LinearLayout) v.findViewById(R.id.bite_card_emoji_list);

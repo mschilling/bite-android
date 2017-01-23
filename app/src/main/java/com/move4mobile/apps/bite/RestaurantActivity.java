@@ -343,7 +343,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
     private void updateBringItOn() {
         mBringItOn.setBackground(getDrawable(locked && hasOrder ? R.drawable.bring_it_button_locked : R.drawable.bring_it_button));
-        mBringItOnText.setText(getString(locked && hasOrder? R.string.bring_it_on_locked : R.string.bring_it_on));
+        mBringItOnText.setText(getString(locked && hasOrder ? R.string.bring_it_on_locked : R.string.bring_it_on));
         mRecyclerView.setForeground(getDrawable(locked && hasOrder ? android.R.drawable.screen_background_light_transparent : android.R.color.transparent));
         mUserOrderRecyclerView.setForeground(getDrawable(locked && hasOrder ? android.R.drawable.screen_background_light_transparent : android.R.color.transparent));
     }

@@ -52,6 +52,15 @@
                     android:textSize="@dimen/font_size_bite_title"
                     app:customFont="@string/compasse_extra_bold_italic" />
 
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:id="@+id/bite_card_closed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:textColor="?android:textColorSecondary"
+                    android:textSize="14sp"
+                    app:customFont="@string/compasse"
+                    android:visibility="gone"/>
+
                 <LinearLayout
                     android:id="@+id/bite_card_emoji_list"
                     android:layout_width="match_parent"

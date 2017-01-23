@@ -2,6 +2,9 @@ package com.move4mobile.apps.bite;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -31,6 +34,8 @@ import com.move4mobile.apps.bite.objects.Bite;
 import com.move4mobile.apps.bite.objects.Store;
 import com.move4mobile.apps.bite.objects.User;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
@@ -93,19 +98,25 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
         });
 
         //Header extra margin for shadow
+        RecyclerView.LayoutParams llp = (RecyclerView.LayoutParams) viewHolder.view.getLayoutParams();
         if (position == 0) {
             DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
             int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, metrics);
-
-            RecyclerView.LayoutParams llp = (RecyclerView.LayoutParams) viewHolder.view.getLayoutParams();
             llp.setMargins(
                     (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
                     (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_top) + px,
                     (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
                     (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_bottom)
             );
-            viewHolder.view.setLayoutParams(llp);
+        } else {
+            llp.setMargins(
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_top),
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_horizontal),
+                    (int) mContext.getResources().getDimension(R.dimen.bite_card_margin_bottom)
+            );
         }
+        viewHolder.view.setLayoutParams(llp);
 
         mRefStoreName = mDatabase.getReference("stores/" + model.getStore());
         mRefStoreName.addValueEventListener(new ValueEventListener() {
@@ -117,23 +128,49 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                     viewHolder.mTextTitle.setText(store.getName().toUpperCase(Locale.getDefault()));
                     viewHolder.mTextLocation.setText(store.getLocation());
 
-                    if (store.getCategories() != null && store.getCategories().size() > 0) {
+                    int theme = 0;
+                    try {
+                        String packageName = mContext.getPackageName();
+                        PackageInfo packageInfo = mContext.getPackageManager().getPackageInfo(packageName, PackageManager.GET_META_DATA);
+                        theme = packageInfo.applicationInfo.theme;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    TypedArray ta = mContext.getTheme().obtainStyledAttributes(theme != 0 ? theme : R.style.AppTheme_Light, new int[]{R.attr.colorAccent, android.R.attr.textColorSecondary});
+                    int colorAccent = ta.getColor(0, 0);
+                    int colorSecondary = ta.getColor(1, 0);
+                    ta.recycle();
+
+                    if (model.getStatus().equals("notopen")) {
+                        viewHolder.mTextTitle.setTextColor(colorSecondary);
+                        viewHolder.mEmojiList.setVisibility(View.GONE);
                         viewHolder.mEmojiList.removeAllViews();
-                        for (HashMap<String, String> category : store.getCategories().values()) {
-                            ImageView emoji = new ImageView(mContext);
-                            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
-                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size),
-                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size));
-                            llp.setMargins((int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
-                                    0,
-                                    (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
-                                    0);
-                            emoji.setLayoutParams(llp);
-                            emoji.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
-                            viewHolder.mEmojiList.addView(emoji);
-                        }
+                        long dv = model.getCloseTime();// its need to be in milisecond
+                        Date df = new Date(dv);
+                        String vv = new SimpleDateFormat("hh:mma", Locale.getDefault()).format(df);
+                        viewHolder.mTextClosed.setText("Deze Bite is gesloten om " + vv);
+                        viewHolder.mTextClosed.setVisibility(View.VISIBLE);
                     } else {
+                        viewHolder.mTextTitle.setTextColor(colorAccent);
                         viewHolder.mEmojiList.removeAllViews();
+                        viewHolder.mTextClosed.setVisibility(View.GONE);
+                        viewHolder.mEmojiList.setVisibility(View.VISIBLE);
+                        if (store.getCategories() != null && store.getCategories().size() > 0) {
+                            for (HashMap<String, String> category : store.getCategories().values()) {
+                                ImageView emoji = new ImageView(mContext);
+                                LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
+                                        (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size),
+                                        (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_size));
+                                llp.setMargins((int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                        0,
+                                        (int) mContext.getResources().getDimension(R.dimen.bite_card_emoji_margin_horizontal),
+                                        0);
+                                emoji.setLayoutParams(llp);
+                                emoji.setImageDrawable(BiteApplication.Emojis.getEmoji(Integer.valueOf(category.get("type"))));
+                                viewHolder.mEmojiList.addView(emoji);
+                            }
+                        }
                     }
                 }
             }

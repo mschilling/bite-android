@@ -17,12 +17,15 @@ public class Bite {
     @PropertyName("close_time")
     private long closeTime;
 
+    private String status;
+
     public Bite() {
     }
 
-    public Bite(String openedBy, String store, long openTime, long closeTime) {
+    public Bite(String openedBy, String store, String status, long openTime, long closeTime) {
         this.openedBy = openedBy;
         this.store = store;
+        this.status = status;
         this.openTime = openTime;
         this.closeTime = closeTime;
     }
@@ -44,5 +47,9 @@ public class Bite {
     @PropertyName("close_time")
     public long getCloseTime() {
         return closeTime;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }
