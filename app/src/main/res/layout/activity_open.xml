@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary">
+
             <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/toolbar_text"
                 android:layout_width="wrap_content"
@@ -34,12 +35,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:orientation="vertical">
+
                 <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
@@ -47,7 +50,8 @@
                     android:text="KIES RESTAURANT EN BESTELTIJD"
                     android:textColor="?colorAccent"
                     android:textSize="16sp"
-                    app:customFont="@string/compasse_extra_bold_italic"/>
+                    app:customFont="@string/compasse_extra_bold_italic" />
+
                 <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
@@ -55,15 +59,16 @@
                     android:text="Of kies twee of meer om een vote te starten"
                     android:textColor="?android:textColorSecondary"
                     android:textSize="14sp"
-                    app:customFont="@string/compasse"/>
+                    app:customFont="@string/compasse" />
                 <!-- Stripe -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/bite_card_stripe_height"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:background="?colorCardStripe"/>
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:background="?colorCardStripe" />
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_stores"
                     android:layout_width="match_parent"
@@ -75,61 +80,75 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/bite_card_stripe_height"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:background="?colorCardStripe"/>
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:background="?colorCardStripe" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:gravity="center_vertical"
                     android:orientation="vertical">
-                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                            android:layout_width="wrap_content"
-                            android:layout_height="24dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Deze Bite sluit om"
-                            android:textSize="16sp"
-                            android:textColor="@android:color/primary_text_light"
-                            app:customFont="@string/compasse"/>
-                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="14dp"
-                            android:text="Kies tijd"
-                            android:textSize="14sp"
-                            android:textColor="?colorAccent"
-                            app:customFont="@string/compasse"/>
+
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Deze Bite sluit in"
+                        android:textColor="@android:color/primary_text_light"
+                        android:textSize="16sp"
+                        app:customFont="@string/compasse" />
+
+                    <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                        android:id="@+id/bite_open_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="14dp"
+                        android:text="Kies tijd"
+                        android:textColor="?colorAccent"
+                        android:textSize="14sp"
+                        app:customFont="@string/compasse" />
+
+                    <SeekBar
+                        android:id="@+id/bite_open_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="12"
+                        android:progress="6"
+                        android:progressBackgroundTint="@android:color/primary_text_light" />
                 </LinearLayout>
                 <!-- Stripe -->
-                <View
+                <!--<View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/bite_card_stripe_height"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:background="?colorCardStripe"/>
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:background="?colorCardStripe" />-->
+
                 <RelativeLayout
                     android:id="@+id/bite_open_button"
                     android:layout_width="120dp"
                     android:layout_height="36dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:background="@drawable/bring_it_button_locked"
-                    android:gravity="center"
                     android:layout_gravity="right"
-                    android:elevation="2dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bring_it_button_locked"
                     android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:elevation="2dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center">
+
                     <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                         android:id="@+id/bite_bring_it_on_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
-                        android:textAlignment="center"
                         android:text="BEAM ME UP SCOTTY"
-                        app:customFont="@string/compasse"/>
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        app:customFont="@string/compasse" />
                 </RelativeLayout>
             </LinearLayout>
 
