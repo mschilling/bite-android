@@ -45,32 +45,36 @@
             android:theme="@style/AppTheme.Login.Light" />
         <activity
             android:name=".dialogs.UpdateDialog"
+            android:excludeFromRecents="true"
             android:label="Bite Update"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
-            android:excludeFromRecents="true"/>
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity
             android:name=".dialogs.UsernameDialog"
+            android:excludeFromRecents="true"
             android:label="Set Username"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
-            android:excludeFromRecents="true"/>
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity
             android:name=".dialogs.RemoveBiteDialog"
+            android:excludeFromRecents="true"
             android:label="Remove Bite"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:launchMode="singleTop"
-            android:excludeFromRecents="true"/>
-        <service
-            android:name=".MyFirebaseMessagingService">
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".OpenActivity"
+            android:label="Open Bite"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.Bite.Light"/>
+
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
