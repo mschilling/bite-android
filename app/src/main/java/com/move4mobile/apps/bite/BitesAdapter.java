@@ -175,7 +175,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                         viewHolder.mEmojiList.removeAllViews();
                         long dv = model.getCloseTime();// its need to be in milisecond
                         Date df = new Date(dv);
-                        String vv = new SimpleDateFormat("hh:mma", Locale.getDefault()).format(df);
+                        String vv = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(df);
                         viewHolder.mTextClosed.setText("Deze Bite is gesloten om " + vv);
                         viewHolder.mTextClosed.setVisibility(View.VISIBLE);
                     } else {
