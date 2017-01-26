@@ -31,6 +31,8 @@ import com.move4mobile.apps.bite.objects.User;
 import com.move4mobile.apps.bite.objects.UserOrder;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -50,6 +52,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
     private LinearLayout layoutEmojiList;
     private ImageView imageViewStartedBy;
     private TextViewCustom textViewCustomStartedBy;
+    private TextViewCustom textViewCustomStartClosetime;
     private RecyclerView mRecyclerView;
     private RecyclerView mUserOrderRecyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -93,6 +96,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         layoutEmojiList = (LinearLayout) findViewById(R.id.bite_card_restaurant_emoji_list);
         imageViewStartedBy = (ImageView) findViewById(R.id.bite_card_started_by_image);
         textViewCustomStartedBy = (TextViewCustom) findViewById(R.id.bite_card_started_by);
+        textViewCustomStartClosetime = (TextViewCustom) findViewById(R.id.bite_card_start_close_time);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_menu);
         mRecyclerView.setHasFixedSize(false);
         mRecyclerView.setNestedScrollingEnabled(false);
@@ -159,6 +163,12 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
                 bite[0] = dataSnapshot.getValue(Bite.class);
                 if (bite[0] != null) {
+
+                    Date dfStart = new Date(bite[0].getOpenTime());
+                    Date dfClose = new Date(bite[0].getCloseTime());
+                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mma", Locale.getDefault());
+                    textViewCustomStartClosetime.setText(getString(R.string.bite_card_start_close_time, sdf.format(dfStart), sdf.format(dfClose)));
+
                     mRefStore = mDatabase.getReference("stores").child(bite[0].getStore());
                     mRefProducts = mDatabase.getReference("products").child(bite[0].getStore()).child("products");
                     if (adapter == null) {

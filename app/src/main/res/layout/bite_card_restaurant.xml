@@ -51,11 +51,12 @@
                     app:customFont="@string/compasse_extra_bold_italic"/>
 
                 <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:id="@+id/bite_card_start_close_time"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bite_card_restaurant_header_text_height"
                     android:textSize="@dimen/font_size_bite_card_restaurant_header_text_time"
                     android:textColor="?android:textColorSecondary"
-                    android:text="Gestart om 9:11, sluit om 13:37"
+                    android:text="@string/bite_card_start_close_time"
                     app:customFont="@string/compasse"/>
 
             </LinearLayout>

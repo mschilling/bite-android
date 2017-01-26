@@ -28,6 +28,7 @@
 
 
     <string name="toolbar_title_restaurant">Store de la Anon</string>
+    <string name="bite_card_start_close_time">Gestart om %1$s, sluit om %2$s</string>
     <string name="menu_item_price">%1$d</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
