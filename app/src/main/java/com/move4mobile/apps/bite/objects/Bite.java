@@ -19,6 +19,8 @@ public class Bite {
 
     private String status;
 
+    private int duration;
+
     public Bite() {
     }
 
@@ -28,6 +30,13 @@ public class Bite {
         this.status = status;
         this.openTime = openTime;
         this.closeTime = closeTime;
+    }
+
+    public Bite(String openedBy, String store, String status, int duration) {
+        this.openedBy = openedBy;
+        this.store = store;
+        this.status = status;
+        this.duration = duration;
     }
 
     @PropertyName("opened_by")
@@ -51,5 +60,9 @@ public class Bite {
 
     public String getStatus() {
         return status;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 }

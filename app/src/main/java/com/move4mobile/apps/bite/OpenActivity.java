@@ -15,6 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
+import com.move4mobile.apps.bite.objects.Bite;
 import com.move4mobile.apps.bite.objects.Store;
 
 public class OpenActivity extends AppCompatActivityFireAuth {
@@ -30,6 +31,7 @@ public class OpenActivity extends AppCompatActivityFireAuth {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRefStores;
+    private DatabaseReference mRefOrders;
     private FirebaseRecyclerAdapter adapter;
 
     @Override
@@ -69,12 +71,13 @@ public class OpenActivity extends AppCompatActivityFireAuth {
             @Override
             public void onClick(View v) {
                 if(key != null && !key.isEmpty() && time > 0) {
-                    Toast.makeText(OpenActivity.this, "Gonna create Bite in next update. Stay posted bros", Toast.LENGTH_SHORT).show();
+                    Bite b = new Bite(getUser().getUid(), key, "new", time);
+                    mRefOrders.push().setValue(b);
+                    Toast.makeText(OpenActivity.this, "Bite created", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
         });
-
         //Firebase Database
         mDatabase = FirebaseDatabase.getInstance();
     }
@@ -96,9 +99,9 @@ public class OpenActivity extends AppCompatActivityFireAuth {
     }
 
     private void updateTime(int min) {
+        this.time = min * 10;
         TextViewCustom text = (TextViewCustom) findViewById(R.id.bite_open_time_text);
-        text.setText(min * 10 + " minuten");
-        this.time = min;
+        text.setText(time + " minuten");
         updateButton();
     }
 
@@ -106,6 +109,7 @@ public class OpenActivity extends AppCompatActivityFireAuth {
     protected void onLoggedIn() {
         super.onLoggedIn();
         mRefStores = mDatabase.getReference("stores");
+        mRefOrders = mDatabase.getReference("orders");
         if(adapter == null) {
             adapter = new StoreAdapter(Store.class, R.layout.bite_card_open, StoreViewHolder.class, mRefStores, OpenActivity.this);
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
