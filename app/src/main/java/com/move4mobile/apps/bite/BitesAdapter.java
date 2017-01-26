@@ -77,8 +77,11 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
     protected void populateViewHolder(final BiteViewHolder viewHolder, final Bite model, final int position) {
         if (Objects.equals(user.getUid(), model.getOpenedBy())) {
             viewHolder.mButtonMore.setVisibility(View.VISIBLE);
-            final PopupMenu popupMenu = new PopupMenu(mContext, viewHolder.mButtonMore);
+            final PopupMenu popupMenu = new PopupMenu(mContext.getApplicationContext(), viewHolder.mButtonMore);
             popupMenu.inflate(R.menu.menu_bite_card);
+            if(model.getStatus() == "closed") {
+                popupMenu.getMenu().findItem(R.id.bite_finish).setVisible(false);
+            }
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(android.view.MenuItem item) {
@@ -93,6 +96,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                         case R.id.bite_delete:
                             Intent intent = new Intent(mContext, RemoveBiteDialog.class);
                             intent.putExtra("key", getRef(position).getKey());
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                             break;
                         default:
