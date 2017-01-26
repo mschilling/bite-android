@@ -166,7 +166,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
 
                     Date dfStart = new Date(bite[0].getOpenTime());
                     Date dfClose = new Date(bite[0].getCloseTime());
-                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mma", Locale.getDefault());
+                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
                     textViewCustomStartClosetime.setText(getString(R.string.bite_card_start_close_time, sdf.format(dfStart), sdf.format(dfClose)));
 
                     mRefStore = mDatabase.getReference("stores").child(bite[0].getStore());
