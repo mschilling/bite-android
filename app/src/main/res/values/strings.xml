@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Bite</string>
     <string name="toolbar_title">HI, %1$s!</string>
+    <string name="toolbar_profile">%1$s!</string>
     <string name="action_account">Account</string>
+    <string name="action_logout">Logout</string>
 
     <!-- OAuth -->
     <string name="oauth_web_client_id">389337808613-0p56858ehmjkn3drs28tlh5bue1fa5mi.apps.googleusercontent.com</string>
@@ -23,6 +25,7 @@
 
 
     <string name="bites">BITES (%1$d) ¯\\_(ツ)_/¯</string>
+    <string name="closed_bites">CLOSED BITES (%1$d) ¯\\_(ツ)_/¯</string>
     <string name="empty_bites_title">HONGER!</string>
     <string name="empty_bites_description">Er staan momenteel geen BITES open.\r\nJe kunt zelf een nieuwe BITE openen door op de plus te tikken!</string>
 

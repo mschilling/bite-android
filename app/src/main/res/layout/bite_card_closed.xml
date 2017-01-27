@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+            android:id="@+id/bite_card_closed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/loading"
+            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            app:customFont="@string/compasse_extra_bold_italic"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/bite_card_closed_price"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="@string/loading"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextSecondary"
+                app:customFont="@string/compasse"/>
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/bite_card_closed_date"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="@string/loading"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextSecondary"
+                app:customFont="@string/compasse"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <!-- Emojis -->
+    <LinearLayout
+        android:id="@+id/bite_card_open_emoji_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+</LinearLayout>

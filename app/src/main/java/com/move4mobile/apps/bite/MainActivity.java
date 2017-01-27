@@ -131,8 +131,10 @@ public class MainActivity extends AppCompatActivityFireAuth {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_account:
-                Snackbar.make(findViewById(R.id.coordinator_layout), "Account stuff", Snackbar.LENGTH_SHORT).show();
-                signOut();
+                //Snackbar.make(findViewById(R.id.coordinator_layout), "Account stuff", Snackbar.LENGTH_SHORT).show();
+                //signOut();
+                Intent intent = new Intent(this, ProfileActivity.class);
+                this.startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

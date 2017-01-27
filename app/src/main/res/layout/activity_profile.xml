@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ANON"
+                android:textColor="?android:colorControlNormal"
+                android:textSize="@dimen/font_size_toolbar"
+                app:customFont="@string/compasse_extra_bold_italic" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- Title -->
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/closed_bites_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bites_title_margin_vertical"
+                android:layout_marginEnd="@dimen/bites_title_margin_horizontal"
+                android:layout_marginStart="@dimen/bites_title_margin_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="@string/closed_bites"
+                android:textColor="?colorAccent"
+                android:textSize="@dimen/font_size_bites_title"
+                app:customFont="@string/compasse_extra_bold_italic" />
+
+            <!-- Stripe -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bites_title_stripe_height"
+                android:layout_marginBottom="@dimen/bites_title_stripe_margin_vertical"
+                android:layout_marginEnd="@dimen/bites_title_stripe_margin_horizontal"
+                android:layout_marginStart="@dimen/bites_title_stripe_margin_horizontal"
+                android:background="?colorAccent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:descendantFocusability="blocksDescendants">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/restaurant_cardview_menu_margin_top"
+                    android:layout_marginBottom="@dimen/restaurant_cardview_menu_margin_bottom"
+                    android:layout_marginStart="@dimen/restaurant_cardview_menu_margin_horizontal"
+                    android:layout_marginEnd="@dimen/restaurant_cardview_menu_margin_horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:listitem="@layout/bite_card_closed">
+
+                    </android.support.v7.widget.RecyclerView>
+                </android.support.v7.widget.CardView>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
