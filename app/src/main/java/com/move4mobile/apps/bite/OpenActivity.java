@@ -71,7 +71,7 @@ public class OpenActivity extends AppCompatActivityFireAuth {
             @Override
             public void onClick(View v) {
                 if(key != null && !key.isEmpty() && time > 0) {
-                    Bite b = new Bite(getUser().getUid(), key, "new", time);
+                    Bite b = new Bite(getUser().getUid(), key, "add", time);
                     mRefOrders.push().setValue(b);
                     Toast.makeText(OpenActivity.this, "Bite created", Toast.LENGTH_SHORT).show();
                     finish();

@@ -67,12 +67,16 @@
             android:label="Open Bite"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.Bite.Light" />
-        <activity android:name=".ProfileActivity"
+        <activity
+            android:name=".ProfileActivity"
             android:label="Profile"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.Bite.Light">
+            android:theme="@style/AppTheme.Bite.Light"/>
 
-        </activity>
+        <activity android:name=".ClosedActivity"
+            android:label="Closed Bite"
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/AppTheme.Bite.Light"/>
 
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>

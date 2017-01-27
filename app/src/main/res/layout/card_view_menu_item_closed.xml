@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bite_restaurant_menu_item_height"
+    android:baselineAligned="false"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="@dimen/bite_restaurant_menu_item_trophy_size"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/bite_restaurant_menu_item_trophy_margin"
+            android:contentDescription="@string/trophy_description"
+            android:src="@drawable/ic_trophy" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/bite_restaurant_menu_item_text_layout_margin"
+        android:layout_weight="@integer/bite_restaurant_menu_item_text_layout_weight"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+            android:id="@+id/menu_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:maxLines="1"
+            android:padding="@dimen/bite_restaurant_menu_item_text_padding"
+            android:text="@string/loading"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_size_bite_restaurant_menu_item_title"
+            app:customFont="@string/compasse" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_bitecoin" />
+
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/menu_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/bite_restaurant_menu_item_text_padding"
+                android:text="@string/loading"
+                android:textSize="@dimen/font_size_bite_restaurant_menu_item_price"
+                app:customFont="@string/compasse" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+            android:id="@+id/menu_item_amount"
+            android:layout_width="@dimen/bite_restaurant_menu_item_action_size"
+            android:layout_height="@dimen/bite_restaurant_menu_item_action_size"
+            android:layout_marginEnd="@dimen/bite_restaurant_menu_item_amount_margin"
+            android:layout_marginStart="@dimen/bite_restaurant_menu_item_amount_margin"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/number"
+            android:textColor="?android:colorAccent"
+            android:textSize="@dimen/font_size_bite_restaurant_menu_item_amount"
+            app:customFont="@string/compasse_extra_bold" />
+    </LinearLayout>
+</LinearLayout>

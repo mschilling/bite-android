@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.move4mobile.apps.bite.objects.SubNotification;
 
 /**
  * Created by casvd on 3-11-2016.
@@ -35,6 +36,7 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     private DatabaseReference lastOnlineRef;
     private DatabaseReference connectedRef;
     private DatabaseReference fcmtokenRef;
+    private DatabaseReference subscribeRef;
     private ValueEventListener listener;
     private ValueEventListener fcmlistener;
 
@@ -127,9 +129,14 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
                 }
             });
         }
+        if(subscribeRef == null) {
+            subscribeRef = database.getReference("subscribe_queue");
+        }
 
         if(MyFirebaseInstanceIDService.isChanged()) {
-            fcmtokenRef.setValue(FirebaseInstanceId.getInstance().getToken());
+            //Update server with token
+            SubNotification subNotification = new SubNotification(user.getUid(), FirebaseInstanceId.getInstance().getToken(), true, ServerValue.TIMESTAMP);
+            subscribeRef.push().setValue(subNotification);
             MyFirebaseInstanceIDService.setChanged(false);
         }
 

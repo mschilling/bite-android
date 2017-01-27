@@ -29,6 +29,8 @@ import java.util.concurrent.ExecutionException;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
+    private final String group_id = "bite_notifications";
+    private Notification summaryNotify;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -48,12 +50,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d(TAG, "Message SubNotification Body: " + remoteMessage.getNotification().getBody());
         }
     }
 
     private void sendNotification(RemoteMessage remoteMessage) throws ExecutionException, InterruptedException {
-        Log.d(TAG, "Send Notification method");
+        Log.d(TAG, "Send SubNotification method");
         Map<String, String> data = remoteMessage.getData();
         Log.d(TAG, data.get("type") + "");
         if(data.get("type") == null) return;
@@ -70,6 +72,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String bite = data.get("bite");
                 Log.d(TAG, "bite: " + bite);
 
+                // Group notification that will be visible on the phone
+                if(summaryNotify == null) {
+                    summaryNotify = new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.drawable.ic_statbar)
+                            .setLargeIcon(getCircleBitmap(Glide.with(this).load(R.drawable.ic_statbar).asBitmap().into(250,250).get()))
+                            .setColor(getResources().getColor(R.color.colorAccent_Light, getTheme()))
+                            .setGroup(group_id)
+                            .setGroupSummary(true)
+                            .build();
+                }
+
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_statbar)
                         .setColor(getResources().getColor(R.color.colorAccent_Light, getTheme()))
@@ -80,7 +93,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setLights(Color.RED, 1000, 1000)
                         .setPriority(Notification.PRIORITY_HIGH)
                         .setVibrate(new long[0])
-                        .setAutoCancel(true);
+                        .setAutoCancel(true)
+                        .setGroup(group_id);
 
                 Intent resultIntent = new Intent(this, RestaurantActivity.class);
                 resultIntent.putExtra("key", bite);
@@ -97,7 +111,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 mBuilder.setContentIntent(resultPendingIntent);
 
                 NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                mNotifyMgr.notify(type, mBuilder.build());
+                mNotifyMgr.notify(0, summaryNotify);
+                mNotifyMgr.notify(bite.hashCode(), mBuilder.build());
 
                 break;
             case 1:

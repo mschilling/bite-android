@@ -79,8 +79,9 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
             viewHolder.mButtonMore.setVisibility(View.VISIBLE);
             final PopupMenu popupMenu = new PopupMenu(mContext.getApplicationContext(), viewHolder.mButtonMore);
             popupMenu.inflate(R.menu.menu_bite_card);
-            if(model.getStatus() == "closed") {
+            if(Objects.equals(model.getStatus(), "closed")) {
                 popupMenu.getMenu().findItem(R.id.bite_finish).setVisible(false);
+                popupMenu.getMenu().findItem(R.id.bite_archive).setVisible(true);
             }
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -89,7 +90,14 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                         case R.id.bite_finish:
                             getRef(position).updateChildren(new HashMap<String, Object>(){
                                 {
-                                    put("status", "closed");
+                                    put("action", "close");
+                                }
+                            });
+                            break;
+                        case R.id.bite_archive:
+                            getRef(position).updateChildren(new HashMap<String, Object>(){
+                                {
+                                    put("action", "archive");
                                 }
                             });
                             break;
@@ -169,7 +177,7 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
                     int colorSecondary = ta.getColor(1, 0);
                     ta.recycle();
 
-                    if (model.getStatus().equals("closed")) {
+                    if (model.getStatus() != null && model.getStatus().equals("closed")) {
                         viewHolder.mTextTitle.setTextColor(colorSecondary);
                         viewHolder.mEmojiList.setVisibility(View.GONE);
                         viewHolder.mEmojiList.removeAllViews();

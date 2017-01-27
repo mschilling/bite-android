@@ -12,7 +12,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIDService";
-    private static boolean changed = true;
+    private static boolean changed = false;
 
     @Override
     public void onTokenRefresh() {

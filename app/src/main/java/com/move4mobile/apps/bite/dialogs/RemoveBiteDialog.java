@@ -8,7 +8,8 @@ import android.os.Bundle;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.move4mobile.apps.bite.AppCompatActivityFireAuth;
+
+import java.util.HashMap;
 
 /**
  * Created by casvd on 9-11-2016.
@@ -45,8 +46,11 @@ public class RemoveBiteDialog extends Activity {
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Aye", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            mRefBiteOrder.setValue(null);
-                            mRefBite.setValue(null);
+                            mRefBite.updateChildren(new HashMap<String, Object>(){
+                                {
+                                    put("action", "remove");
+                                }
+                            });
                             finish();
                         }
                     });

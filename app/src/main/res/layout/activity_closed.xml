@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toolbar_title_restaurant"
+                android:textColor="?android:colorControlNormal"
+                android:textSize="@dimen/font_size_toolbar"
+                app:customFont="@string/compasse_extra_bold_italic" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp">
+                    <RelativeLayout
+                        android:layout_width="92dp"
+                        android:layout_height="@dimen/restaurant_chip_height"
+                        android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/snack_button"
+                        android:gravity="center"
+                        android:clickable="true">
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                            android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                            android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                            android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
+                            android:textColor="@drawable/snack_button_text"
+                            android:textAlignment="center"
+                            android:text="JIJ"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="92dp"
+                        android:layout_height="@dimen/restaurant_chip_height"
+                        android:layout_marginStart="@dimen/restaurant_chip_margin_horizontal"
+                        android:layout_marginEnd="@dimen/restaurant_chip_margin_horizontal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/snack_button"
+                        android:gravity="center"
+                        android:clickable="true">
+                        <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/restaurant_chip_text_padding_vertical"
+                            android:layout_marginBottom="@dimen/restaurant_chip_text_padding_vertical"
+                            android:layout_marginStart="@dimen/restaurant_chip_text_padding_horizontal"
+                            android:layout_marginEnd="@dimen/restaurant_chip_text_padding_horizontal"
+                            android:textColor="@drawable/snack_button_text"
+                            android:textAlignment="center"
+                            android:text="TOTAAL"
+                            app:customFont="@string/compasse"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/user_order_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <!-- Stripe -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:background="?colorCardStripe"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:id="@+id/total_order_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/order_items_count"
+                    android:textSize="17sp"
+                    android:textColor="#292e35"
+                    app:customFont="@string/compasse_extra_bold"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_bitecoin"/>
+
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:id="@+id/total_order_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/order_items_price"
+                    android:textSize="17sp"
+                    android:textColor="#292e35"
+                    app:customFont="@string/compasse_extra_bold"/>
+            </LinearLayout>
+
+            <!-- Stripe -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:background="?colorCardStripe"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="STICKERS"
+                    android:textSize="16sp"
+                    android:textColor="?colorAccent"
+                    app:customFont="@string/compasse_extra_bold"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_fish"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_meat"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_sauce"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

@@ -3,6 +3,10 @@
         android:id="@+id/bite_finish"
         android:title="@string/bite_finish"/>
     <item
+        android:id="@+id/bite_archive"
+        android:title="@string/bite_archive"
+        android:visible="false"/>
+    <item
         android:id="@+id/bite_delete"
         android:title="@string/bite_remove"/>
 </menu>

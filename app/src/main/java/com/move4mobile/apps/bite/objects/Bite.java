@@ -21,6 +21,8 @@ public class Bite {
 
     private int duration;
 
+    private String action;
+
     public Bite() {
     }
 
@@ -32,10 +34,10 @@ public class Bite {
         this.closeTime = closeTime;
     }
 
-    public Bite(String openedBy, String store, String status, int duration) {
+    public Bite(String openedBy, String store, String action, int duration) {
         this.openedBy = openedBy;
         this.store = store;
-        this.status = status;
+        this.action = action;
         this.duration = duration;
     }
 
@@ -64,5 +66,9 @@ public class Bite {
 
     public int getDuration() {
         return duration;
+    }
+
+    public String getAction() {
+        return action;
     }
 }
