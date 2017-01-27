@@ -45,12 +45,6 @@
             android:label="Login"
             android:theme="@style/AppTheme.Login.Light" />
         <activity
-            android:name=".dialogs.UpdateDialog"
-            android:excludeFromRecents="true"
-            android:label="Bite Update"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.AppCompat.Light.Dialog" />
-        <activity
             android:name=".dialogs.UsernameDialog"
             android:excludeFromRecents="true"
             android:label="Set Username"

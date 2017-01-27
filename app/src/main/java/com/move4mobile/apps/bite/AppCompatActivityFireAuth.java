@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -18,6 +20,7 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.move4mobile.apps.bite.objects.SubNotification;
+import com.move4mobile.apps.bite.objects.UpdateCheck;
 
 /**
  * Created by casvd on 3-11-2016.
@@ -26,6 +29,8 @@ import com.move4mobile.apps.bite.objects.SubNotification;
 public abstract class AppCompatActivityFireAuth extends AppCompatActivity implements FirebaseAuth.AuthStateListener {
 
     private static final String TAG = "ActivityFireAuth";
+
+    private static boolean hasShownUpdate;
 
     private FirebaseAuth mAuth;
 
@@ -37,8 +42,10 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     private DatabaseReference connectedRef;
     private DatabaseReference fcmtokenRef;
     private DatabaseReference subscribeRef;
+    private DatabaseReference androidVersionRef;
     private ValueEventListener listener;
     private ValueEventListener fcmlistener;
+    private ValueEventListener androidlistener;
 
 
     @Override
@@ -67,6 +74,11 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
         if(fcmlistener != null) {
             fcmtokenRef.removeEventListener(fcmlistener);
             fcmlistener = null;
+        }
+
+        if(androidlistener != null) {
+            androidVersionRef.removeEventListener(androidlistener);
+            androidlistener = null;
         }
 
         if(listener == null) return;
@@ -125,19 +137,40 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    Log.e(TAG, databaseError.toString());
                 }
             });
         }
+
         if(subscribeRef == null) {
             subscribeRef = database.getReference("subscribe_queue");
         }
-
         if(MyFirebaseInstanceIDService.isChanged()) {
             //Update server with token
             SubNotification subNotification = new SubNotification(user.getUid(), FirebaseInstanceId.getInstance().getToken(), true, ServerValue.TIMESTAMP);
             subscribeRef.push().setValue(subNotification);
             MyFirebaseInstanceIDService.setChanged(false);
+        }
+
+        if(androidVersionRef == null) {
+            androidVersionRef = database.getReference("android_app");
+            androidlistener = androidVersionRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UpdateCheck update = dataSnapshot.getValue(UpdateCheck.class);
+                    if(!hasShownUpdate && update != null) {
+                        if(update.isUpdate()) {
+                            Toast.makeText(AppCompatActivityFireAuth.this, "There an update available...\r\npls download my friend", Toast.LENGTH_LONG).show();
+                            hasShownUpdate = true;
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.e(TAG, databaseError.toString());
+                }
+            });
         }
 
         if(listener != null) return;
