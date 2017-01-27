@@ -173,6 +173,19 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                     mRefProducts = mDatabase.getReference("products").child(bite[0].getStore()).child("products");
                     if (adapter == null) {
                         adapter = new MenuAdapter(MenuItem.class, R.layout.card_view_menu_item, MenuItemViewHolder.class, mRefProducts, RestaurantActivity.this, getUser(), key);
+                        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                            @Override
+                            public void onItemRangeInserted(int positionStart, int itemCount) {
+                                super.onItemRangeInserted(positionStart, itemCount);
+                                adapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                                super.onItemRangeRemoved(positionStart, itemCount);
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
                         mRecyclerView.setAdapter(adapter);
                     }
                     mRefUserData = mDatabase.getReference("users").child(bite[0].getOpenedBy());
@@ -183,6 +196,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                             @Override
                             public void onItemRangeInserted(int positionStart, int itemCount) {
                                 super.onItemRangeInserted(positionStart, itemCount);
+                                userOrderAdapter.notifyDataSetChanged();
                             }
 
                             @Override
@@ -279,16 +293,15 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                     int amount = 0;
                     final long[] price = {0};
                     for (final DataSnapshot data : dataSnapshot.getChildren()) {
-                        UserOrder order = data.getValue(UserOrder.class);
+                        final UserOrder order = data.getValue(UserOrder.class);
                         if (order != null) {
                             amount += order.getAmount();
-                            final int finalAmount = amount;
                             mDatabase.getReference("products").child(bite[0].getStore()).child("products").child(data.getKey()).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     MenuItem item = dataSnapshot.getValue(MenuItem.class);
                                     if (item != null) {
-                                        price[0] += finalAmount * item.getPrice();
+                                        price[0] += order.getAmount() * item.getPrice();
                                         updateOrderPrice(price[0]);
                                     }
                                 }
