@@ -25,11 +25,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_bitecoin"/>
             <com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom
                 android:id="@+id/bite_card_closed_price"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:text="@string/loading"
+                android:gravity="center_vertical"
                 android:textSize="14sp"
                 android:textColor="@color/colorTextSecondary"
                 app:customFont="@string/compasse"/>
@@ -37,7 +43,9 @@
                 android:id="@+id/bite_card_closed_date"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/loading"
+                android:gravity="center_vertical"
                 android:textSize="14sp"
                 android:textColor="@color/colorTextSecondary"
                 app:customFont="@string/compasse"/>
@@ -50,7 +58,7 @@
 
     <!-- Emojis -->
     <LinearLayout
-        android:id="@+id/bite_card_open_emoji_list"
+        android:id="@+id/bite_card_closed_emoji_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"

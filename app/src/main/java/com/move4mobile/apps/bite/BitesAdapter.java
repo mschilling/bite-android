@@ -266,8 +266,15 @@ public class BitesAdapter extends FirebaseRecyclerAdapter<Bite, BiteViewHolder> 
         final BiteCardSocialAdapter adapter = new BiteCardSocialAdapter(Object.class, R.layout.bite_card_social, BiteCardSocialViewHolder.class, mRefSocial, mContext);
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
+            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                super.onItemRangeRemoved(positionStart, itemCount);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
+                adapter.notifyDataSetChanged();
                 viewHolder.mSocialList.scrollToPosition(positionStart);
             }
         });
