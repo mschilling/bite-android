@@ -99,11 +99,10 @@
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/user_order_recyclerview"
+                android:id="@+id/recycler_view_archive_user_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
             </android.support.v7.widget.RecyclerView>
 

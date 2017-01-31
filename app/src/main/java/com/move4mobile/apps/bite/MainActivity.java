@@ -93,14 +93,6 @@ public class MainActivity extends AppCompatActivityFireAuth {
             }
         });
 
-        firebaseStatusImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseMessaging.getInstance().subscribeToTopic("news");
-                Toast.makeText(MainActivity.this, "Subscribed to News", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "Subscribed to News");
-            }
-        });
         firebaseStatusImage.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

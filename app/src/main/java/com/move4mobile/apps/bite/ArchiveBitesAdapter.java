@@ -1,7 +1,9 @@
 package com.move4mobile.apps.bite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -38,7 +40,7 @@ public class ArchiveBitesAdapter extends FirebaseRecyclerAdapter<ArchiveUserOrde
     }
 
     @Override
-    protected void populateViewHolder(ArchiveBitesViewHolder viewHolder, ArchiveUserOrder model, int position) {
+    protected void populateViewHolder(ArchiveBitesViewHolder viewHolder, ArchiveUserOrder model, final int position) {
 
         if(model.getStore() != null){
             viewHolder.mTextTitle.setText(model.getStore());
@@ -76,5 +78,14 @@ public class ArchiveBitesAdapter extends FirebaseRecyclerAdapter<ArchiveUserOrde
                 viewHolder.mEmojiList.addView(emoji);
             }
         }
+
+        viewHolder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ClosedActivity.class);
+                intent.putExtra("key", getRef(position).getKey());
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 }
