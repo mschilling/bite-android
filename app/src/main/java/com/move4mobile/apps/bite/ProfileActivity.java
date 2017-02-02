@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
+import com.move4mobile.apps.bite.dialogs.UsernameDialog;
 import com.move4mobile.apps.bite.objects.ArchiveUserOrder;
 
 import java.util.Locale;
@@ -32,6 +34,7 @@ public class ProfileActivity extends AppCompatActivityFireAuth{
     private DatabaseReference mRefArchiveUserOrder;
     private ArchiveBitesAdapter adapter;
     private ChildEventListener listener;
+    private TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,14 @@ public class ProfileActivity extends AppCompatActivityFireAuth{
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbarTitle = (TextView) findViewById(R.id.toolbar_text);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, UsernameDialog.class);
+                startActivity(intent);
+            }
+        });
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_archive);
         mRecyclerView.setHasFixedSize(false);
@@ -92,7 +103,6 @@ public class ProfileActivity extends AppCompatActivityFireAuth{
     }
 
     private void updateToolbarTitle(DataSnapshot data) {
-        TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_text);
         String username;
         if(data != null) {
             username = (String) data.getValue();
