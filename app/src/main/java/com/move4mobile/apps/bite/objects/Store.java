@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class Store {
 
+    private int id;
     private String name;
     private String location;
 
@@ -25,7 +26,8 @@ public class Store {
         this.location = location;
     }
 
-    public Store(String name, String location, Map<String, HashMap<String, String>> categories) {
+    public Store(int id, String name, String location, Map<String, HashMap<String, String>> categories) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.categories = categories;
@@ -42,5 +44,9 @@ public class Store {
     @PropertyName("category")
     public Map<String, HashMap<String, String>> getCategories() {
         return categories;
+    }
+
+    public int getId() {
+        return id;
     }
 }

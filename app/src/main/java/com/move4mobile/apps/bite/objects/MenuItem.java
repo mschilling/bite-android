@@ -13,6 +13,8 @@ public class MenuItem {
     private String category;
     private String name;
     private long price;
+    @PropertyName("isSauce")
+    private boolean sauce;
 
     public MenuItem() {
 
@@ -24,11 +26,12 @@ public class MenuItem {
 
     }
 
-    public MenuItem(String accessoryGroup, String category, String name, long price) {
+    public MenuItem(String accessoryGroup, String category, String name, long price, boolean sauce) {
         this.accessoryGroup = accessoryGroup;
         this.category = category;
         this.name = name;
         this.price = price;
+        this.sauce = sauce;
     }
 
     @PropertyName("accessory_group")
@@ -46,5 +49,10 @@ public class MenuItem {
 
     public long getPrice() {
         return price;
+    }
+
+    @PropertyName("isSauce")
+    public boolean isSauce() {
+        return sauce;
     }
 }

@@ -40,11 +40,9 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     //private DatabaseReference myConnectionsRef;
     private DatabaseReference lastOnlineRef;
     private DatabaseReference connectedRef;
-    private DatabaseReference fcmtokenRef;
     private DatabaseReference subscribeRef;
     private DatabaseReference androidVersionRef;
     private ValueEventListener listener;
-    private ValueEventListener fcmlistener;
     private ValueEventListener androidlistener;
 
 
@@ -70,11 +68,6 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
         super.onStop();
         Log.d(TAG, "onStop");
         mAuth.removeAuthStateListener(this);
-
-        if(fcmlistener != null) {
-            fcmtokenRef.removeEventListener(fcmlistener);
-            fcmlistener = null;
-        }
 
         if(androidlistener != null) {
             androidVersionRef.removeEventListener(androidlistener);
@@ -125,26 +118,10 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
     protected void onLoggedIn() {
         Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
-        if(fcmlistener == null) {
-            fcmtokenRef = database.getReference("users").child(user.getUid()).child("fcmtoken");
-            fcmlistener = fcmtokenRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.getValue() == null) {
-                        fcmtokenRef.setValue(FirebaseInstanceId.getInstance().getToken());
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Log.e(TAG, databaseError.toString());
-                }
-            });
-        }
-
         if(subscribeRef == null) {
             subscribeRef = database.getReference("subscribe_queue");
         }
+
         if(MyFirebaseInstanceIDService.isChanged()) {
             //Update server with token
             SubNotification subNotification = new SubNotification(user.getUid(), FirebaseInstanceId.getInstance().getToken(), true, ServerValue.TIMESTAMP);

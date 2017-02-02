@@ -155,7 +155,7 @@ public class ClosedActivity extends AppCompatActivityFireAuth {
         this.you = you;
         LinearLayout linearLayoutYou = (LinearLayout) findViewById(R.id.bite_closed_layout_you);
         LinearLayout linearLayoutTotal = (LinearLayout) findViewById(R.id.bite_closed_layout_total);
-        if (you) {
+        if (this.you) {
             linearLayoutYou.setVisibility(View.VISIBLE);
             linearLayoutTotal.setVisibility(View.GONE);
             mButtonYou.setSelected(true);
@@ -210,7 +210,6 @@ public class ClosedActivity extends AppCompatActivityFireAuth {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 final User user = dataSnapshot.getValue(User.class);
                                 if (user != null) {
-                                    Log.e(TAG, user.getName());
                                     for (DataSnapshot item : userOrder.getChildren()) {
                                         ArchiveProduct product = item.getValue(ArchiveProduct.class);
                                         if (product != null) {
