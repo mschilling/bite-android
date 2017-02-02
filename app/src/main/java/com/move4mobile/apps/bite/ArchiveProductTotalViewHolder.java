@@ -2,6 +2,7 @@ package com.move4mobile.apps.bite;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
 
@@ -15,6 +16,7 @@ public class ArchiveProductTotalViewHolder extends RecyclerView.ViewHolder {
     TextViewCustom title;
     TextViewCustom price;
     TextViewCustom amount;
+    LinearLayout list;
 
     public ArchiveProductTotalViewHolder(View v) {
         super(v);
@@ -22,5 +24,6 @@ public class ArchiveProductTotalViewHolder extends RecyclerView.ViewHolder {
         title = (TextViewCustom) v.findViewById(R.id.menu_item_title);
         price = (TextViewCustom) v.findViewById(R.id.menu_item_price);
         amount = (TextViewCustom) v.findViewById(R.id.menu_item_amount);
+        list = (LinearLayout) v.findViewById(R.id.order_product_list);
     }
 }

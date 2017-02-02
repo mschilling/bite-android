@@ -250,7 +250,7 @@ public class ClosedActivity extends AppCompatActivityFireAuth {
     }
 
     private void updateTotalList() {
-        adapterTotal = new ArchiveProductTotalAdapter(new ArrayList<>(totalProducts.values()));
+        adapterTotal = new ArchiveProductTotalAdapter(new ArrayList<>(totalProducts.values()), this);
         mRecyclerViewTotal.setAdapter(adapterTotal);
     }
 

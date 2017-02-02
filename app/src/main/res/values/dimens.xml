@@ -75,6 +75,7 @@
     <dimen name="bite_card_social_image_size">26dp</dimen>
     <dimen name="bite_card_social_image_margin_vertical">10dp</dimen>
     <dimen name="bite_card_social_image_margin_horizontal">6dp</dimen>
+    <dimen name="bite_card_social_image_negative_margin">-8dp</dimen>
 
     <dimen name="bites_empty_margin_horizontal">16dp</dimen>
     <dimen name="bites_empty_margin_top">24dp</dimen>

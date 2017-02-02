@@ -75,14 +75,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/order_product_list"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical">
 
+        <!--<ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_shipit"
+            android:elevation="2dp"/>
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_shipit" />
+            android:layout_marginStart="-8dp"
+            android:src="@drawable/ic_shipit"
+            android:elevation="1dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="-8dp"
+            android:src="@drawable/ic_shipit" />-->
     </LinearLayout>
 </LinearLayout>
