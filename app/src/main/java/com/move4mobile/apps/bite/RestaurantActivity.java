@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -35,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Created by casvd on 15-11-2016.
@@ -164,6 +166,11 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 bite[0] = dataSnapshot.getValue(Bite.class);
                 if (bite[0] != null) {
 
+                    if(Objects.equals(bite[0].getStatus(), "closed")){
+                        Toast.makeText(RestaurantActivity.this, "Deze Bite is gesloten ):", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
                     Date dfStart = new Date(bite[0].getOpenTime());
                     Date dfClose = new Date(bite[0].getCloseTime());
                     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
@@ -229,7 +236,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                 Store store = dataSnapshot.getValue(Store.class);
                 if (store != null) {
                     textViewCustomToolbarText.setText(store.getName());
-
                     if (store.getCategories() != null && store.getCategories().size() > 0) {
                         layoutEmojiList.removeAllViews();
                         for (HashMap<String, String> category : store.getCategories().values()) {
