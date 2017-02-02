@@ -2,7 +2,6 @@ package com.move4mobile.apps.bite;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -63,7 +62,6 @@ public class ArchiveBitesAdapter extends FirebaseRecyclerAdapter<ArchiveUserOrde
         }
 
         if (model.getCategories() != null && model.getCategories().size() > 0) {
-            Log.e(TAG, "Has cats");
             for (Map<String, String> category : model.getCategories().values()) {
                 ImageView emoji = new ImageView(mContext);
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(

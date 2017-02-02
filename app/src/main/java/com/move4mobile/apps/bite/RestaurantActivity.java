@@ -226,7 +226,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         storeListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, dataSnapshot.toString());
                 Store store = dataSnapshot.getValue(Store.class);
                 if (store != null) {
                     textViewCustomToolbarText.setText(store.getName());
@@ -260,7 +259,6 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         userListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, dataSnapshot.toString());
                 User user = dataSnapshot.getValue(User.class);
                 if (user != null) {
                     textViewCustomStartedBy.setText(String.format("GESTART DOOR %s", user.getDisplayName().toUpperCase(Locale.getDefault())));
