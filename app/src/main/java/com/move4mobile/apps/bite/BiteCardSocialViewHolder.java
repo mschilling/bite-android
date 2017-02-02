@@ -10,10 +10,12 @@ import android.widget.ImageView;
 
 public class BiteCardSocialViewHolder extends RecyclerView.ViewHolder {
 
+    View v;
     ImageView imageView;
 
     public BiteCardSocialViewHolder(View v) {
         super(v);
+        this.v = v;
         imageView = (ImageView) v.findViewById(R.id.bite_card_social_image);
     }
 }
