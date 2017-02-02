@@ -80,6 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             .setColor(getResources().getColor(R.color.colorAccent_Light, getTheme()))
                             .setGroup(group_id)
                             .setGroupSummary(true)
+                            .setAutoCancel(true)
                             .build();
                 }
 
