@@ -22,6 +22,8 @@ public class ArchiveBitesViewHolder extends RecyclerView.ViewHolder {
         super(v);
         this.v = v;
         mTextTitle = (TextViewCustom) v.findViewById(R.id.bite_card_closed_title);
+        mTextTitle.setSelected(true);
+        mTextTitle.setHorizontallyScrolling(true);
         mTextPrice = (TextViewCustom) v.findViewById(R.id.bite_card_closed_price);
         mTextDate = (TextViewCustom) v.findViewById(R.id.bite_card_closed_date);
         mEmojiList = (LinearLayout) v.findViewById(R.id.bite_card_closed_emoji_list);

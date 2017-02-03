@@ -22,6 +22,8 @@ public class ArchiveProductTotalViewHolder extends RecyclerView.ViewHolder {
         super(v);
         this.v = v;
         title = (TextViewCustom) v.findViewById(R.id.menu_item_title);
+        title.setSelected(true);
+        title.setHorizontallyScrolling(true);
         price = (TextViewCustom) v.findViewById(R.id.menu_item_price);
         amount = (TextViewCustom) v.findViewById(R.id.menu_item_amount);
         list = (LinearLayout) v.findViewById(R.id.order_product_list);

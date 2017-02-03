@@ -51,5 +51,10 @@
     <color name="bite_colorPrimaryDark_Light">#CC7713</color>
     <color name="bite_colorControlNormal_Light">#fff</color>
 
+    <!-- Bite Dark Theme -->
+    <color name="bite_colorPrimary">#ec9630</color>
+    <color name="bite_colorPrimaryDark">#CC7713</color>
+    <color name="bite_colorControlNormal">#9b9b9b</color>
+
 
 </resources>

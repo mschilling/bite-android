@@ -42,7 +42,7 @@ public class ArchiveBitesAdapter extends FirebaseRecyclerAdapter<ArchiveUserOrde
     protected void populateViewHolder(ArchiveBitesViewHolder viewHolder, ArchiveUserOrder model, final int position) {
 
         if(model.getStore() != null){
-            viewHolder.mTextTitle.setText(model.getStore());
+            viewHolder.mTextTitle.setText(model.getStore().toUpperCase(Locale.getDefault()));
         }
 
         if(model.getProducts() != null) {

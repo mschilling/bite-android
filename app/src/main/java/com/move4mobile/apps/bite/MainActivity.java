@@ -223,10 +223,10 @@ public class MainActivity extends AppCompatActivityFireAuth {
                 updateToolbarTitle(data);
                 mProgressBar.setVisibility(View.GONE);
                 break;
-            case "admin":
+            /*case "admin":
                 updateAddBiteFAB(data);
                 mProgressBar.setVisibility(View.GONE);
-                break;
+                break;*/
             default:
                 break;
         }
@@ -236,14 +236,14 @@ public class MainActivity extends AppCompatActivityFireAuth {
         userChildEventHandler(data, "");
     }
 
-    private void updateAddBiteFAB(DataSnapshot data){
+    /*private void updateAddBiteFAB(DataSnapshot data){
         if(data.getValue() == null) return;
         if(data.getValue(Boolean.class)) {
             fab.setVisibility(View.VISIBLE);
         } else {
             fab.setVisibility(View.GONE);
         }
-    }
+    }*/
 
     private void updateToolbarTitle(DataSnapshot data) {
         TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_text);

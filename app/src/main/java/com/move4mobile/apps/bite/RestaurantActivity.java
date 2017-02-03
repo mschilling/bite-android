@@ -235,7 +235,7 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Store store = dataSnapshot.getValue(Store.class);
                 if (store != null) {
-                    textViewCustomToolbarText.setText(store.getName());
+                    textViewCustomToolbarText.setText(store.getName().toUpperCase(Locale.getDefault()));
                     if (store.getCategories() != null && store.getCategories().size() > 0) {
                         layoutEmojiList.removeAllViews();
                         for (HashMap<String, String> category : store.getCategories().values()) {

@@ -118,7 +118,27 @@
         <item name="android:colorControlNormal">@color/bite_colorControlNormal_Light</item>
     </style>
 
+    <style name="AppTheme.Bite" parent="AppTheme">
+        <item name="isLightTheme">false</item>
+
+        <!-- Status bar -->
+        <item name="colorPrimary">@color/bite_colorPrimary</item>
+        <!-- Toolbar -->
+        <item name="colorPrimaryDark">@color/bite_colorPrimaryDark</item>
+        <!-- Light Toolbar -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Back arrow -->
+        <item name="android:colorControlNormal">@color/bite_colorControlNormal</item>
+    </style>
+
     <style name="AppTheme.Login.Light" parent="AppTheme.Light">
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="AppTheme.Login" parent="AppTheme">
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
@@ -137,7 +157,6 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/launcher</item>
     </style>
-
 
     <style name="AppTheme.Light.Red" parent="AppTheme.Light">
         <item name="colorAccent">#b12525</item>

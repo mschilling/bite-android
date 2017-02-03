@@ -24,8 +24,8 @@
     <string name="rank_card_text">Je staat op de 1337ste plek ANON!</string>
 
 
-    <string name="bites">BITES (%1$d) ¯\\_(ツ)_/¯</string>
-    <string name="closed_bites">CLOSED BITES (%1$d) ¯\\_(ツ)_/¯</string>
+    <string name="bites">BITES (%1$d)</string>
+    <string name="closed_bites">GESLOTEN BITES (%1$d)</string>
     <string name="empty_bites_title">HONGER!</string>
     <string name="empty_bites_description">Er staan momenteel geen BITES open.\r\nJe kunt zelf een nieuwe BITE openen door op de plus te tikken!</string>
 

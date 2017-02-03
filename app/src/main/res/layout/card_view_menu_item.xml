@@ -6,6 +6,7 @@
     android:layout_height="@dimen/bite_restaurant_menu_item_height"
     app:cardElevation="@dimen/bite_restaurant_menu_item_elevation"
     app:cardCornerRadius="@dimen/bite_restaurant_menu_item_corner_radius"
+    android:backgroundTint="?cardViewBackground"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
     <LinearLayout

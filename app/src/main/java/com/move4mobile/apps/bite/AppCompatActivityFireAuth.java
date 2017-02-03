@@ -127,6 +127,7 @@ public abstract class AppCompatActivityFireAuth extends AppCompatActivity implem
             SubNotification subNotification = new SubNotification(user.getUid(), FirebaseInstanceId.getInstance().getToken(), true, ServerValue.TIMESTAMP);
             subscribeRef.push().setValue(subNotification);
             MyFirebaseInstanceIDService.setChanged(false);
+            Log.e(TAG, FirebaseInstanceId.getInstance().getToken());
         }
 
         if(androidVersionRef == null) {

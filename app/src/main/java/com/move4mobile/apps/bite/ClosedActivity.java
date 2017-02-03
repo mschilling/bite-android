@@ -23,6 +23,7 @@ import com.move4mobile.apps.bite.objects.User;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
 
 public class ClosedActivity extends AppCompatActivityFireAuth {
 
@@ -99,7 +100,7 @@ public class ClosedActivity extends AppCompatActivityFireAuth {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String storeName = dataSnapshot.getValue(String.class);
                 if (storeName != null && !storeName.isEmpty()) {
-                    textViewCustomToolbarText.setText(storeName);
+                    textViewCustomToolbarText.setText(storeName.toUpperCase(Locale.getDefault()));
                 }
             }
 

@@ -10,6 +10,7 @@ import com.google.firebase.database.Query;
 import com.move4mobile.apps.bite.objects.Store;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Created by casvd on 25-1-2017.
@@ -35,7 +36,7 @@ public class StoreAdapter extends FirebaseRecyclerAdapter<Store, StoreViewHolder
 
     @Override
     protected void populateViewHolder(final StoreViewHolder viewHolder, Store model, final int position) {
-        viewHolder.mTextTitle.setText(model.getName());
+        viewHolder.mTextTitle.setText(model.getName().toUpperCase(Locale.getDefault()));
         viewHolder.mTextLocation.setText(model.getLocation());
 
         viewHolder.v.setOnClickListener(new View.OnClickListener() {

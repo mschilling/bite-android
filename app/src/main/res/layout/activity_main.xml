@@ -231,7 +231,6 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:clickable="true"
         android:src="@drawable/ic_add_white"
-        android:visibility="gone"
         android:tint="?android:colorPrimary"
         app:backgroundTint="?colorAccent"
         app:elevation="@dimen/fab_elevation"

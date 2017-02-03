@@ -5,6 +5,7 @@
     android:layout_height="@dimen/bite_restaurant_menu_item_height"
     android:baselineAligned="false"
     android:clickable="true"
+    android:backgroundTint="?cardViewBackground"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="horizontal"
     android:paddingEnd="@dimen/activity_horizontal_margin"
