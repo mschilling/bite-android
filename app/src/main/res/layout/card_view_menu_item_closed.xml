@@ -13,11 +13,12 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/menu_item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/bite_restaurant_menu_item_trophy_margin"
             android:contentDescription="@string/trophy_description"
-            android:src="@drawable/ic_trophy" />
+            android:src="@drawable/ic_snacks" />
     </LinearLayout>
 
     <LinearLayout

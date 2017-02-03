@@ -110,7 +110,11 @@ public class BiteCardSocialAdapter extends FirebaseRecyclerAdapter<Object, BiteC
                                     RoundedBitmapDrawable circularBitmapDrawable =
                                             RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
                                     circularBitmapDrawable.setCircular(true);
-                                    drawableHashMap.put(getRef(position).getKey(), circularBitmapDrawable);
+                                    try {
+                                        drawableHashMap.put(getRef(position).getKey(), circularBitmapDrawable);
+                                    } catch (IndexOutOfBoundsException e) {
+                                        Log.e(TAG, e.getMessage());
+                                    }
                                     viewHolder.imageView.setImageDrawable(circularBitmapDrawable);
                                 }
                             });

@@ -115,9 +115,15 @@ public class OpenActivity extends AppCompatActivityFireAuth {
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onItemRangeRemoved(int positionStart, int itemCount) {
-                    View v = mRecyclerViewStores.getChildAt(positionStart);
                     notifySelectStore("", -1);
                     super.onItemRangeRemoved(positionStart, itemCount);
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    notifySelectStore("", -1);
+                    super.onItemRangeInserted(positionStart, itemCount);
                     adapter.notifyDataSetChanged();
                 }
             });

@@ -62,7 +62,7 @@
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
-            <HorizontalScrollView
+            <!--<HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none">
@@ -220,7 +220,7 @@
                             app:customFont="@string/compasse"/>
                     </RelativeLayout>
                 </LinearLayout>
-            </HorizontalScrollView>
+            </HorizontalScrollView>-->
 
         </android.support.design.widget.AppBarLayout>
 

@@ -12,6 +12,8 @@ import com.move4mobile.apps.bite.objects.ArchiveProduct;
 
 public class ArchiveProductAdapter extends FirebaseRecyclerAdapter<ArchiveProduct, ArchiveProductViewHolder> {
 
+    private Context mContext;
+
     /**
      * @param modelClass      Firebase will marshall the data at a location into an instance of a class that you provide
      * @param modelLayout     This is the layout used to represent a single item in the list. You will be responsible for populating an
@@ -21,8 +23,9 @@ public class ArchiveProductAdapter extends FirebaseRecyclerAdapter<ArchiveProduc
      *                        combination of {@code limit()}, {@code startAt()}, and {@code endAt()}.
      */
 
-    public ArchiveProductAdapter(Class<ArchiveProduct> modelClass, int modelLayout, Class<ArchiveProductViewHolder> viewHolderClass, Query ref) {
+    public ArchiveProductAdapter(Class<ArchiveProduct> modelClass, int modelLayout, Class<ArchiveProductViewHolder> viewHolderClass, Query ref, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
+        this.mContext = context;
     }
 
     @Override
@@ -35,6 +38,9 @@ public class ArchiveProductAdapter extends FirebaseRecyclerAdapter<ArchiveProduc
         }
         if(model.getAmount() != null) {
             viewHolder.amount.setText(String.valueOf(model.getAmount()));
+        }
+        if(model.isSauce()) {
+            viewHolder.image.setImageDrawable(model.isSauce() ? mContext.getDrawable(R.drawable.ic_sauce) : mContext.getDrawable(R.drawable.ic_snacks));
         }
     }
 }

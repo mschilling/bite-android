@@ -318,8 +318,10 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
                         }
                     }
                     updateOrderView(amount);
+                    updateOrderCount(amount);
                 } else {
                     updateOrderView(0);
+                    updateOrderCount(0);
                     updateOrderPrice(0);
                 }
             }
@@ -353,9 +355,12 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         orderPrice.setText(getString(R.string.order_items_price, price));
     }
 
-    private void updateOrderView(int count) {
+    private void updateOrderCount(int count) {
         TextViewCustom orderCount = (TextViewCustom) findViewById(R.id.total_order_count);
         orderCount.setText(getString(R.string.order_items_count, count));
+    }
+
+    private void updateOrderView(int count) {
         if (count == 0) {
             hasOrder = false;
             mRefUserOrderLocked.setValue(null);
@@ -385,6 +390,9 @@ public class RestaurantActivity extends AppCompatActivityFireAuth {
         super.onLoggedIn();
         mRefOrder = mDatabase.getReference("orders").child(key);
         mRefOrder.addValueEventListener(orderListener);
+        updateBringItOn();
+        updateOrderPrice(0);
+        updateOrderCount(0);
     }
 
     @Override

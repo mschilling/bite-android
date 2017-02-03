@@ -8,7 +8,7 @@
     android:layout_marginEnd="@dimen/bite_card_social_image_margin_horizontal"
     android:layout_marginStart="@dimen/bite_card_social_image_margin_horizontal"
     android:layout_marginTop="@dimen/bite_card_social_image_margin_vertical"
-    app:customCircleColor="?colorAccent"
+    app:customCircleColor="@android:color/transparent"
     app:customStrokeWidth="2dp"
     android:background="@drawable/circle"
     android:padding="2dp">

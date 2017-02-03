@@ -3,7 +3,7 @@ package com.move4mobile.apps.bite;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -24,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
 import com.move4mobile.apps.bite.objects.Bite;
 
@@ -37,6 +36,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivityFireAuth {
     private static final String TAG = "MainActivity";
 
+    private CardView cardViewRanks;
     private RecyclerView mRecyclerView;
     private LinearLayout mEmptyBites;
     private ProgressBar mProgressBar;
@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivityFireAuth {
 
         updateToolbarTitle(null);
 
+        cardViewRanks = (CardView) findViewById(R.id.bite_card_ranks);
+        cardViewRanks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Feature for the future", Toast.LENGTH_SHORT).show();
+            }
+        });
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_bites);
         mRecyclerView.setHasFixedSize(false);
         mRecyclerView.setNestedScrollingEnabled(false);

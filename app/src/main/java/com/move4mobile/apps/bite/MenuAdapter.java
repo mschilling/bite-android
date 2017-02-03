@@ -50,6 +50,7 @@ public class MenuAdapter extends FirebaseRecyclerAdapter<MenuItem, MenuItemViewH
     protected void populateViewHolder(final MenuItemViewHolder viewHolder, MenuItem model, final int position) {
         viewHolder.mTextTitle.setText(model.getName());
         viewHolder.mTextPrice.setText(mContext.getString(R.string.menu_item_price, model.getPrice()));
+        viewHolder.mImage.setImageDrawable(model.isSauce() ? mContext.getDrawable(R.drawable.ic_sauce) : mContext.getDrawable(R.drawable.ic_snacks));
 
         mRefUserOrder = mDatabase.getReference("user_order").child(biteKey).child(user.getUid()).child(getRef(position).getKey());
         mRefUserOrder.addValueEventListener(new ValueEventListener() {

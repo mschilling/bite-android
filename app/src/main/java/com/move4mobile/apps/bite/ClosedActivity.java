@@ -176,7 +176,7 @@ public class ClosedActivity extends AppCompatActivityFireAuth {
 
         mRefUserOrderData = mDatabase.getReference("archive").child("order_items_per_user").child(getUser().getUid()).child(key).child("products");
         if (adapter == null) {
-            adapter = new ArchiveProductAdapter(ArchiveProduct.class, R.layout.card_view_menu_item_closed, ArchiveProductViewHolder.class, mRefUserOrderData);
+            adapter = new ArchiveProductAdapter(ArchiveProduct.class, R.layout.card_view_menu_item_closed, ArchiveProductViewHolder.class, mRefUserOrderData, this);
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onItemRangeInserted(int positionStart, int itemCount) {

@@ -53,6 +53,7 @@ public class UserOrderAdapter extends FirebaseRecyclerAdapter<UserOrder, MenuIte
                 if (item != null) {
                     viewHolder.mTextTitle.setText(item.getName());
                     viewHolder.mTextPrice.setText(mContext.getString(R.string.menu_item_price, item.getPrice()));
+                    viewHolder.mImage.setImageDrawable(item.isSauce() ? mContext.getDrawable(R.drawable.ic_sauce) : mContext.getDrawable(R.drawable.ic_snacks));
                 }
             }
 

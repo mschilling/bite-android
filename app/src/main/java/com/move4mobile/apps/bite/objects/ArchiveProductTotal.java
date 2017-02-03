@@ -20,7 +20,7 @@ public class ArchiveProductTotal {
     }
 
     public void updateProduct(ArchiveProduct product) {
-        this.product = new ArchiveProduct(this.product.getAmount() + product.getAmount(), this.product.getName(), this.product.getPrice());
+        this.product = new ArchiveProduct(this.product.getAmount() + product.getAmount(), this.product.getName(), this.product.getPrice(), this.product.isSauce());
     }
 
     public void addUser(User user) {

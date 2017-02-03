@@ -113,7 +113,8 @@
     /////////////////////////////
     ////// BITE CARD //////
     ////////////////////////////
-    <dimen name="bite_card_restaurant_height">228dp</dimen>
+    <!--<dimen name="bite_card_restaurant_height">228dp</dimen>-->
+    <dimen name="bite_card_restaurant_height">140dp</dimen>
     <dimen name="bite_card_restaurant_margin_bottom">8dp</dimen>
 
     <dimen name="bite_card_restaurant_header_height">48dp</dimen>

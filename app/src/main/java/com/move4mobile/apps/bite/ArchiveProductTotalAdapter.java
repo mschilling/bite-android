@@ -54,7 +54,6 @@ public class ArchiveProductTotalAdapter extends RecyclerView.Adapter<ArchiveProd
             boolean first = true;
             int index = productTotal.getUsers().size();
             for (User user : productTotal.getUsers()) {
-                Log.e(TAG, user.getName());
                 final ImageView imageView = new ImageView(mContext);
                 LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
                         (int) mContext.getResources().getDimension(R.dimen.bite_card_social_image_size),

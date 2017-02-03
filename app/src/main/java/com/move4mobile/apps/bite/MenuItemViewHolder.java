@@ -2,6 +2,7 @@ package com.move4mobile.apps.bite;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.move4mobile.apps.bite.customlayoutclasses.TextViewCustom;
 
@@ -18,6 +19,7 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
     TextViewCustom mTextRemove;
     TextViewCustom mTextAdd;
     TextViewCustom mTextAmount;
+    ImageView mImage;
 
     public MenuItemViewHolder(View v) {
         super(v);
@@ -29,5 +31,6 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
         mTextRemove = (TextViewCustom) v.findViewById(R.id.menu_item_remove);
         mTextAdd = (TextViewCustom) v.findViewById(R.id.menu_item_add);
         mTextAmount = (TextViewCustom) v.findViewById(R.id.menu_item_amount);
+        mImage = (ImageView) v.findViewById(R.id.menu_item_image);
     }
 }
